@@ -22,11 +22,17 @@ namespace VanillaUpdater
 
         }
 
+        public void SetUITheme(MaterialSkinManager.Themes theme) => MaterialSkinManager.Theme = theme;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             MaterialSkinManager = MaterialSkinManager.Instance;
             MaterialSkinManager.AddFormToManage(this);
-            MaterialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+
+            SetUITheme(MaterialSkinManager.Themes.DARK);
+
+            if (Properties.Resources.Theme == "LIGHT") SetUITheme(MaterialSkinManager.Themes.LIGHT);
+
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
         }
