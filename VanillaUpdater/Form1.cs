@@ -14,7 +14,7 @@ namespace VanillaUpdater
 {
     public partial class Form1 : MaterialForm
     {
-        public MaterialSkinManager materialSkinManager { get; set; }
+        public MaterialSkinManager MaterialSkinManager { get; set; }
 
         public Form1()
         {
@@ -24,10 +24,10 @@ namespace VanillaUpdater
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            MaterialSkinManager = MaterialSkinManager.Instance;
+            MaterialSkinManager.AddFormToManage(this);
+            MaterialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            MaterialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
     }
 }
