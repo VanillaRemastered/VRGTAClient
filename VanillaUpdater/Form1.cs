@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace VanillaUpdater
 {
-    public partial class Form1 : MaterialForm
+    public partial class MainWindow : MaterialForm
     {
         public MaterialSkinManager MaterialSkinManager { get; set; }
 
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
 
@@ -28,6 +28,7 @@ namespace VanillaUpdater
             MaterialSkinManager.AddFormToManage(this);
             MaterialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+
         }
     }
 }
