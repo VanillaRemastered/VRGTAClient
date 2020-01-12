@@ -32,13 +32,15 @@ namespace VanillaUpdater
             MaterialSkinManager = MaterialSkinManager.Instance;
             MaterialSkinManager.AddFormToManage(this);
 
-            SetUITheme(MaterialSkinManager.Themes.DARK);
+            SetUITheme(MaterialSkinManager.Themes.LIGHT);
 
             if (Properties.Resources.Theme == "LIGHT") SetUITheme(MaterialSkinManager.Themes.LIGHT);
 
-            MaterialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700, Accent.Green700, TextShade.WHITE);
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+            if (Properties.Resources.AutoUpdate == "True") updateSwitch.Checked = true;
         }
 
 
@@ -76,6 +78,10 @@ namespace VanillaUpdater
             progressBar.Show();
 
             Updater.DownloadUpdate();
+        }
+
+        private void updateSwitch_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 }

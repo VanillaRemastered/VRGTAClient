@@ -61,6 +61,15 @@ namespace VanillaUpdater.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fasle.
+        /// </summary>
+        internal static string AutoUpdate {
+            get {
+                return ResourceManager.GetString("AutoUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Light.
         /// </summary>
         internal static string Theme {
