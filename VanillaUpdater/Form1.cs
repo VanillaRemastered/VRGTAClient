@@ -64,7 +64,7 @@ namespace VanillaUpdater
 
         private void CreateUpdateUI()
         {
-            Size = new Size(343, 569); // extends the bottom part
+            Size = new Size(Size.Width, 569); // extends the bottom part
 
             versionAvailableLbl.Text = UpdateData.Version;
 
