@@ -1,6 +1,8 @@
 ﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net;
 using System.Runtime.Serialization;
@@ -49,21 +51,38 @@ namespace VanillaUpdater
         {
             if (e.Cancelled)
             {
+                Analytics.TrackEvent("Update has been cancelled", new Dictionary<string, string> {
+                { "Version", UpdateData.Version },
+                { "Time", DateTime.Now.ToString()},
+                {"Error", e.Error.Message}
+            });
+
                 MessageBox.Show("The download has been cancelled");
                 return;
             }
 
             if (e.Error != null) // We have an error! Retry a few times, then abort.
             {
+                Analytics.TrackEvent("Update has failed to download", new Dictionary<string, string> {
+                { "Version", UpdateData.Version },
+                { "Time", DateTime.Now.ToString()},
+                {"Error", e.Error.Message}
+            });
+
                 MessageBox.Show("An error ocurred while trying to download file");
 
                 return;
             }
 
-            MessageBox.Show("File succesfully downloaded");
-            Analysis.TrackEvent
-            InstallUpdate();
 
+            Analytics.TrackEvent("Update has been downloaded", new Dictionary<string, string> {
+                { "Version", UpdateData.Version },
+                { "Time", DateTime.Now.ToString()}
+            });
+
+            MessageBox.Show("File succesfully downloaded");
+
+            InstallUpdate();
         }
 
         private static void InstallUpdate()
