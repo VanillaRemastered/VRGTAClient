@@ -1,14 +1,14 @@
-﻿using Microsoft.AppCenter;
+﻿using MaterialSkin.Controls;
 using Microsoft.AppCenter.Analytics;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
-using System.IO.Compression;
-using System.IO;
 
 namespace VanillaUpdater
 {
@@ -61,8 +61,7 @@ namespace VanillaUpdater
                 {"Error", e.Error.Message}
             });
 
-                MessageBox.Show("The download has been cancelled");
-                return;
+
             }
 
             if (e.Error != null) // We have an error! Retry a few times, then abort.
@@ -73,8 +72,9 @@ namespace VanillaUpdater
                 {"Error", e.Error.Message}
             });
 
-                MessageBox.Show("An error ocurred while trying to download file");
-
+                MaterialMessageBox.Show(null, "An error has occured while trying to download the update.\n" +
+                                    "The logs have been automatically sent to us and we're taking a look. Try to restart the updater and download the update again!\n\n" +
+                                    "If you need help, reach us via: www.support.vanilla-remastered.com (ERR_CODE: " + e.Error.Message, "FATAL ERROR", MessageBoxButtons.OK);
                 return;
             }
 
@@ -109,25 +109,25 @@ namespace VanillaUpdater
         }
 
     }
-        [DataContract]
-        class UpdateData
-        {
-            [DataMember]
-            public static string Version { get; set; }
+    [DataContract]
+    class UpdateData
+    {
+        [DataMember]
+        public static string Version { get; set; }
 
-            [DataMember]
-            public static string Author { get; set; }
+        [DataMember]
+        public static string Author { get; set; }
 
-            [DataMember]
-            public static string[] Changes { get; set; }
+        [DataMember]
+        public static string[] Changes { get; set; }
 
-            [DataMember]
-            public static DateTime Date { get; set; }
+        [DataMember]
+        public static DateTime Date { get; set; }
 
-            [DataMember]
-            public static string[] AffectedFiles { get; set; }
+        [DataMember]
+        public static string[] AffectedFiles { get; set; }
 
-            [DataMember]
-            public static string DownloadURL { get; set; }
-        }
+        [DataMember]
+        public static string DownloadURL { get; set; }
     }
+}
