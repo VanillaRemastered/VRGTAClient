@@ -64,18 +64,22 @@ namespace VanillaUpdater
 
         private void CreateUpdateUI()
         {
-            Size = new Size(Size.Width, 569); // extends the bottom part
+            Size = new Size(Size.Width, 516); // extends the bottom part
 
-            versionAvailableLbl.Text = UpdateData.Version;
+            versionAvailableLbl.Text = UpdateData.Version + " is now available for installation!";
 
+            changesBox.BackColor = Color.DarkGray;
+
+            foreach (var item in UpdateData.Changes)
+            {
+                changesBox.Items.Add(item);
+            }
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
-
-            progressBar.Show();
 
             Updater.DownloadUpdate();
         }

@@ -33,8 +33,8 @@
             this.versionAvailableLbl = new MaterialSkin.Controls.MaterialLabel();
             this.updateBtn = new MaterialSkin.Controls.MaterialButton();
             this.updaterVerLbl = new MaterialSkin.Controls.MaterialLabel();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.updateSwitch = new MaterialSkin.Controls.MaterialSwitch();
+            this.changesBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -56,7 +56,7 @@
             this.checkUpdatesBtn.DrawShadows = true;
             this.checkUpdatesBtn.HighEmphasis = true;
             this.checkUpdatesBtn.Icon = null;
-            this.checkUpdatesBtn.Location = new System.Drawing.Point(200, 249);
+            this.checkUpdatesBtn.Location = new System.Drawing.Point(204, 196);
             this.checkUpdatesBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.checkUpdatesBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.checkUpdatesBtn.Name = "checkUpdatesBtn";
@@ -72,8 +72,8 @@
             // 
             this.versionAvailableLbl.AutoSize = true;
             this.versionAvailableLbl.Depth = 0;
-            this.versionAvailableLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionAvailableLbl.Location = new System.Drawing.Point(12, 309);
+            this.versionAvailableLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.versionAvailableLbl.Location = new System.Drawing.Point(12, 278);
             this.versionAvailableLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionAvailableLbl.Name = "versionAvailableLbl";
             this.versionAvailableLbl.Size = new System.Drawing.Size(119, 19);
@@ -87,7 +87,7 @@
             this.updateBtn.DrawShadows = true;
             this.updateBtn.HighEmphasis = true;
             this.updateBtn.Icon = null;
-            this.updateBtn.Location = new System.Drawing.Point(254, 495);
+            this.updateBtn.Location = new System.Drawing.Point(258, 470);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.updateBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateBtn.Name = "updateBtn";
@@ -111,41 +111,37 @@
             this.updaterVerLbl.TabIndex = 5;
             this.updaterVerLbl.Text = "Updater version: ";
             // 
-            // progressBar
-            // 
-            this.progressBar.Enabled = false;
-            this.progressBar.Location = new System.Drawing.Point(15, 521);
-            this.progressBar.MarqueeAnimationSpeed = 10;
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(232, 10);
-            this.progressBar.Step = 5;
-            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar.TabIndex = 7;
-            this.progressBar.Visible = false;
-            // 
             // updateSwitch
             // 
             this.updateSwitch.AutoSize = true;
             this.updateSwitch.Depth = 0;
-            this.updateSwitch.Location = new System.Drawing.Point(160, 74);
+            this.updateSwitch.Location = new System.Drawing.Point(219, 153);
             this.updateSwitch.Margin = new System.Windows.Forms.Padding(0);
             this.updateSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
             this.updateSwitch.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateSwitch.Name = "updateSwitch";
             this.updateSwitch.Ripple = true;
-            this.updateSwitch.Size = new System.Drawing.Size(193, 37);
+            this.updateSwitch.Size = new System.Drawing.Size(153, 37);
             this.updateSwitch.TabIndex = 8;
-            this.updateSwitch.Text = "Automatic Updates";
+            this.updateSwitch.Text = "Auto Updates";
             this.updateSwitch.UseVisualStyleBackColor = true;
             this.updateSwitch.CheckedChanged += new System.EventHandler(this.updateSwitch_CheckedChanged);
+            // 
+            // changesBox
+            // 
+            this.changesBox.FormattingEnabled = true;
+            this.changesBox.Location = new System.Drawing.Point(12, 315);
+            this.changesBox.Name = "changesBox";
+            this.changesBox.Size = new System.Drawing.Size(353, 121);
+            this.changesBox.TabIndex = 9;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 292);
+            this.ClientSize = new System.Drawing.Size(381, 248);
+            this.Controls.Add(this.changesBox);
             this.Controls.Add(this.updateSwitch);
-            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.updaterVerLbl);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.versionAvailableLbl);
@@ -166,8 +162,8 @@
         private MaterialSkin.Controls.MaterialLabel versionAvailableLbl;
         private MaterialSkin.Controls.MaterialButton updateBtn;
         private MaterialSkin.Controls.MaterialLabel updaterVerLbl;
-        private System.Windows.Forms.ProgressBar progressBar;
         private MaterialSkin.Controls.MaterialSwitch updateSwitch;
+        private System.Windows.Forms.ListBox changesBox;
     }
 }
 
