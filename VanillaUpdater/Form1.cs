@@ -30,13 +30,15 @@ namespace VanillaUpdater
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            VRegistry.CreateSubKey("Launch", ""); // create a key in case it doesn't exist.
+
             MaterialSkinManager = MaterialSkinManager.Instance;
             MaterialSkinManager.AddFormToManage(this);
 
             SetUITheme(MaterialSkinManager.Themes.LIGHT);
 
             if (Properties.Resources.Theme == "LIGHT") SetUITheme(MaterialSkinManager.Themes.LIGHT);
-
+                
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700, Accent.Green700, TextShade.WHITE);
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
