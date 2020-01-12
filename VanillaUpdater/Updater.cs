@@ -53,6 +53,12 @@ namespace VanillaUpdater
             Notifications.PlayNotificationSound();
         }
 
+        public static double ConvertBytesToMegabytes(long bytes)
+        {
+            double result = (bytes / 102f) / 1024f;
+            return Convert.ToInt32(result);
+        }
+
     }
     [DataContract]
     class UpdateData

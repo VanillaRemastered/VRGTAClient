@@ -114,7 +114,7 @@ namespace VanillaUpdater
 
         private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            versionAvailableLbl.Text = (e.ProgressPercentage + "% | " + e.BytesReceived + " bytes out of " + e.TotalBytesToReceive + " bytes retrieven.");
+            versionAvailableLbl.Text = (e.ProgressPercentage + "% | " + Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " + Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.");
         }
 
         private void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
