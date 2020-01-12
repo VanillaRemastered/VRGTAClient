@@ -39,6 +39,7 @@ namespace VanillaUpdater
             {
                 wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
+
                 wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".rar");
             }
         }

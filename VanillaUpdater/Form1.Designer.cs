@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("21212");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("121212121212");
             this.versionLabel = new MaterialSkin.Controls.MaterialLabel();
             this.checkUpdatesBtn = new MaterialSkin.Controls.MaterialButton();
             this.versionAvailableLbl = new MaterialSkin.Controls.MaterialLabel();
-            this.affectedFilesList = new MaterialSkin.Controls.MaterialListView();
             this.updateBtn = new MaterialSkin.Controls.MaterialButton();
             this.updaterVerLbl = new MaterialSkin.Controls.MaterialLabel();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -81,28 +79,6 @@
             this.versionAvailableLbl.TabIndex = 2;
             this.versionAvailableLbl.Text = "VersionAvailable";
             // 
-            // affectedFilesList
-            // 
-            this.affectedFilesList.AutoSizeTable = false;
-            this.affectedFilesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.affectedFilesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.affectedFilesList.Depth = 0;
-            this.affectedFilesList.FullRowSelect = true;
-            this.affectedFilesList.HideSelection = false;
-            this.affectedFilesList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8});
-            this.affectedFilesList.Location = new System.Drawing.Point(19, 287);
-            this.affectedFilesList.MinimumSize = new System.Drawing.Size(200, 100);
-            this.affectedFilesList.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.affectedFilesList.MouseState = MaterialSkin.MouseState.OUT;
-            this.affectedFilesList.Name = "affectedFilesList";
-            this.affectedFilesList.OwnerDraw = true;
-            this.affectedFilesList.Size = new System.Drawing.Size(307, 172);
-            this.affectedFilesList.TabIndex = 3;
-            this.affectedFilesList.UseCompatibleStateImageBehavior = false;
-            this.affectedFilesList.View = System.Windows.Forms.View.Details;
-            // 
             // updateBtn
             // 
             this.updateBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -134,14 +110,26 @@
             this.updaterVerLbl.TabIndex = 5;
             this.updaterVerLbl.Text = "Updater version: ";
             // 
+            // progressBar
+            // 
+            this.progressBar.Enabled = false;
+            this.progressBar.Location = new System.Drawing.Point(79, 466);
+            this.progressBar.MarqueeAnimationSpeed = 10;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(163, 10);
+            this.progressBar.Step = 5;
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar.TabIndex = 7;
+            this.progressBar.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 534);
+            this.ClientSize = new System.Drawing.Size(343, 215);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.updaterVerLbl);
             this.Controls.Add(this.updateBtn);
-            this.Controls.Add(this.affectedFilesList);
             this.Controls.Add(this.versionAvailableLbl);
             this.Controls.Add(this.checkUpdatesBtn);
             this.Controls.Add(this.versionLabel);
@@ -158,9 +146,9 @@
         private MaterialSkin.Controls.MaterialLabel versionLabel;
         private MaterialSkin.Controls.MaterialButton checkUpdatesBtn;
         private MaterialSkin.Controls.MaterialLabel versionAvailableLbl;
-        private MaterialSkin.Controls.MaterialListView affectedFilesList;
         private MaterialSkin.Controls.MaterialButton updateBtn;
         private MaterialSkin.Controls.MaterialLabel updaterVerLbl;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

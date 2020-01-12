@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -17,6 +18,7 @@ namespace VanillaUpdater
     public partial class MainWindow : MaterialForm
     {
         public MaterialSkinManager MaterialSkinManager { get; set; }
+        internal string downloadProgressPercent { get; set; }
 
         public MainWindow()
         {
@@ -38,6 +40,7 @@ namespace VanillaUpdater
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
+
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
         {
@@ -67,6 +70,11 @@ namespace VanillaUpdater
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            checkUpdatesBtn.Enabled = false;
+            updateBtn.Enabled = false;
+
+            progressBar.Show();
+
             Updater.DownloadUpdate();
         }
     }
