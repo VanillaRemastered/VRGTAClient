@@ -31,6 +31,8 @@ namespace VanillaUpdater
         public static bool IsNewVersionAvailable()
         {
             FetchVersion();
+
+            if (VRegistry.GetSubKeyValue("Version") == null) VRegistry.CreateSubKey("Version", "0.0.0");
             if (VRegistry.GetSubKeyValue("Version").ToString() != UpdateData.Version)
                 return true;
             return false;
@@ -96,6 +98,9 @@ namespace VanillaUpdater
                 { "Version", UpdateData.Version },
                 { "Time", DateTime.Now.ToString()}
             });
+
+            VRegistry.CreateSubKey("Version", UpdateData.Version);
+            Notifications.PlayNotificationSound();
         }
 
         private static void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

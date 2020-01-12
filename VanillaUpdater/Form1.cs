@@ -41,9 +41,11 @@ namespace VanillaUpdater
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
+            if(VRegistry.GetSubKeyValue("Version") != null)
+                versionLabel.Text += VRegistry.GetSubKeyValue("Version").ToString();
+
             if (Properties.Resources.AutoUpdate == "True") updateSwitch.Checked = true;
         }
-
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
         {
@@ -82,12 +84,28 @@ namespace VanillaUpdater
             Notifications.PlayNotificationSound();
         }
 
+        public void CleanUpdateUI()
+        {
+            
+        }
+
         private void updateBtn_Click(object sender, EventArgs e)
         {
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
 
             Updater.DownloadUpdate();
+
+            Size = new Size(Size.Width, 246);
+
+            versionLabel.Text = "Newly installed " + UpdateData.Version;
+            versionLabel.ForeColor = Color.DarkGreen;
+
+            MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version + "\n" +
+                "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", "Update installed!", MessageBoxButtons.OK);
+
+            checkUpdatesBtn.Enabled = true;
+            updateBtn.Enabled = true;
         }
 
         private void updateSwitch_CheckedChanged(object sender, EventArgs e)
