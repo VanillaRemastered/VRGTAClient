@@ -13,5 +13,11 @@ namespace VanillaUpdater
             System.Media.SoundPlayer player = new System.Media.SoundPlayer("notification.wav");
             player.Play();
         }
+
+        public static void PlayErrorSound()
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer("error.wav");
+            player.Play();
+        }
     }
 }
