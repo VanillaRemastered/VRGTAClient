@@ -82,16 +82,20 @@ namespace VanillaUpdater
                 { "Time", DateTime.Now.ToString()}
             });
 
-            Directory.Delete("update", true);
-
-            ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", "update");
 
             InstallUpdate();
         }
 
         private static void InstallUpdate()
         {
+            Directory.Delete("update", true);
+            ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", "update");
+            File.Delete("data_" + UpdateData.Version + ".rar");
 
+            Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
+                { "Version", UpdateData.Version },
+                { "Time", DateTime.Now.ToString()}
+            });
         }
 
         private static void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
