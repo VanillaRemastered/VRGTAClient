@@ -70,6 +70,8 @@ namespace VanillaUpdater
 
             changesBox.BackColor = Color.DarkGray;
 
+            foreach(var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
+
             foreach (var item in UpdateData.Changes)
             {
                 changesBox.Items.Add(item);
