@@ -87,7 +87,7 @@ namespace VanillaUpdater
 
         private static void InstallUpdate()
         {
-            Directory.Delete("update", true);
+            if(Directory.Exists("update")) Directory.Delete("update", true);
             ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", "update");
             File.Delete("data_" + UpdateData.Version + ".rar");
 
