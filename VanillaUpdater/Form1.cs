@@ -107,6 +107,7 @@ namespace VanillaUpdater
 
             checkUpdatesBtn.Enabled = true;
             updateBtn.Enabled = true;
+
         }
 
         private void updateSwitch_CheckedChanged(object sender, EventArgs e)

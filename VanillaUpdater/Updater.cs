@@ -47,7 +47,7 @@ namespace VanillaUpdater
                 wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
 
-                wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".rar");
+                wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".zip");
             }
         }
 
@@ -88,8 +88,8 @@ namespace VanillaUpdater
         private static void InstallUpdate()
         {
             if(Directory.Exists("update")) Directory.Delete("update", true);
-            ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", "update");
-            File.Delete("data_" + UpdateData.Version + ".rar");
+            ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".zip", "update");
+            File.Delete("data_" + UpdateData.Version + ".zip");
 
             Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
                 { "Version", UpdateData.Version },
