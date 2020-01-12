@@ -126,5 +126,8 @@ namespace VanillaUpdater
 
         [DataMember]
         public static string DownloadURL { get; set; }
+
+        [DataMember]
+        public static string SupportURL { get; set; }
     }
 }

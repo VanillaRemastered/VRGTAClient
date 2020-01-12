@@ -80,6 +80,7 @@ namespace VanillaUpdater
             {
                 changesBox.Items.Add(item);
             }
+            System.Diagnostics.Process.Start(UpdateData.SupportURL);
 
             Notifications.PlayNotificationSound();
         }
