@@ -57,7 +57,6 @@ namespace VanillaUpdater
             {
                 Analytics.TrackEvent("Update has been cancelled", new Dictionary<string, string> {
                 { "Version", UpdateData.Version },
-                { "Time", DateTime.Now.ToString()},
                 {"Error", e.Error.Message}
             });
 
@@ -68,7 +67,6 @@ namespace VanillaUpdater
             {
                 Analytics.TrackEvent("Update has failed to download", new Dictionary<string, string> {
                 { "Version", UpdateData.Version },
-                { "Time", DateTime.Now.ToString()},
                 {"Error", e.Error.Message}
             });
 
@@ -81,7 +79,6 @@ namespace VanillaUpdater
 
             Analytics.TrackEvent("Update has been downloaded", new Dictionary<string, string> {
                 { "Version", UpdateData.Version },
-                { "Time", DateTime.Now.ToString()}
             });
 
 
