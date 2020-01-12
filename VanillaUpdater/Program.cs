@@ -15,12 +15,13 @@ namespace VanillaUpdater
         [STAThread]
         static void Main()
         {
+            AppCenter.Start("ceef21cd-5ffe-4266-b0e8-9a0769c3854d",
+                   typeof(Analytics), typeof(Crashes));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
 
-            AppCenter.Start("ceef21cd-5ffe-4266-b0e8-9a0769c3854d",
-                   typeof(Analytics), typeof(Crashes));
         }
     }
 }
