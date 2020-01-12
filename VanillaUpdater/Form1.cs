@@ -19,7 +19,6 @@ namespace VanillaUpdater
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         public void SetUITheme(MaterialSkinManager.Themes theme) => MaterialSkinManager.Theme = theme;
