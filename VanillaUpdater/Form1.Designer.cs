@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("21212");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("121212121212");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("21212");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("121212121212");
             this.versionLabel = new MaterialSkin.Controls.MaterialLabel();
             this.checkUpdatesBtn = new MaterialSkin.Controls.MaterialButton();
             this.versionAvailableLbl = new MaterialSkin.Controls.MaterialLabel();
             this.affectedFilesList = new MaterialSkin.Controls.MaterialListView();
             this.updateBtn = new MaterialSkin.Controls.MaterialButton();
+            this.updaterVerLbl = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -45,9 +46,9 @@
             this.versionLabel.Location = new System.Drawing.Point(16, 90);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
-            this.versionLabel.Size = new System.Drawing.Size(111, 19);
+            this.versionLabel.Size = new System.Drawing.Size(104, 19);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "Current version:";
+            this.versionLabel.Text = "Client version: ";
             // 
             // checkUpdatesBtn
             // 
@@ -56,7 +57,7 @@
             this.checkUpdatesBtn.DrawShadows = true;
             this.checkUpdatesBtn.HighEmphasis = true;
             this.checkUpdatesBtn.Icon = null;
-            this.checkUpdatesBtn.Location = new System.Drawing.Point(13, 115);
+            this.checkUpdatesBtn.Location = new System.Drawing.Point(162, 165);
             this.checkUpdatesBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.checkUpdatesBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.checkUpdatesBtn.Name = "checkUpdatesBtn";
@@ -72,7 +73,7 @@
             this.versionAvailableLbl.AutoSize = true;
             this.versionAvailableLbl.Depth = 0;
             this.versionAvailableLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionAvailableLbl.Location = new System.Drawing.Point(110, 196);
+            this.versionAvailableLbl.Location = new System.Drawing.Point(101, 239);
             this.versionAvailableLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionAvailableLbl.Name = "versionAvailableLbl";
             this.versionAvailableLbl.Size = new System.Drawing.Size(119, 19);
@@ -88,9 +89,9 @@
             this.affectedFilesList.FullRowSelect = true;
             this.affectedFilesList.HideSelection = false;
             this.affectedFilesList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.affectedFilesList.Location = new System.Drawing.Point(24, 247);
+            listViewItem3,
+            listViewItem4});
+            this.affectedFilesList.Location = new System.Drawing.Point(13, 321);
             this.affectedFilesList.MinimumSize = new System.Drawing.Size(200, 100);
             this.affectedFilesList.MouseLocation = new System.Drawing.Point(-1, -1);
             this.affectedFilesList.MouseState = MaterialSkin.MouseState.OUT;
@@ -108,7 +109,7 @@
             this.updateBtn.DrawShadows = true;
             this.updateBtn.HighEmphasis = true;
             this.updateBtn.Icon = null;
-            this.updateBtn.Location = new System.Drawing.Point(115, 432);
+            this.updateBtn.Location = new System.Drawing.Point(104, 485);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.updateBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateBtn.Name = "updateBtn";
@@ -119,11 +120,24 @@
             this.updateBtn.UseAccentColor = false;
             this.updateBtn.UseVisualStyleBackColor = true;
             // 
+            // updaterVerLbl
+            // 
+            this.updaterVerLbl.AutoSize = true;
+            this.updaterVerLbl.Depth = 0;
+            this.updaterVerLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.updaterVerLbl.Location = new System.Drawing.Point(16, 118);
+            this.updaterVerLbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.updaterVerLbl.Name = "updaterVerLbl";
+            this.updaterVerLbl.Size = new System.Drawing.Size(119, 19);
+            this.updaterVerLbl.TabIndex = 5;
+            this.updaterVerLbl.Text = "Updater version: ";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 177);
+            this.ClientSize = new System.Drawing.Size(343, 216);
+            this.Controls.Add(this.updaterVerLbl);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.affectedFilesList);
             this.Controls.Add(this.versionAvailableLbl);
@@ -144,6 +158,7 @@
         private MaterialSkin.Controls.MaterialLabel versionAvailableLbl;
         private MaterialSkin.Controls.MaterialListView affectedFilesList;
         private MaterialSkin.Controls.MaterialButton updateBtn;
+        private MaterialSkin.Controls.MaterialLabel updaterVerLbl;
     }
 }
 
