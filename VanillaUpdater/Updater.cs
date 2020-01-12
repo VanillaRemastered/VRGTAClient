@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
+using System.IO.Compression;
+using System.IO;
 
 namespace VanillaUpdater
 {
@@ -80,7 +82,9 @@ namespace VanillaUpdater
                 { "Time", DateTime.Now.ToString()}
             });
 
-            MessageBox.Show("File succesfully downloaded");
+            Directory.Delete("update", true);
+
+            ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", "update");
 
             InstallUpdate();
         }
