@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("21212");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("121212121212");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("21212");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("121212121212");
             this.versionLabel = new MaterialSkin.Controls.MaterialLabel();
             this.checkUpdatesBtn = new MaterialSkin.Controls.MaterialButton();
             this.versionAvailableLbl = new MaterialSkin.Controls.MaterialLabel();
@@ -67,6 +67,7 @@
             this.checkUpdatesBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.checkUpdatesBtn.UseAccentColor = false;
             this.checkUpdatesBtn.UseVisualStyleBackColor = true;
+            this.checkUpdatesBtn.Click += new System.EventHandler(this.checkUpdatesBtn_Click);
             // 
             // versionAvailableLbl
             // 
@@ -89,15 +90,15 @@
             this.affectedFilesList.FullRowSelect = true;
             this.affectedFilesList.HideSelection = false;
             this.affectedFilesList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
-            this.affectedFilesList.Location = new System.Drawing.Point(13, 321);
+            listViewItem7,
+            listViewItem8});
+            this.affectedFilesList.Location = new System.Drawing.Point(19, 287);
             this.affectedFilesList.MinimumSize = new System.Drawing.Size(200, 100);
             this.affectedFilesList.MouseLocation = new System.Drawing.Point(-1, -1);
             this.affectedFilesList.MouseState = MaterialSkin.MouseState.OUT;
             this.affectedFilesList.Name = "affectedFilesList";
             this.affectedFilesList.OwnerDraw = true;
-            this.affectedFilesList.Size = new System.Drawing.Size(307, 155);
+            this.affectedFilesList.Size = new System.Drawing.Size(307, 172);
             this.affectedFilesList.TabIndex = 3;
             this.affectedFilesList.UseCompatibleStateImageBehavior = false;
             this.affectedFilesList.View = System.Windows.Forms.View.Details;
@@ -119,6 +120,7 @@
             this.updateBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.updateBtn.UseAccentColor = false;
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // updaterVerLbl
             // 
@@ -136,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 216);
+            this.ClientSize = new System.Drawing.Size(343, 534);
             this.Controls.Add(this.updaterVerLbl);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.affectedFilesList);

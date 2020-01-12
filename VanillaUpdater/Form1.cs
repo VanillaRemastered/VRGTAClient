@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,6 +37,37 @@ namespace VanillaUpdater
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+
+        private async void checkUpdatesBtn_Click(object sender, EventArgs e)
+        {
+            checkUpdatesBtn.Enabled = false;
+            updaterVerLbl.Text = "Checking for updates ... please wait";
+
+            var updateCheck = Task.Run(() => Updater.IsNewVersionAvailable());
+
+            await Task.WhenAll(updateCheck);
+
+            if (updateCheck.Result)
+            {
+                CreateUpdateUI();
+                checkUpdatesBtn.Enabled = true;
+                updaterVerLbl.Text = "Current version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+            else MaterialMessageBox.Show("No update available at this time!");
+        }
+
+        private void CreateUpdateUI()
+        {
+            Size = new Size(343, 569); // extends the bottom part
+
+            versionAvailableLbl.Text = UpdateData.Version;
+
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            Updater.DownloadUpdate();
         }
     }
 }
