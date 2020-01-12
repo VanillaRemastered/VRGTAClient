@@ -60,7 +60,7 @@ namespace VanillaUpdater
             {
                 CreateUpdateUI();
                 checkUpdatesBtn.Enabled = true;
-                updaterVerLbl.Text = "Current version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                updaterVerLbl.Text = "Updater version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             }
             else MaterialMessageBox.Show("No update available at this time!");
@@ -102,7 +102,7 @@ namespace VanillaUpdater
             versionLabel.Text = "Newly installed " + UpdateData.Version;
             versionLabel.ForeColor = Color.DarkGreen;
 
-            MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version + "\n" +
+            MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version + ".\n\n" +
                 "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", "Update installed!", MessageBoxButtons.OK);
 
             checkUpdatesBtn.Enabled = true;
