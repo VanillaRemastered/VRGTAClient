@@ -1,5 +1,6 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using Microsoft.AppCenter.Analytics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,7 @@ namespace VanillaUpdater
                 CreateUpdateUI();
                 checkUpdatesBtn.Enabled = true;
                 updaterVerLbl.Text = "Current version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             }
             else MaterialMessageBox.Show("No update available at this time!");
         }

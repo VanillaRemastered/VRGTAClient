@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AppCenter;
+using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
 using System.Net;
@@ -60,6 +61,7 @@ namespace VanillaUpdater
             }
 
             MessageBox.Show("File succesfully downloaded");
+            Analysis.TrackEvent
             InstallUpdate();
 
         }
