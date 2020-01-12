@@ -130,6 +130,7 @@
             // changesBox
             // 
             this.changesBox.FormattingEnabled = true;
+            this.changesBox.HorizontalScrollbar = true;
             this.changesBox.Location = new System.Drawing.Point(12, 315);
             this.changesBox.Name = "changesBox";
             this.changesBox.Size = new System.Drawing.Size(353, 121);
@@ -139,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 248);
+            this.ClientSize = new System.Drawing.Size(381, 239);
             this.Controls.Add(this.changesBox);
             this.Controls.Add(this.updateSwitch);
             this.Controls.Add(this.updaterVerLbl);
