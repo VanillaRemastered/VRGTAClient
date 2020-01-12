@@ -78,6 +78,8 @@ namespace VanillaUpdater
             {
                 changesBox.Items.Add(item);
             }
+
+            Notifications.PlayNotificationSound();
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
