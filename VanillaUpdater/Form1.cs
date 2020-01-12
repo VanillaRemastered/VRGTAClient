@@ -72,7 +72,7 @@ namespace VanillaUpdater
 
             versionAvailableLbl.Text = UpdateData.Version + " is now available for installation!";
 
-            changesBox.BackColor = Color.DarkGray;
+            changesBox.BackColor = Color.DarkSeaGreen;
 
             foreach(var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
 
