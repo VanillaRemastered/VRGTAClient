@@ -43,7 +43,7 @@ namespace VanillaUpdater
         {
             if(Directory.Exists("update")) Directory.Delete("update", true);
 
-            using (ArchiveFile archiveFile = new ArchiveFile(@"Archive.ARJ"))
+            using (ArchiveFile archiveFile = new ArchiveFile("data_"+UpdateData.Version+".zip"))
             {
                 archiveFile.Extract("update");
             }
