@@ -119,6 +119,9 @@ namespace VanillaUpdater
             if (e.ProgressPercentage == 0)
                 versionAvailableLbl.Text = "Connecting to the server ...";
 
+            if (e.ProgressPercentage == 100)
+                versionAvailableLbl.Text = "Extracting the files ... holdon!";
+
             versionAvailableLbl.Text = (e.ProgressPercentage + "% | " + Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " + Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.");
         }
 

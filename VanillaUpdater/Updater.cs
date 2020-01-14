@@ -1,11 +1,12 @@
-﻿using MaterialSkin.Controls;
+﻿using Ionic.Zip;
+using MaterialSkin.Controls;
 using Microsoft.AppCenter.Analytics;
 using Newtonsoft.Json;
+using SevenZipExtractor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.IO.Compression;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
@@ -41,7 +42,12 @@ namespace VanillaUpdater
         public static void InstallUpdate()
         {
             if(Directory.Exists("update")) Directory.Delete("update", true);
-            ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".zip", "update");
+
+            using (ArchiveFile archiveFile = new ArchiveFile(@"Archive.ARJ"))
+            {
+                archiveFile.Extract("update");
+            }
+
             File.Delete("data_" + UpdateData.Version + ".zip");
 
             Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
