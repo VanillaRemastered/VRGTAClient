@@ -127,6 +127,12 @@ namespace VanillaUpdater
 
         private async void updateBtn_Click(object sender, EventArgs e)
         {
+            if(ProcessWatcher.IsGameRunning())
+            {
+                MaterialMessageBox.Show(null, "The game is active and running! Please close it if you wish to update", "CLOSE THE GAME", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
 
