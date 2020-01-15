@@ -40,7 +40,7 @@ namespace VanillaUpdater
         /// <returns>true if they're both valid, false if they're not.</returns>
         public static bool IsFirstRun()
         {
-            if (GetSubKeyValue("Path") == null)
+            if (GetSubKeyValue("Path").Equals(null))
             {
                 return true;
             }
