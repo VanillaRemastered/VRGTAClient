@@ -4,14 +4,10 @@ using Microsoft.AppCenter.Analytics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,12 +35,12 @@ namespace VanillaUpdater
             SetUITheme(MaterialSkinManager.Themes.LIGHT);
 
             if (Properties.Resources.Theme == "LIGHT") SetUITheme(MaterialSkinManager.Themes.LIGHT);
-                
+
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700, Accent.Green700, TextShade.WHITE);
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            if(VRegistry.GetSubKeyValue("Version") != null)
+            if (VRegistry.GetSubKeyValue("Version") != null)
                 versionLabel.Text += VRegistry.GetSubKeyValue("Version").ToString();
 
             if (Properties.Resources.AutoUpdate == "True") updateSwitch.Checked = true;
@@ -77,7 +73,7 @@ namespace VanillaUpdater
 
             changesBox.BackColor = Color.DarkSeaGreen;
 
-            foreach(var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
+            foreach (var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
 
             foreach (var item in UpdateData.Changes)
             {
@@ -90,7 +86,7 @@ namespace VanillaUpdater
 
         public void CleanUpdateUI()
         {
-            
+
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -112,7 +108,7 @@ namespace VanillaUpdater
                 wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
 
-                wc.DownloadFile(new Uri(url), "data_" + UpdateData.Version + ".rar");
+                wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".rar");
                 wc.Dispose();
             }
         }

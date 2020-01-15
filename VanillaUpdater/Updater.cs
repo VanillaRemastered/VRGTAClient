@@ -1,12 +1,7 @@
-﻿using Ionic.Zip;
-using MaterialSkin.Controls;
-using Microsoft.AppCenter.Analytics;
+﻿using Microsoft.AppCenter.Analytics;
 using Newtonsoft.Json;
-using SevenZipExtractor;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization;
@@ -42,13 +37,14 @@ namespace VanillaUpdater
 
         public static void InstallUpdate()
         {
-            if(Directory.Exists("update")) Directory.Delete("update", true);
+            if (Directory.Exists("update")) Directory.Delete("update", true);
 
             try
             {
-                System.IO.Compression.ZipFile.ExtractToDirectory("data_"+UpdateData.Version+".rar", "update");
+                System.IO.Compression.ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", "update");
                 File.Delete("data_" + UpdateData.Version + ".rar");
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("Failed to install the update. CODE: ", e.Message);
             }
