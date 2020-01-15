@@ -6,6 +6,7 @@ using SevenZipExtractor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization;
@@ -43,12 +44,16 @@ namespace VanillaUpdater
         {
             if(Directory.Exists("update")) Directory.Delete("update", true);
 
-            using (ArchiveFile archiveFile = new ArchiveFile("data_"+UpdateData.Version+".zip"))
+            try
             {
-                archiveFile.Extract("update");
+                System.IO.Compression.ZipFile.ExtractToDirectory("data_"+UpdateData.Version+".rar", "update");
+                File.Delete("data_" + UpdateData.Version + ".rar");
+            } catch(Exception e)
+            {
+                MessageBox.Show("Failed to install the update. CODE: ", e.Message);
             }
 
-            File.Delete("data_" + UpdateData.Version + ".zip");
+            File.Delete("data_" + UpdateData.Version + ".rar");
 
             Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
                 { "Version", UpdateData.Version },
@@ -58,7 +63,6 @@ namespace VanillaUpdater
             VRegistry.CreateSubKey("Version", UpdateData.Version);
             Notifications.PlayNotificationSound();
         }
-
         public static double ConvertBytesToMegabytes(long bytes)
         {
             double result = (bytes / 102f) / 1024f;

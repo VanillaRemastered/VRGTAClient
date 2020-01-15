@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -97,7 +98,8 @@ namespace VanillaUpdater
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
 
-            DownloadUpdate();
+            if (File.Exists("data_" + UpdateData.Version + ".rar")) Updater.InstallUpdate();
+            else DownloadUpdate();
 
         }
 
@@ -110,7 +112,8 @@ namespace VanillaUpdater
                 wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
 
-                wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".zip");
+                wc.DownloadFile(new Uri(url), "data_" + UpdateData.Version + ".rar");
+                wc.Dispose();
             }
         }
 
