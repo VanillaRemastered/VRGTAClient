@@ -103,7 +103,12 @@ namespace VanillaUpdater
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
 
-            if (File.Exists("data_" + UpdateData.Version + ".rar")) Updater.InstallUpdate();
+            if (File.Exists("data_" + UpdateData.Version + ".rar"))
+            {
+                versionAvailableLbl.Text = "Found cached download data ... installing the update now";
+                Updater.InstallUpdate();
+            }
+
             else DownloadUpdate();
 
         }
