@@ -41,7 +41,7 @@ namespace VanillaUpdater
 
             try
             {
-                System.IO.Compression.ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", "update");
+                System.IO.Compression.ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", VRegistry.GetSubKeyValue("Path").ToString());
                 File.Delete("data_" + UpdateData.Version + ".rar");
             }
             catch (Exception e)
