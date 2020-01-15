@@ -31,7 +31,7 @@ namespace VanillaUpdater
                     else
                     {
                         MaterialMessageBox.Show(null, "The selected folder does not look valid. This might happen if you've selected wrong folder.\n\n" +
-                            "Start the app once again and select proper folder. If this error still presists, contact developers.", "Important message!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            "Start the app once again and select proper folder. If this error still presists, contact developers.", "Important message!", MessageBoxButtons.OK);
 
                         Application.Restart();
                     }
