@@ -67,7 +67,8 @@ namespace VanillaUpdater
             }
             else
             {
-                MaterialMessageBox.Show("No update available at this time!");
+                Notifications.PlayNotificationSound();
+                MaterialMessageBox.Show(null, "You're using the latest version of Vanilla.", "No updates found - You're up to date!");
             }
 
             checkUpdatesBtn.Enabled = true;
