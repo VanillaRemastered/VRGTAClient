@@ -135,7 +135,6 @@ namespace VanillaUpdater
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
 
                 wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".rar");
-                wc.Dispose();
             }
         }
 
