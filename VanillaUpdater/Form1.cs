@@ -17,6 +17,7 @@ namespace VanillaUpdater
     {
         public MaterialSkinManager MaterialSkinManager { get; set; }
         internal string downloadProgressPercent { get; set; }
+        private readonly Properties.Settings userSettings = new Properties.Settings();
 
         public MainWindow()
         {
@@ -34,7 +35,7 @@ namespace VanillaUpdater
 
             SetUITheme(MaterialSkinManager.Themes.LIGHT);
 
-            if (Properties.Resources.Theme == "LIGHT") SetUITheme(MaterialSkinManager.Themes.LIGHT);
+            if (userSettings.Theme == "Light") SetUITheme(MaterialSkinManager.Themes.LIGHT);
 
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700, Accent.Green700, TextShade.WHITE);
 
@@ -43,7 +44,7 @@ namespace VanillaUpdater
             if (VRegistry.GetSubKeyValue("Version") != null)
                 versionLabel.Text += VRegistry.GetSubKeyValue("Version").ToString();
 
-            if (Properties.Resources.AutoUpdate == "True") updateSwitch.Checked = true;
+            if (userSettings.AutoUpdate == true) updateSwitch.Checked = true;
         }
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
@@ -172,6 +173,9 @@ namespace VanillaUpdater
 
         private void updateSwitch_CheckedChanged(object sender, EventArgs e)
         {
+            if (updateSwitch.Checked)
+                userSettings.AutoUpdate = true;
+            else userSettings.AutoUpdate = false;
         }
     }
 }
