@@ -181,9 +181,8 @@ namespace VanillaUpdater
 
         private void updateSwitch_CheckedChanged(object sender, EventArgs e)
         {
-            if (updateSwitch.Checked)
-                userSettings.AutoUpdate = true;
-            else userSettings.AutoUpdate = false;
+            userSettings.AutoUpdate = updateSwitch.Checked;
+            userSettings.Save();
         }
 
         private void themeSwitch_CheckedChanged(object sender, EventArgs e)
@@ -198,6 +197,8 @@ namespace VanillaUpdater
                 SetUITheme(MaterialSkinManager.Themes.LIGHT);
                 userSettings.Theme = "Light";
             }
+
+            userSettings.Save();
         }
     }
 }
