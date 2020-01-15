@@ -63,11 +63,14 @@ namespace VanillaUpdater
             if (updateCheck.Result)
             {
                 CreateUpdateUI();
-                checkUpdatesBtn.Enabled = true;
                 updaterVerLbl.Text = "Updater version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
             }
-            else MaterialMessageBox.Show("No update available at this time!");
+            else
+            {
+                MaterialMessageBox.Show("No update available at this time!");
+            }
+
+            checkUpdatesBtn.Enabled = true;
         }
 
         private void CreateUpdateUI()
