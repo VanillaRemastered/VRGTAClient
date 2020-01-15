@@ -52,8 +52,7 @@ namespace VanillaUpdater
             File.Delete("data_" + UpdateData.Version + ".rar");
 
             Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
-                { "Version", UpdateData.Version },
-                { "Time", DateTime.Now.ToString()}
+                { "Version", UpdateData.Version }
             });
 
             VRegistry.CreateSubKey("Version", UpdateData.Version);
