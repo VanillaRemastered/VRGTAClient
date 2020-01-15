@@ -108,13 +108,13 @@ namespace VanillaUpdater
                 DialogResult dialogResult = MaterialMessageBox.Show(null, "We've found already downloaded update package.\n\n" +
                     "The package might be corrupted / invalid." +
                     "Do you wish to install this package?", "Package found", MessageBoxButtons.YesNo);
-                if(dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     versionAvailableLbl.Text = "installing the cached update ...";
 
                     var installCached = Task.Run(() => Updater.InstallUpdate());
                     await Task.WhenAll(installCached);
-                } 
+                }
                 else
                 {
                     DownloadUpdate();
@@ -181,7 +181,7 @@ namespace VanillaUpdater
             var installer = Task.Run(() => Updater.InstallUpdate());
 
             await Task.WhenAll(installer);
-            
+
             Size = new Size(Size.Width, 246);
 
             versionLabel.Text = "Newly installed " + UpdateData.Version;

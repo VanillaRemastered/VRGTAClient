@@ -1,10 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-
-using Microsoft.AppCenter;
+﻿using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using System;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace VanillaUpdater
 {

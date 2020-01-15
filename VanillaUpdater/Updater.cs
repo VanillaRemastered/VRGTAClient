@@ -1,5 +1,4 @@
-﻿using Ionic.Zip;
-using Microsoft.AppCenter.Analytics;
+﻿using Microsoft.AppCenter.Analytics;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
