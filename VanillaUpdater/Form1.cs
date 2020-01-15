@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -76,6 +77,7 @@ namespace VanillaUpdater
                 versionLabel.Text += VRegistry.GetSubKeyValue("Version").ToString();
 
             if (userSettings.AutoUpdate == true) updateSwitch.Checked = true;
+
         }
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
@@ -118,6 +120,9 @@ namespace VanillaUpdater
             System.Diagnostics.Process.Start(UpdateData.SupportURL);
 
             Notifications.PlayNotificationSound();
+
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " +UpdateData.Version +" is now available", "Vanilla Remastered update is now available." +
+                " Head over to the application to install it.", ToolTipIcon.None);
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
@@ -139,7 +144,7 @@ namespace VanillaUpdater
                 if (dialogResult == DialogResult.Yes)
                 {
                     versionAvailableLbl.Text = "installing the cached update ...";
-
+                    
                     var installCached = Task.Run(() => Updater.InstallUpdate());
                     await Task.WhenAll(installCached);
                 }
@@ -207,7 +212,11 @@ namespace VanillaUpdater
                 { "Version", UpdateData.Version },
             });
 
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Updater", "The update has been downloaded and is being installed. Please wait." +
+                " If you've encountered any issues while using Vanilla' please let me us know via www.support.vanilla-remastered.com", ToolTipIcon.None);
+
             versionAvailableLbl.Text = "Extracting the files ... holdon!";
+
 
             var installer = Task.Run(() => Updater.InstallUpdate());
 
@@ -218,11 +227,14 @@ namespace VanillaUpdater
             versionLabel.Text = "Newly installed " + UpdateData.Version;
             versionLabel.ForeColor = Color.DarkGreen;
 
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " has been installed", "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", ToolTipIcon.None);
+
             MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version + ".\n\n" +
                 "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", "Update installed!", MessageBoxButtons.OK);
 
             checkUpdatesBtn.Enabled = true;
             updateBtn.Enabled = true;
+
         }
 
 

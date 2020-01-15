@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.versionLabel = new MaterialSkin.Controls.MaterialLabel();
             this.checkUpdatesBtn = new MaterialSkin.Controls.MaterialButton();
@@ -37,6 +38,7 @@
             this.updateSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.changesBox = new System.Windows.Forms.ListBox();
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // versionLabel
@@ -158,6 +160,14 @@
             this.themeSwitch.UseVisualStyleBackColor = true;
             this.themeSwitch.CheckedChanged += new System.EventHandler(this.themeSwitch_CheckedChanged);
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.BalloonTipText = "Notif";
+            this.notifyIcon.BalloonTipTitle = "Vanilla Remastered";
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "Vanilla Updater";
+            this.notifyIcon.Visible = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +201,7 @@
         private MaterialSkin.Controls.MaterialSwitch updateSwitch;
         private System.Windows.Forms.ListBox changesBox;
         private MaterialSkin.Controls.MaterialSwitch themeSwitch;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 
