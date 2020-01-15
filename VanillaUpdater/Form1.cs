@@ -98,15 +98,27 @@ namespace VanillaUpdater
 
         }
 
-        private void updateBtn_Click(object sender, EventArgs e)
+        private async void updateBtn_Click(object sender, EventArgs e)
         {
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
 
             if (File.Exists("data_" + UpdateData.Version + ".rar"))
             {
-                versionAvailableLbl.Text = "Found cached download data ... installing the update now";
-                Updater.InstallUpdate();
+                DialogResult dialogResult = MaterialMessageBox.Show(null, "We've found already downloaded update package.\n\n" +
+                    "The package might be corrupted / invalid." +
+                    "Do you wish to install this package?", "Package found", MessageBoxButtons.YesNo);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    versionAvailableLbl.Text = "installing the cached update ...";
+
+                    var installCached = Task.Run(() => Updater.InstallUpdate());
+                    await Task.WhenAll(installCached);
+                } 
+                else
+                {
+                    DownloadUpdate();
+                }
             }
 
             else DownloadUpdate();
@@ -135,7 +147,7 @@ namespace VanillaUpdater
             versionAvailableLbl.Text = (e.ProgressPercentage + "% | " + Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " + Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.");
         }
 
-        private void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        private async void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             if (e.Cancelled)
             {
@@ -167,7 +179,10 @@ namespace VanillaUpdater
 
             versionAvailableLbl.Text = "Extracting the files ... holdon!";
 
-            Updater.InstallUpdate();
+            var installer = Task.Run(() => Updater.InstallUpdate());
+
+            await Task.WhenAll(installer);
+            
             Size = new Size(Size.Width, 246);
 
             versionLabel.Text = "Newly installed " + UpdateData.Version;

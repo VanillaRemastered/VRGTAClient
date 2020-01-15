@@ -1,4 +1,5 @@
-﻿using Microsoft.AppCenter.Analytics;
+﻿using Ionic.Zip;
+using Microsoft.AppCenter.Analytics;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -49,15 +50,15 @@ namespace VanillaUpdater
                 MessageBox.Show("Failed to install the update. CODE: ", e.Message);
             }
 
-            File.Delete("data_" + UpdateData.Version + ".rar");
-
             Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
                 { "Version", UpdateData.Version }
             });
 
             VRegistry.CreateSubKey("Version", UpdateData.Version);
             Notifications.PlayNotificationSound();
+
         }
+
         public static double ConvertBytesToMegabytes(long bytes)
         {
             double result = (bytes / 102f) / 1024f;
