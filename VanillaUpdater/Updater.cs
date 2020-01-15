@@ -29,8 +29,8 @@ namespace VanillaUpdater
         {
             FetchVersion();
 
-            if (VRegistry.GetSubKeyValue("Version") == null) VRegistry.CreateSubKey("Version", "0.0.0");
-            if (VRegistry.GetSubKeyValue("Version").ToString() != UpdateData.Version)
+            if (VRegistry.GetSubKeyValue("Version").Equals(null)) VRegistry.CreateSubKey("Version", "0.0.0");
+            if (!VRegistry.GetSubKeyValue("Version").ToString().Equals(UpdateData.Version))
                 return true;
             return false;
         }
