@@ -120,11 +120,6 @@ namespace VanillaUpdater
             Notifications.PlayNotificationSound();
         }
 
-        public void CleanUpdateUI()
-        {
-
-        }
-
         private async void updateBtn_Click(object sender, EventArgs e)
         {
             if(ProcessWatcher.IsGameRunning())
