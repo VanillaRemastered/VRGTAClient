@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.versionLabel = new MaterialSkin.Controls.MaterialLabel();
             this.checkUpdatesBtn = new MaterialSkin.Controls.MaterialButton();
             this.versionAvailableLbl = new MaterialSkin.Controls.MaterialLabel();
@@ -170,6 +171,8 @@
             this.Controls.Add(this.versionAvailableLbl);
             this.Controls.Add(this.checkUpdatesBtn);
             this.Controls.Add(this.versionLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.Text = "Vanilla Updater";
             this.Load += new System.EventHandler(this.Form1_Load);
