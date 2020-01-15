@@ -35,6 +35,7 @@
             this.updaterVerLbl = new MaterialSkin.Controls.MaterialLabel();
             this.updateSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.changesBox = new System.Windows.Forms.ListBox();
+            this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -72,7 +73,7 @@
             // 
             this.versionAvailableLbl.AutoSize = true;
             this.versionAvailableLbl.Depth = 0;
-            this.versionAvailableLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.versionAvailableLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.versionAvailableLbl.Location = new System.Drawing.Point(12, 278);
             this.versionAvailableLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionAvailableLbl.Name = "versionAvailableLbl";
@@ -138,11 +139,28 @@
             this.changesBox.Size = new System.Drawing.Size(353, 124);
             this.changesBox.TabIndex = 9;
             // 
+            // themeSwitch
+            // 
+            this.themeSwitch.AutoSize = true;
+            this.themeSwitch.Depth = 0;
+            this.themeSwitch.Location = new System.Drawing.Point(278, 116);
+            this.themeSwitch.Margin = new System.Windows.Forms.Padding(0);
+            this.themeSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.themeSwitch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.themeSwitch.Name = "themeSwitch";
+            this.themeSwitch.Ripple = true;
+            this.themeSwitch.Size = new System.Drawing.Size(94, 37);
+            this.themeSwitch.TabIndex = 10;
+            this.themeSwitch.Text = "Light";
+            this.themeSwitch.UseVisualStyleBackColor = true;
+            this.themeSwitch.CheckedChanged += new System.EventHandler(this.themeSwitch_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 243);
+            this.Controls.Add(this.themeSwitch);
             this.Controls.Add(this.changesBox);
             this.Controls.Add(this.updateSwitch);
             this.Controls.Add(this.updaterVerLbl);
@@ -167,6 +185,7 @@
         private MaterialSkin.Controls.MaterialLabel updaterVerLbl;
         private MaterialSkin.Controls.MaterialSwitch updateSwitch;
         private System.Windows.Forms.ListBox changesBox;
+        private MaterialSkin.Controls.MaterialSwitch themeSwitch;
     }
 }
 

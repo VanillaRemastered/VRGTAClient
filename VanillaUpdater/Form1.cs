@@ -177,5 +177,19 @@ namespace VanillaUpdater
                 userSettings.AutoUpdate = true;
             else userSettings.AutoUpdate = false;
         }
+
+        private void themeSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!themeSwitch.Checked)
+            {
+                SetUITheme(MaterialSkinManager.Themes.DARK);
+                userSettings.Theme = "Dark";
+            }
+            else
+            {
+                SetUITheme(MaterialSkinManager.Themes.LIGHT);
+                userSettings.Theme = "Light";
+            }
+        }
     }
 }
