@@ -8,15 +8,17 @@ namespace VanillaUpdater
 {
     class Notifications
     {
+        static readonly System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
         public static void PlayNotificationSound()
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer("notification.wav");
+            player.Stream = Properties.Resources.notification;
             player.Play();
         }
 
         public static void PlayErrorSound()
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer("error.wav");
+            player.Stream = Properties.Resources.unsure;
             player.Play();
         }
     }

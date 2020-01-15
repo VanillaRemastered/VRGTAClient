@@ -294,6 +294,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\notification.wav" />
+    <None Include="bin\Debug\unsure.wav" />
     <Content Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
