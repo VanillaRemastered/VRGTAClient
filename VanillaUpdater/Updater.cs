@@ -48,6 +48,7 @@ namespace VanillaUpdater
             {
                 MessageBox.Show("Failed to install the update due to an exception that.\n" +
                     "ERR_CODE: " + e.Message, "An error occured");
+                return;
             }
 
             Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
