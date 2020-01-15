@@ -35,7 +35,11 @@ namespace VanillaUpdater
 
             SetUITheme(MaterialSkinManager.Themes.LIGHT);
 
-            if (userSettings.Theme == "Light") SetUITheme(MaterialSkinManager.Themes.LIGHT);
+            if (userSettings.Theme == "Dark")
+            {
+                SetUITheme(MaterialSkinManager.Themes.DARK);
+                themeSwitch.Checked = false;
+            }
 
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700, Accent.Green700, TextShade.WHITE);
 

@@ -142,6 +142,8 @@
             // themeSwitch
             // 
             this.themeSwitch.AutoSize = true;
+            this.themeSwitch.Checked = true;
+            this.themeSwitch.CheckState = System.Windows.Forms.CheckState.Checked;
             this.themeSwitch.Depth = 0;
             this.themeSwitch.Location = new System.Drawing.Point(278, 116);
             this.themeSwitch.Margin = new System.Windows.Forms.Padding(0);
