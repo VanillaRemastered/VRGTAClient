@@ -124,7 +124,7 @@ namespace VanillaUpdater
         {
             if(ProcessWatcher.IsGameRunning())
             {
-                MaterialMessageBox.Show(null, "The game is active and running! Please close it if you wish to update", "CLOSE THE GAME", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MaterialMessageBox.Show(null, "The game is active and running! Please close it if you wish to begin updating.", "CLOSE THE GAME", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
