@@ -136,6 +136,7 @@ namespace VanillaUpdater
 
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
+            changePathBtn.Enabled = false;
 
             if (File.Exists("data_" + UpdateData.Version + ".rar"))
             {
@@ -200,6 +201,7 @@ namespace VanillaUpdater
 
             checkUpdatesBtn.Enabled = true;
             updateBtn.Enabled = true;
+            changePathBtn.Enabled = true;
         }
 
         private async void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
@@ -269,6 +271,12 @@ namespace VanillaUpdater
             }
 
             userSettings.Save();
+        }
+
+        private void changePathBtn_Click(object sender, EventArgs e)
+        {
+            VRegistry.CreateSubKey("Path", "");
+            Application.Restart();
         }
     }
 }

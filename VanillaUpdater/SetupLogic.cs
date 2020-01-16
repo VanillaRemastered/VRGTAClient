@@ -36,6 +36,7 @@ namespace VanillaUpdater
                         Application.Restart();
                     }
                 }
+                else Application.Exit();
             }
         }
     }

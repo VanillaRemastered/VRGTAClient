@@ -39,6 +39,7 @@
             this.changesBox = new System.Windows.Forms.ListBox();
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.changePathBtn = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -168,11 +169,32 @@
             this.notifyIcon.Text = "Vanilla Updater";
             this.notifyIcon.Visible = true;
             // 
+            // changePathBtn
+            // 
+            this.changePathBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.changePathBtn.Depth = 0;
+            this.changePathBtn.DrawShadows = true;
+            this.changePathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.changePathBtn.HighEmphasis = true;
+            this.changePathBtn.Icon = null;
+            this.changePathBtn.Location = new System.Drawing.Point(9, 196);
+            this.changePathBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.changePathBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.changePathBtn.Name = "changePathBtn";
+            this.changePathBtn.Size = new System.Drawing.Size(122, 36);
+            this.changePathBtn.TabIndex = 11;
+            this.changePathBtn.Text = "Change Path";
+            this.changePathBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.changePathBtn.UseAccentColor = false;
+            this.changePathBtn.UseVisualStyleBackColor = true;
+            this.changePathBtn.Click += new System.EventHandler(this.changePathBtn_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 243);
+            this.Controls.Add(this.changePathBtn);
             this.Controls.Add(this.themeSwitch);
             this.Controls.Add(this.changesBox);
             this.Controls.Add(this.updateSwitch);
@@ -202,6 +224,7 @@
         private System.Windows.Forms.ListBox changesBox;
         private MaterialSkin.Controls.MaterialSwitch themeSwitch;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private MaterialSkin.Controls.MaterialButton changePathBtn;
     }
 }
 
