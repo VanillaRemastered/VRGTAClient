@@ -122,6 +122,8 @@ namespace VanillaUpdater
 
             notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available", "Vanilla Remastered update is now available." +
                 " Head over to the application to install it.", ToolTipIcon.None);
+
+
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
