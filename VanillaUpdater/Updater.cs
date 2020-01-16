@@ -91,7 +91,6 @@ namespace VanillaUpdater
 
             VRegistry.CreateSubKey("Version", UpdateData.Version);
             Notifications.PlayNotificationSound();
-
         }
 
         public static double ConvertBytesToMegabytes(long bytes)

@@ -147,6 +147,8 @@ namespace VanillaUpdater
                     
                     var installCached = Task.Run(() => Updater.InstallUpdate());
                     await Task.WhenAll(installCached);
+
+                    DisplayFinishedInstallUI();
                 }
                 else
                 {
@@ -177,6 +179,22 @@ namespace VanillaUpdater
                 versionAvailableLbl.Text = "Connecting to the server ...";
 
             versionAvailableLbl.Text = (e.ProgressPercentage + "% | " + Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " + Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.");
+        }
+
+        public void DisplayFinishedInstallUI()
+        {
+            Size = new Size(Size.Width, 246);
+
+            versionLabel.Text = "Newly installed " + UpdateData.Version;
+            versionLabel.ForeColor = Color.DarkGreen;
+
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " has been installed", "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", ToolTipIcon.None);
+
+            MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version + ".\n\n" +
+                "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", "Update installed!", MessageBoxButtons.OK);
+
+            checkUpdatesBtn.Enabled = true;
+            updateBtn.Enabled = true;
         }
 
         private async void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
@@ -222,19 +240,7 @@ namespace VanillaUpdater
 
             await Task.WhenAll(installer);
 
-            Size = new Size(Size.Width, 246);
-
-            versionLabel.Text = "Newly installed " + UpdateData.Version;
-            versionLabel.ForeColor = Color.DarkGreen;
-
-            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " has been installed", "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", ToolTipIcon.None);
-
-            MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version + ".\n\n" +
-                "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", "Update installed!", MessageBoxButtons.OK);
-
-            checkUpdatesBtn.Enabled = true;
-            updateBtn.Enabled = true;
-
+            DisplayFinishedInstallUI();
         }
 
 
