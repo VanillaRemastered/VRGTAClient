@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
@@ -35,14 +36,47 @@ namespace VanillaUpdater
             return false;
         }
 
+        public static void ExtractToDirectory(ZipArchive archive, string destinationDirectoryName, bool overwrite)
+        {
+            if (!overwrite)
+            {
+                archive.ExtractToDirectory(destinationDirectoryName);
+                return;
+            }
+
+            DirectoryInfo di = Directory.CreateDirectory(destinationDirectoryName);
+            string destinationDirectoryFullPath = di.FullName;
+
+            foreach (ZipArchiveEntry file in archive.Entries)
+            {
+                string completeFileName = Path.GetFullPath(Path.Combine(destinationDirectoryFullPath, file.FullName));
+
+                if (!completeFileName.StartsWith(destinationDirectoryFullPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new IOException("Trying to extract file outside of destination directory. See this link for more info: https://snyk.io/research/zip-slip-vulnerability");
+                }
+
+                if (file.Name.Length == 0)
+                {// Assuming Empty for Directory
+                    Directory.CreateDirectory(Path.GetDirectoryName(completeFileName));
+                    continue;
+                }
+                file.ExtractToFile(completeFileName, true);
+            }
+        }
+
         public static void InstallUpdate()
         {
             if (Directory.Exists("update")) Directory.Delete("update", true);
 
             try
             {
-                System.IO.Compression.ZipFile.ExtractToDirectory("data_" + UpdateData.Version + ".rar", VRegistry.GetSubKeyValue("Path").ToString());
-                File.Delete("data_" + UpdateData.Version + ".rar");
+                string extractionPath = VRegistry.GetSubKeyValue("Path").ToString().Replace("/", "\\");
+
+                ZipArchive archive = ZipFile.OpenRead("data_" + UpdateData.Version + ".rar");
+                ExtractToDirectory(archive, extractionPath, true);
+
+                //File.Delete("data_" + UpdateData.Version + ".rar");
             }
             catch (Exception e)
             {
