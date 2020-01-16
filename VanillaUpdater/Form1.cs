@@ -8,7 +8,6 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Reflection;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -121,7 +120,7 @@ namespace VanillaUpdater
 
             Notifications.PlayNotificationSound();
 
-            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " +UpdateData.Version +" is now available", "Vanilla Remastered update is now available." +
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available", "Vanilla Remastered update is now available." +
                 " Head over to the application to install it.", ToolTipIcon.None);
         }
 
@@ -144,11 +143,15 @@ namespace VanillaUpdater
                 if (dialogResult == DialogResult.Yes)
                 {
                     versionAvailableLbl.Text = "installing the cached update ...";
-                    
+
                     var installCached = Task.Run(() => Updater.InstallUpdate());
                     await Task.WhenAll(installCached);
 
                     DisplayFinishedInstallUI();
+
+                    Analytics.TrackEvent("Cached update has been installed", new Dictionary<string, string> {
+                { "Version", UpdateData.Version }
+            });
                 }
                 else
                 {
