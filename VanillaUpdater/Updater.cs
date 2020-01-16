@@ -76,7 +76,7 @@ namespace VanillaUpdater
                 ZipArchive archive = ZipFile.OpenRead("data_" + UpdateData.Version + ".rar");
                 ExtractToDirectory(archive, extractionPath, true);
 
-                //File.Delete("data_" + UpdateData.Version + ".rar");
+                File.Delete("data_" + UpdateData.Version + ".rar");
             }
             catch (Exception e)
             {
