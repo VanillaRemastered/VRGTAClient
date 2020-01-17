@@ -148,7 +148,7 @@ namespace VanillaUpdater
                     var installCached = Task.Run(() => Updater.InstallUpdate());
                     await Task.WhenAll(installCached);
 
-                    DisplayFinishedInstallUI();
+                    DisplayFinishedInstallUi();
 
                     Analytics.TrackEvent("Cached update has been installed", new Dictionary<string, string>
                     {
