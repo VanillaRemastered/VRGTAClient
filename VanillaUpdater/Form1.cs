@@ -190,7 +190,7 @@ namespace VanillaUpdater
                                        Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.";
         }
 
-        public void DisplayFinishedInstallUI()
+        public void DisplayFinishedInstallUi()
         {
             Size = new Size(Size.Width, 246);
 
@@ -260,7 +260,7 @@ namespace VanillaUpdater
 
             await Task.WhenAll(installer);
 
-            DisplayFinishedInstallUI();
+            DisplayFinishedInstallUi();
         }
 
 
