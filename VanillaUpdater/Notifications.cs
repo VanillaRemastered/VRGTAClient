@@ -1,19 +1,19 @@
 ﻿namespace VanillaUpdater
 {
-    class Notifications
+    internal class Notifications
     {
-        static readonly System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+        private static readonly System.Media.SoundPlayer Player = new System.Media.SoundPlayer();
 
         public static void PlayNotificationSound()
         {
-            player.Stream = Properties.Resources.notification;
-            player.Play();
+            Player.Stream = Properties.Resources.notification;
+            Player.Play();
         }
 
         public static void PlayErrorSound()
         {
-            player.Stream = Properties.Resources.unsure;
-            player.Play();
+            Player.Stream = Properties.Resources.unsure;
+            Player.Play();
         }
     }
 }

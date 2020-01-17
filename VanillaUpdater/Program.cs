@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace VanillaUpdater
 {
-    static class Program
+    internal static class Program
     {
         private static void SetCountryCode()
         {
@@ -21,18 +21,17 @@ namespace VanillaUpdater
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             SetCountryCode();
             AppCenter.LogLevel = LogLevel.Verbose;
             AppCenter.Start("ceef21cd-5ffe-4266-b0e8-9a0769c3854d",
-                   typeof(Analytics), typeof(Crashes));
+                typeof(Analytics), typeof(Crashes));
 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
-
         }
     }
 }

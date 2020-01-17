@@ -16,31 +16,30 @@ namespace VanillaUpdater
     public partial class MainWindow : MaterialForm
     {
         public MaterialSkinManager MaterialSkinManager { get; set; }
-        internal string downloadProgressPercent { get; set; }
-        private readonly Properties.Settings userSettings = new Properties.Settings();
+        private readonly Properties.Settings _userSettings = new Properties.Settings();
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public void SetUITheme(MaterialSkinManager.Themes theme) => MaterialSkinManager.Theme = theme;
+        public void SetUiTheme(MaterialSkinManager.Themes theme)
+        {
+            MaterialSkinManager.Theme = theme;
+        }
 
         public void BringToTop()
         {
             //Checks if the method is called from UI thread or not
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                this.Invoke(new Action(BringToTop));
+                Invoke(new Action(BringToTop));
             }
             else
             {
-                if (this.WindowState == FormWindowState.Minimized)
-                {
-                    this.WindowState = FormWindowState.Normal;
-                }
+                if (WindowState == FormWindowState.Minimized) WindowState = FormWindowState.Normal;
                 //Keeps the current topmost status of form
-                bool top = TopMost;
+                var top = TopMost;
                 //Brings the form to top
                 TopMost = true;
                 //Set form's topmost status back to whatever it was
@@ -60,23 +59,23 @@ namespace VanillaUpdater
             MaterialSkinManager = MaterialSkinManager.Instance;
             MaterialSkinManager.AddFormToManage(this);
 
-            SetUITheme(MaterialSkinManager.Themes.LIGHT);
+            SetUiTheme(MaterialSkinManager.Themes.LIGHT);
 
-            if (userSettings.Theme == "Dark")
+            if (_userSettings.Theme == "Dark")
             {
-                SetUITheme(MaterialSkinManager.Themes.DARK);
+                SetUiTheme(MaterialSkinManager.Themes.DARK);
                 themeSwitch.Checked = false;
             }
 
-            MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700, Accent.Green700, TextShade.WHITE);
+            MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700,
+                Accent.Green700, TextShade.WHITE);
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             if (VRegistry.GetSubKeyValue("Version") != null)
                 versionLabel.Text += VRegistry.GetSubKeyValue("Version").ToString();
 
-            if (userSettings.AutoUpdate == true) updateSwitch.Checked = true;
-
+            if (_userSettings.AutoUpdate) updateSwitch.Checked = true;
         }
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
@@ -91,7 +90,7 @@ namespace VanillaUpdater
             if (updateCheck.Result)
             {
                 CreateUpdateUI();
-                updaterVerLbl.Text = "Updater version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                updaterVerLbl.Text = "Updater version: " + Assembly.GetExecutingAssembly().GetName().Version;
             }
             else
             {
@@ -112,25 +111,23 @@ namespace VanillaUpdater
 
             foreach (var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
 
-            foreach (var item in UpdateData.Changes)
-            {
-                changesBox.Items.Add(item);
-            }
+            foreach (var item in UpdateData.Changes) changesBox.Items.Add(item);
             System.Diagnostics.Process.Start(UpdateData.SupportURL);
 
             Notifications.PlayNotificationSound();
 
-            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available", "Vanilla Remastered update is now available." +
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available",
+                "Vanilla Remastered update is now available." +
                 " Head over to the application to install it.", ToolTipIcon.None);
-
-
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
         {
             if (ProcessWatcher.IsGameRunning())
             {
-                MaterialMessageBox.Show(null, "The game is active and running! Please close it if you wish to begin updating.", "CLOSE THE GAME", MessageBoxButtons.OK);
+                MaterialMessageBox.Show(null,
+                    "The game is active and running! Please close it if you wish to begin updating.", "CLOSE THE GAME",
+                    MessageBoxButtons.OK);
                 return;
             }
 
@@ -140,9 +137,10 @@ namespace VanillaUpdater
 
             if (File.Exists("data_" + UpdateData.Version + ".rar"))
             {
-                DialogResult dialogResult = MaterialMessageBox.Show(null, "We've found already downloaded update package.\n\n" +
-                    "The package might be corrupted / invalid." +
-                    "Do you wish to install this package?", "Package found", MessageBoxButtons.YesNo);
+                var dialogResult = MaterialMessageBox.Show(null, "We've found already downloaded update package.\n\n" +
+                                                                 "The package might be corrupted / invalid." +
+                                                                 "Do you wish to install this package?",
+                    "Package found", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     versionAvailableLbl.Text = "installing the cached update ...";
@@ -152,9 +150,10 @@ namespace VanillaUpdater
 
                     DisplayFinishedInstallUI();
 
-                    Analytics.TrackEvent("Cached update has been installed", new Dictionary<string, string> {
-                { "Version", UpdateData.Version }
-            });
+                    Analytics.TrackEvent("Cached update has been installed", new Dictionary<string, string>
+                    {
+                        {"Version", UpdateData.Version}
+                    });
                 }
                 else
                 {
@@ -162,15 +161,17 @@ namespace VanillaUpdater
                 }
             }
 
-            else DownloadUpdate();
-
+            else
+            {
+                DownloadUpdate();
+            }
         }
 
         public void DownloadUpdate()
         {
-            string url = UpdateData.DownloadURL;
+            var url = UpdateData.DownloadURL;
 
-            using (WebClient wc = new WebClient())
+            using (var wc = new WebClient())
             {
                 wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
@@ -184,7 +185,9 @@ namespace VanillaUpdater
             if (e.ProgressPercentage == 0)
                 versionAvailableLbl.Text = "Connecting to the server ...";
 
-            versionAvailableLbl.Text = (e.ProgressPercentage + "% | " + Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " + Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.");
+            versionAvailableLbl.Text = e.ProgressPercentage + "% | " +
+                                       Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " +
+                                       Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.";
         }
 
         public void DisplayFinishedInstallUI()
@@ -194,10 +197,14 @@ namespace VanillaUpdater
             versionLabel.Text = "Newly installed " + UpdateData.Version;
             versionLabel.ForeColor = Color.DarkGreen;
 
-            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " has been installed", "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", ToolTipIcon.None);
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " has been installed",
+                "If you encounter any issues please reach to us via www.support.vanilla-remastered.com",
+                ToolTipIcon.None);
 
-            MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version + ".\n\n" +
-                "If you encounter any issues please reach to us via www.support.vanilla-remastered.com", "Update installed!", MessageBoxButtons.OK);
+            MaterialMessageBox.Show(null, "You've successfully installed Vanilla version " + UpdateData.Version +
+                                          ".\n\n" +
+                                          "If you encounter any issues please reach to us via www.support.vanilla-remastered.com",
+                "Update installed!", MessageBoxButtons.OK);
 
             checkUpdatesBtn.Enabled = true;
             updateBtn.Enabled = true;
@@ -208,10 +215,11 @@ namespace VanillaUpdater
         {
             if (e.Cancelled)
             {
-                Analytics.TrackEvent("Update has been cancelled", new Dictionary<string, string> {
-                { "Version", UpdateData.Version },
-                {"Error", e.Error.Message}
-            });
+                Analytics.TrackEvent("Update has been cancelled", new Dictionary<string, string>
+                {
+                    {"Version", UpdateData.Version},
+                    {"Error", e.Error.Message}
+                });
 
                 File.Delete("data_" + UpdateData.Version + ".rar");
                 return;
@@ -219,26 +227,31 @@ namespace VanillaUpdater
 
             if (e.Error != null) // We have an error! Retry a few times, then abort.
             {
-                Analytics.TrackEvent("Update has failed to download", new Dictionary<string, string> {
-                { "Version", UpdateData.Version },
-                {"Error", e.Error.Message}
-            });
+                Analytics.TrackEvent("Update has failed to download", new Dictionary<string, string>
+                {
+                    {"Version", UpdateData.Version},
+                    {"Error", e.Error.Message}
+                });
 
                 MaterialMessageBox.Show(null, "An error has occured while trying to download the update.\n" +
-                                    "The logs have been automatically sent to us and we're taking a look. Try to restart the updater and download the update again!\n\n" +
-                                    "If you need help, reach us via: www.support.vanilla-remastered.com (ERR_CODE: " + e.Error.Message, "FATAL ERROR", MessageBoxButtons.OK);
+                                              "The logs have been automatically sent to us and we're taking a look. Try to restart the updater and download the update again!\n\n" +
+                                              "If you need help, reach us via: www.support.vanilla-remastered.com (ERR_CODE: " +
+                                              e.Error.Message, "FATAL ERROR", MessageBoxButtons.OK);
                 // Cleanup
                 File.Delete("data_" + UpdateData.Version + ".rar");
                 return;
             }
 
 
-            Analytics.TrackEvent("Update has been downloaded", new Dictionary<string, string> {
-                { "Version", UpdateData.Version },
+            Analytics.TrackEvent("Update has been downloaded", new Dictionary<string, string>
+            {
+                {"Version", UpdateData.Version},
             });
 
-            notifyIcon.ShowBalloonTip(1000, "Vanilla Updater", "The update has been downloaded and is being installed. Please wait." +
-                " If you've encountered any issues while using Vanilla' please let me us know via www.support.vanilla-remastered.com", ToolTipIcon.None);
+            notifyIcon.ShowBalloonTip(1000, "Vanilla Updater",
+                "The update has been downloaded and is being installed. Please wait." +
+                " If you've encountered any issues while using Vanilla' please let me us know via www.support.vanilla-remastered.com",
+                ToolTipIcon.None);
 
             versionAvailableLbl.Text = "Extracting the files ... holdon!";
 
@@ -253,24 +266,24 @@ namespace VanillaUpdater
 
         private void updateSwitch_CheckedChanged(object sender, EventArgs e)
         {
-            userSettings.AutoUpdate = updateSwitch.Checked;
-            userSettings.Save();
+            _userSettings.AutoUpdate = updateSwitch.Checked;
+            _userSettings.Save();
         }
 
         private void themeSwitch_CheckedChanged(object sender, EventArgs e)
         {
             if (!themeSwitch.Checked)
             {
-                SetUITheme(MaterialSkinManager.Themes.DARK);
-                userSettings.Theme = "Dark";
+                SetUiTheme(MaterialSkinManager.Themes.DARK);
+                _userSettings.Theme = "Dark";
             }
             else
             {
-                SetUITheme(MaterialSkinManager.Themes.LIGHT);
-                userSettings.Theme = "Light";
+                SetUiTheme(MaterialSkinManager.Themes.LIGHT);
+                _userSettings.Theme = "Light";
             }
 
-            userSettings.Save();
+            _userSettings.Save();
         }
 
         private void changePathBtn_Click(object sender, EventArgs e)

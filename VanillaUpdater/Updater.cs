@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace VanillaUpdater
 {
-    class Updater
+    internal class Updater
     {
         public static string GetFileViaHttpString(string url)
         {
-            using (WebClient client = new WebClient())
+            using (var client = new WebClient())
             {
                 return client.DownloadString(url);
             }
@@ -23,7 +23,7 @@ namespace VanillaUpdater
         private static void FetchVersion()
         {
             var versionObjRaw = GetFileViaHttpString("http://www.vanilla-remastered.com/files/latest.json");
-            UpdateData update = JsonConvert.DeserializeObject<UpdateData>(versionObjRaw);
+            var update = JsonConvert.DeserializeObject<UpdateData>(versionObjRaw);
         }
 
         public static bool IsNewVersionAvailable()
@@ -44,23 +44,24 @@ namespace VanillaUpdater
                 return;
             }
 
-            DirectoryInfo di = Directory.CreateDirectory(destinationDirectoryName);
-            string destinationDirectoryFullPath = di.FullName;
+            var di = Directory.CreateDirectory(destinationDirectoryName);
+            var destinationDirectoryFullPath = di.FullName;
 
-            foreach (ZipArchiveEntry file in archive.Entries)
+            foreach (var file in archive.Entries)
             {
-                string completeFileName = Path.GetFullPath(Path.Combine(destinationDirectoryFullPath, file.FullName));
+                var completeFileName = Path.GetFullPath(Path.Combine(destinationDirectoryFullPath, file.FullName));
 
                 if (!completeFileName.StartsWith(destinationDirectoryFullPath, StringComparison.OrdinalIgnoreCase))
-                {
-                    throw new IOException("Trying to extract file outside of destination directory. See this link for more info: https://snyk.io/research/zip-slip-vulnerability");
-                }
+                    throw new IOException(
+                        "Trying to extract file outside of destination directory. See this link for more info: https://snyk.io/research/zip-slip-vulnerability");
 
                 if (file.Name.Length == 0)
-                {// Assuming Empty for Directory
+                {
+                    // Assuming Empty for Directory
                     Directory.CreateDirectory(Path.GetDirectoryName(completeFileName));
                     continue;
                 }
+
                 file.ExtractToFile(completeFileName, true);
             }
         }
@@ -71,9 +72,9 @@ namespace VanillaUpdater
 
             try
             {
-                string extractionPath = VRegistry.GetSubKeyValue("Path").ToString().Replace("/", "\\");
+                var extractionPath = VRegistry.GetSubKeyValue("Path").ToString().Replace("/", "\\");
 
-                ZipArchive archive = ZipFile.OpenRead("data_" + UpdateData.Version + ".rar");
+                var archive = ZipFile.OpenRead("data_" + UpdateData.Version + ".rar");
                 ExtractToDirectory(archive, extractionPath, true);
 
                 File.Delete("data_" + UpdateData.Version + ".rar");
@@ -81,12 +82,13 @@ namespace VanillaUpdater
             catch (Exception e)
             {
                 MessageBox.Show("Failed to install the update due to an exception that.\n" +
-                    "ERR_CODE: " + e.Message, "An error occured");
+                                "ERR_CODE: " + e.Message, "An error occured");
                 return;
             }
 
-            Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string> {
-                { "Version", UpdateData.Version }
+            Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string>
+            {
+                {"Version", UpdateData.Version}
             });
 
             VRegistry.CreateSubKey("Version", UpdateData.Version);
@@ -95,33 +97,26 @@ namespace VanillaUpdater
 
         public static double ConvertBytesToMegabytes(long bytes)
         {
-            double result = (bytes / 102f) / 1024f;
+            double result = bytes / 102f / 1024f;
             return Convert.ToInt32(result);
         }
-
     }
+
     [DataContract]
-    class UpdateData
+    internal class UpdateData
     {
-        [DataMember]
-        public static string Version { get; set; }
+        [DataMember] public static string Version { get; set; }
 
-        [DataMember]
-        public static string Author { get; set; }
+        [DataMember] public static string Author { get; set; }
 
-        [DataMember]
-        public static string[] Changes { get; set; }
+        [DataMember] public static string[] Changes { get; set; }
 
-        [DataMember]
-        public static DateTime Date { get; set; }
+        [DataMember] public static DateTime Date { get; set; }
 
-        [DataMember]
-        public static string[] AffectedFiles { get; set; }
+        [DataMember] public static string[] AffectedFiles { get; set; }
 
-        [DataMember]
-        public static string DownloadURL { get; set; }
+        [DataMember] public static string DownloadURL { get; set; }
 
-        [DataMember]
-        public static string SupportURL { get; set; }
+        [DataMember] public static string SupportURL { get; set; }
     }
 }

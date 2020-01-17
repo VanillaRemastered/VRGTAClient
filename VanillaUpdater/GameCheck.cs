@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace VanillaUpdater
 {
-    class GameCheck
+    internal class GameCheck
     {
-        private static string[] requiredFiles = new string[]
+        private static readonly string[] requiredFiles = new string[]
         {
             "gta_sa.exe",
             "vorbis.dll",
@@ -31,19 +31,14 @@ namespace VanillaUpdater
              * 
              * TODO: Rework this out.
             */
-            for (int i = 0; i < requiredFiles.Length; i++)
-            {
-                requiredFiles.SetValue(path + "\\" + requiredFiles[i], i);
-            }
+            for (var i = 0; i < requiredFiles.Length; i++) requiredFiles.SetValue(path + "\\" + requiredFiles[i], i);
 
             if (Directory.GetFiles(path).Count() > 0)
             {
-                string[] files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
-                if (files.Any(requiredFiles.Contains))
-                {
-                    return true;
-                }
+                var files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
+                if (files.Any(requiredFiles.Contains)) return true;
             }
+
             return false;
         }
     }

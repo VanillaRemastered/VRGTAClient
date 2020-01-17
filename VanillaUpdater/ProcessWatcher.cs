@@ -2,14 +2,14 @@
 
 namespace VanillaUpdater
 {
-    class ProcessWatcher
+    internal class ProcessWatcher
     {
         /// <summary>
         /// Checks if the game is running or not
         /// </summary>
         public static bool IsGameRunning()
         {
-            Process[] pname = Process.GetProcessesByName("gta_sa");
+            var pname = Process.GetProcessesByName("gta_sa");
             if (pname.Length == 0) return false;
             return true;
         }
