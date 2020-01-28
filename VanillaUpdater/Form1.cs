@@ -131,6 +131,15 @@ namespace VanillaUpdater
                 return;
             }
 
+            if(UpdateData.Version.Equals("1.3.0") && VRegistry.GetSubKeyValue("Version").Equals("1.2.0"))
+            {
+                MaterialMessageBox.Show(null,
+                    "Update 1.3.0 has a different file system organization and therefore direct update from 1.2.0 to 1.3.0 is not possible.\n" +
+                    "We highly recommend to re-install your GTA and run the updater once again.", "Important notice!", MessageBoxButtons.OK);
+                CleanUpdateUi();
+                return;
+            }
+
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
             changePathBtn.Enabled = false;
@@ -190,6 +199,14 @@ namespace VanillaUpdater
                                        Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.";
         }
 
+        public void CleanUpdateUi()
+        {
+            Size = new Size(Size.Width, 246);
+
+            checkUpdatesBtn.Enabled = true;
+            updateBtn.Enabled = true;
+            changePathBtn.Enabled = true;
+        }
         public void DisplayFinishedInstallUi()
         {
             Size = new Size(Size.Width, 246);
