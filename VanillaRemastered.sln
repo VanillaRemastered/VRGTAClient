@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanillaUpdater", "VanillaUpdater\VanillaUpdater.csproj", "{B94905BC-4250-44D9-B889-70CBFACB760D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTAClient", "VanillaUpdater\GTAClient.csproj", "{B94905BC-4250-44D9-B889-70CBFACB760D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
