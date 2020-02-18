@@ -269,6 +269,12 @@
     <Compile Include="Registry.cs" />
     <Compile Include="SetupLogic.cs" />
     <Compile Include="Updater.cs" />
+    <Compile Include="VanillaSelecter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VanillaSelecter.Designer.cs">
+      <DependentUpon>VanillaSelecter.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +288,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VanillaSelecter.resx">
+      <DependentUpon>VanillaSelecter.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -299,6 +308,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="VR12Dirs.txt" />
+    <Content Include="VR12Files.txt" />
     <None Include="bin\Debug\notification.wav" />
     <None Include="bin\Debug\unsure.wav" />
     <Content Include="favicon.ico" />

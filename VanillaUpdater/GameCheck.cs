@@ -12,6 +12,11 @@ namespace VanillaUpdater
             "eax.dll"
         };
 
+        private static readonly string[] vanillaFiles = new string[]
+        {
+
+        };
+
         public static bool IsGameCorrupt()
         {
             return true;
@@ -39,6 +44,16 @@ namespace VanillaUpdater
                 if (files.Any(requiredFiles.Contains)) return true;
             }
 
+            return false;
+        }
+
+        /// <summary>
+        /// Checks if the Vanilla has been already installed
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsVanillaInstalled()
+        {
+            
             return false;
         }
     }

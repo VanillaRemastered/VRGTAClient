@@ -51,7 +51,17 @@ namespace VanillaUpdater
         {
             VRegistry.CreateSubKey("Launch", ""); // create a key in case it doesn't exist.
 
-            if (VRegistry.IsFirstRun()) SetupLogic.Run();
+            if (VRegistry.IsFirstRun())
+            {
+                SetupLogic.Run();
+
+                var vanillaSelecter = new VanillaSelecter();
+                this.Hide();
+
+                vanillaSelecter.Show();
+                vanillaSelecter.Focus();
+
+            }
 
             BringToTop();
             Focus();
@@ -136,7 +146,8 @@ namespace VanillaUpdater
                 MaterialMessageBox.Show(null,
                     "Update 1.3.0 has a different file system organization and therefore direct update from 1.2.0 to 1.3.0 is not possible.\n" +
                     "We highly recommend to remove old version of Vanilla and run the updater again.", "Important notice!", MessageBoxButtons.OK);
-                CleanUpdateUi();
+                //CleanUpdateUi();
+                Updater.RemoveOlderUpdate("1.2.0");
                 return;
             }
 

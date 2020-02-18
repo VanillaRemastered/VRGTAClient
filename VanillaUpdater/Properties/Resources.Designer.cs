@@ -77,5 +77,44 @@ namespace VanillaUpdater.Properties {
                 return ResourceManager.GetStream("unsure", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to bass.dll
+        ///CLEO.asi
+        ///cleo.log
+        ///colormod.asi
+        ///colormod.fxc
+        ///colormod.ini
+        ///d3d9.dll
+        ///d3d96.dll
+        ///eax.dll
+        ///enbseries.ini
+        ///GTA_SA.EXE
+        ///ImVehFt.asi
+        ///ImVehFt.log
+        ///mouse.png
+        ///normalmap.asi
+        ///normalmap.ini
+        ///normalmap_pixel.fxc
+        ///normalmap_vertex.fxc
+        ///sampgui.png
+        ///SilentPatchSA.asi
+        ///SilentPatchSA.ini
+        ///stream.ini
+        ///vorbis.dll
+        ///vorbisFile.dll
+        ///vorbisHooked.dll
+        ///advanced_plugin_management_example\settings.ini
+        ///cleo\1024MB-StreamMemory.cs
+        ///cleo\ccontrol.cs
+        ///cleo\FileSystemOperations.cleo
+        ///cleo\FixWheelTurnBack.cs
+        ///cleo\IniFi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VR12Files {
+            get {
+                return ResourceManager.GetString("VR12Files", resourceCulture);
+            }
+        }
     }
 }

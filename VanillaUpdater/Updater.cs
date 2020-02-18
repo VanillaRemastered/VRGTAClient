@@ -66,6 +66,18 @@ namespace VanillaUpdater
             }
         }
 
+
+        /// <summary>
+        ///  removes the older version.
+        /// </summary>
+        /// <param name="codeName"></param>
+        public static void RemoveOlderUpdate(string codeName)
+        {
+            if(codeName == "1.2.0")
+            {
+            }
+        }
+
         public static void InstallUpdate()
         {
             if (Directory.Exists("update")) Directory.Delete("update", true);

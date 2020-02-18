@@ -1,0 +1,2 @@
+﻿advanced_plugin_management_example
+ImVehFt
