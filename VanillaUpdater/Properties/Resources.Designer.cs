@@ -61,24 +61,6 @@ namespace VanillaUpdater.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream notification {
-            get {
-                return ResourceManager.GetStream("notification", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream unsure {
-            get {
-                return ResourceManager.GetStream("unsure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to bass.dll
         ///CLEO.asi
         ///cleo.log
@@ -109,7 +91,8 @@ namespace VanillaUpdater.Properties {
         ///cleo\ccontrol.cs
         ///cleo\FileSystemOperations.cleo
         ///cleo\FixWheelTurnBack.cs
-        ///cleo\IniFi [rest of string was truncated]&quot;;.
+        ///cleo\IniFiles.cleo
+        ///cleo\IntOperations.cl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VR12Files {
             get {

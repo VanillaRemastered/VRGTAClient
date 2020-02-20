@@ -4,7 +4,7 @@
     {
         private static readonly System.Media.SoundPlayer Player = new System.Media.SoundPlayer();
 
-        public static void PlayNotificationSound()
+        /*public static void PlayNotificationSound()
         {
             Player.Stream = Properties.Resources.notification;
             Player.Play();
@@ -14,6 +14,6 @@
         {
             Player.Stream = Properties.Resources.unsure;
             Player.Play();
-        }
+        }*/
     }
 }

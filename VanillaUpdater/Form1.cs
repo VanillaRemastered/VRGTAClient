@@ -104,7 +104,7 @@ namespace VanillaUpdater
             }
             else
             {
-                Notifications.PlayNotificationSound();
+               // Notifications.PlayNotificationSound();
                 MaterialMessageBox.Show(null, "You're using the latest version of Vanilla.", "No updates found");
             }
 
@@ -124,7 +124,7 @@ namespace VanillaUpdater
             foreach (var item in UpdateData.Changes) changesBox.Items.Add(item);
             System.Diagnostics.Process.Start(UpdateData.SupportURL);
 
-            Notifications.PlayNotificationSound();
+            ///Notifications.PlayNotificationSound();
 
             notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available",
                 "Vanilla Remastered update is now available." +
