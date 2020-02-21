@@ -40,7 +40,6 @@
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.changePathBtn = new MaterialSkin.Controls.MaterialButton();
-            this.vanillaComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -190,24 +189,11 @@
             this.changePathBtn.UseVisualStyleBackColor = true;
             this.changePathBtn.Click += new System.EventHandler(this.changePathBtn_Click);
             // 
-            // vanillaComboBox
-            // 
-            this.vanillaComboBox.FormattingEnabled = true;
-            this.vanillaComboBox.Items.AddRange(new object[] {
-            "Vanilla Remastered 1.0.0",
-            "Vanilla Remastered 1.2.0",
-            "Vanilla Remastered 2.0.0"});
-            this.vanillaComboBox.Location = new System.Drawing.Point(10, 169);
-            this.vanillaComboBox.Name = "vanillaComboBox";
-            this.vanillaComboBox.Size = new System.Drawing.Size(154, 21);
-            this.vanillaComboBox.TabIndex = 12;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 243);
-            this.Controls.Add(this.vanillaComboBox);
             this.Controls.Add(this.changePathBtn);
             this.Controls.Add(this.themeSwitch);
             this.Controls.Add(this.changesBox);
@@ -239,7 +225,6 @@
         private MaterialSkin.Controls.MaterialSwitch themeSwitch;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MaterialSkin.Controls.MaterialButton changePathBtn;
-        private System.Windows.Forms.ComboBox vanillaComboBox;
     }
 }
 
