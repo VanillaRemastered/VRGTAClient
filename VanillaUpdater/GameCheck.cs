@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using MaterialSkin.Controls;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace VanillaUpdater
 {
@@ -48,12 +50,16 @@ namespace VanillaUpdater
         }
 
         /// <summary>
-        /// Checks if the Vanilla has been already installed
+        /// Outputs a dialog and asks the question "Have you already installed Vanilla"
         /// </summary>
         /// <returns></returns>
         public static bool IsVanillaInstalled()
         {
-            
+            var dialogResult = MaterialMessageBox.Show(null, "Do you have already installed Vanilla Remastered?",
+                   "Important question!", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+                return true;
             return false;
         }
     }

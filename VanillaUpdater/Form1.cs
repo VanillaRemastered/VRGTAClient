@@ -18,6 +18,8 @@ namespace VanillaUpdater
         public MaterialSkinManager MaterialSkinManager { get; set; }
         private readonly Properties.Settings _userSettings = new Properties.Settings();
 
+        private bool isVanillaInstalled;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -54,13 +56,6 @@ namespace VanillaUpdater
             if (VRegistry.IsFirstRun())
             {
                 SetupLogic.Run();
-
-                var vanillaSelecter = new VanillaSelecter();
-                this.Hide();
-
-                vanillaSelecter.Show();
-                vanillaSelecter.Focus();
-
             }
 
             BringToTop();
@@ -185,6 +180,24 @@ namespace VanillaUpdater
             {
                 DownloadUpdate();
             }
+        }
+
+        public void DownloadVR(string codeName)
+        {
+            var url = UpdateData.DownloadURL; // TODO: edit.
+
+            using (var wc = new WebClient())
+            {
+                wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
+                wc.DownloadFileCompleted += Wc_DownloadVRCompleted;
+
+                wc.DownloadFileAsync(new Uri(url), "datavr_" + UpdateData.Version + ".rar");
+            }
+        }
+
+        private void Wc_DownloadVRCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            
         }
 
         public void DownloadUpdate()

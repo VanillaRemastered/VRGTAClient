@@ -13,7 +13,8 @@ namespace VanillaUpdater
         */
 
         /// <summary>
-        /// Returns registry subkey object value.
+        /// Returns registry subkey object value. 
+        /// In case the key doesn't exist, it will return string '-'
         /// </summary>
         /// <param name="value">Name of the field (e.g Version)</param>
         /// <returns></returns>
@@ -21,6 +22,11 @@ namespace VanillaUpdater
         {
             using (_runKey = Registry.CurrentUser.OpenSubKey(registryAddress))
             {
+                var returnKey = _runKey.GetValue(value);
+
+                if (returnKey == null)
+                    return "";
+
                 return _runKey.GetValue(value);
             }
         }
@@ -42,7 +48,11 @@ namespace VanillaUpdater
         {
             try
             {
-                if (GetSubKeyValue("Path").Equals(string.Empty) || GetSubKeyValue("Path").Equals(string.Empty)) return true;
+                var pathKey = GetSubKeyValue("Path");
+                var versionKey = GetSubKeyValue("Version");
+
+                if (pathKey.Equals(string.Empty) || versionKey.Equals(string.Empty)) return true;
+
             } catch(Exception e)
             {
                 return true;

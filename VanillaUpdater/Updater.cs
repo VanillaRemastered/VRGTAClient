@@ -78,6 +78,15 @@ namespace VanillaUpdater
             }
         }
 
+        /// <summary>
+        /// Installs Vanilla Remastered.
+        /// </summary>
+        /// <param name="codeName"></param>
+        public static void InstallVanilla(string codeName)
+        {
+
+        }
+
         public static void InstallUpdate()
         {
             if (Directory.Exists("update")) Directory.Delete("update", true);
