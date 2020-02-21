@@ -26,6 +26,9 @@ namespace VanillaUpdater
                     if (GameCheck.IsWorkspaceValid(folderPath))
                     {
                         VRegistry.CreateSubKey("Path", folderPath);
+
+                        // TEMP FIX.
+                        VRegistry.CreateSubKey("Version", "jc");
                     }
                     else
                     {
