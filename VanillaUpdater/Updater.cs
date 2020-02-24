@@ -73,7 +73,7 @@ namespace VanillaUpdater
         /// <param name="codeName"></param>
         public static void RemoveOlderUpdate(string codeName)
         {
-            if(codeName == "1.2.0")
+            if (codeName == "1.2.0")
             {
             }
         }

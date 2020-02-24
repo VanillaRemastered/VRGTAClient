@@ -53,7 +53,8 @@ namespace VanillaUpdater
 
                 if (pathKey.Equals(string.Empty) || versionKey.Equals(string.Empty)) return true;
 
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return true;
             }
