@@ -277,12 +277,13 @@ namespace VanillaUpdater
                 });
 
                 MaterialMessageBox.Show(null, "An error has occured while trying to download the update.\n" +
-                                              "The logs have been automatically sent to us and we're taking a look. Try to restart the updater and download the update again!\n\n" +
+                                              "The client will now restart and you may start updating once again\n\n" +
                                               "If you need help, reach us via: www.support.vanilla-remastered.com (ERR_CODE: " +
                                               e.Error.Message, "FATAL ERROR", MessageBoxButtons.OK);
                 // Cleanup
                 File.Delete("data_" + UpdateData.Version + ".rar");
-                return;
+
+                Application.Restart();
             }
 
 
