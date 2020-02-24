@@ -141,7 +141,9 @@ namespace VanillaUpdater
                 MaterialMessageBox.Show(null,
                     "Update 1.3.0 has a different file system organization and therefore direct update from 1.2.0 to 1.3.0 is not possible.\n" +
                     "We highly recommend to remove old version of Vanilla and run the updater again.", "Important notice!", MessageBoxButtons.OK);
+                
                 //CleanUpdateUi();
+                
                 Updater.RemoveOlderUpdate("1.2.0");
                 return;
             }
@@ -291,7 +293,7 @@ namespace VanillaUpdater
 
             notifyIcon.ShowBalloonTip(1000, "Vanilla Updater",
                 "The update has been downloaded and is being installed. Please wait." +
-                " If you've encountered any issues while using Vanilla' please let me us know via www.support.vanilla-remastered.com",
+                " If you've encountered any issues while using Vanilla' please let us know via www.support.vanilla-remastered.com",
                 ToolTipIcon.None);
 
             versionAvailableLbl.Text = "Extracting the files ... holdon!";
