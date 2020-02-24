@@ -18,8 +18,6 @@ namespace VanillaUpdater
         public MaterialSkinManager MaterialSkinManager { get; set; }
         private readonly Properties.Settings _userSettings = new Properties.Settings();
 
-        private bool isVanillaInstalled;
-
         public MainWindow()
         {
             InitializeComponent();
