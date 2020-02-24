@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,11 +14,6 @@ namespace VanillaUpdater
             "vorbis.dll",
             "eax.dll"
         };
-
-        public static bool IsGameCorrupt()
-        {
-            return true;
-        }
 
         /// <summary>
         /// returns true if the application is put into the root directory (gtasa)
