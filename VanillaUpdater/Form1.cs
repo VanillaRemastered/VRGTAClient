@@ -184,24 +184,6 @@ namespace VanillaUpdater
             }
         }
 
-        public void DownloadVR(string codeName)
-        {
-            var url = UpdateData.DownloadURL; // TODO: edit.
-
-            using (var wc = new WebClient())
-            {
-                wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
-                wc.DownloadFileCompleted += Wc_DownloadVRCompleted;
-
-                wc.DownloadFileAsync(new Uri(url), "datavr_" + UpdateData.Version + ".rar");
-            }
-        }
-
-        private void Wc_DownloadVRCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            
-        }
-
         public void DownloadUpdate()
         {
             var url = UpdateData.DownloadURL;
