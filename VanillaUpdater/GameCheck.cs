@@ -14,11 +14,6 @@ namespace VanillaUpdater
             "eax.dll"
         };
 
-        private static readonly string[] vanillaFiles = new string[]
-        {
-
-        };
-
         public static bool IsGameCorrupt()
         {
             return true;
@@ -49,18 +44,5 @@ namespace VanillaUpdater
             return false;
         }
 
-        /// <summary>
-        /// Outputs a dialog and asks the question "Have you already installed Vanilla"
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsVanillaInstalled()
-        {
-            var dialogResult = MaterialMessageBox.Show(null, "Do you have already installed Vanilla Remastered?",
-                   "Important question!", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-                return true;
-            return false;
-        }
     }
 }
