@@ -167,7 +167,8 @@ namespace VanillaUpdater
                     else
                     {
                             CleanUpdateUi();
-                            MaterialMessageBox.Show(null, "The update has failed to install the cached update due to an error therefore you may want to restart installation.",
+                            MaterialMessageBox.Show(null, "The update has failed to install the cached update due to an error therefore you may want to restart installation.\n" +
+                                "You may find a detailed logs in your Documents folder.",
                                 "FAILED TO INSTALL", MessageBoxButtons.OK);
                         return;
                     }
@@ -295,7 +296,8 @@ namespace VanillaUpdater
             else
             {
                 CleanUpdateUi();
-                MaterialMessageBox.Show(null, "The update has failed to install due to an error therefore you may want to restart installation.",
+                MaterialMessageBox.Show(null, "The update has failed to install due to an error therefore you may want to restart installation.\n" +
+                    "You may find detailed log in Documents folder.",
                     "FAILED TO INSTALL", MessageBoxButtons.OK);
             }
         }
