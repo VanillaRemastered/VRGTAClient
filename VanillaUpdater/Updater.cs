@@ -87,7 +87,11 @@ namespace VanillaUpdater
 
         }
 
-        public static void InstallUpdate()
+        /// <summary>
+        /// Attempts to install the actual update and returns true if no exceptions occured.
+        /// </summary>
+        /// <returns>bool</returns>
+        public static bool InstallUpdate()
         {
             if (Directory.Exists("update")) Directory.Delete("update", true);
 
@@ -104,7 +108,7 @@ namespace VanillaUpdater
             {
                 MessageBox.Show("Failed to install the update due to an exception that.\n" +
                                 "ERR_CODE: " + e.Message, "An error occured");
-                return;
+                return false;
             }
 
             Analytics.TrackEvent("Update has been installed!", new Dictionary<string, string>
@@ -113,6 +117,7 @@ namespace VanillaUpdater
             });
 
             VRegistry.CreateSubKey("Version", UpdateData.Version);
+            return true;
             //Notifications.PlayNotificationSound();
         }
 

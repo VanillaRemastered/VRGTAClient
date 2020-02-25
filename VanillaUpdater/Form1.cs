@@ -163,7 +163,14 @@ namespace VanillaUpdater
                     var installCached = Task.Run(() => Updater.InstallUpdate());
                     await Task.WhenAll(installCached);
 
-                    DisplayFinishedInstallUi();
+                    if(installCached.Result) DisplayFinishedInstallUi();
+                    else
+                    {
+                            CleanUpdateUi();
+                            MaterialMessageBox.Show(null, "The update has failed to install the cached update due to an error therefore you may want to restart installation.",
+                                "FAILED TO INSTALL", MessageBoxButtons.OK);
+                        return;
+                    }
 
                     Analytics.TrackEvent("Cached update has been installed", new Dictionary<string, string>
                     {
@@ -284,7 +291,13 @@ namespace VanillaUpdater
 
             await Task.WhenAll(installer);
 
-            DisplayFinishedInstallUi();
+            if(installer.Result) DisplayFinishedInstallUi();
+            else
+            {
+                CleanUpdateUi();
+                MaterialMessageBox.Show(null, "The update has failed to install due to an error therefore you may want to restart installation.",
+                    "FAILED TO INSTALL", MessageBoxButtons.OK);
+            }
         }
 
 
