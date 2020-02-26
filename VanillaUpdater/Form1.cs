@@ -137,13 +137,10 @@ namespace VanillaUpdater
             if (UpdateData.Version.Equals("1.3.0") && VRegistry.GetSubKeyValue("Version").Equals("1.2.0"))
             {
                 MaterialMessageBox.Show(null,
-                    "Update 1.3.0 has a different file system organization and therefore direct update from 1.2.0 to 1.3.0 is not possible.\n" +
-                    "We highly recommend to remove old version of Vanilla and run the updater again.", "Important notice!", MessageBoxButtons.OK);
-
-                //CleanUpdateUi();
+                    "Update 1.3.0 has a different file system organization and therefore previous update files must be removed.\n" +
+                    "The client will now delete a list of 1.2.0 files and begin installing 1.3.0.", "Important notice!", MessageBoxButtons.OK);
 
                 Updater.RemoveOlderUpdate("1.2.0");
-                return;
             }
 
             checkUpdatesBtn.Enabled = false;
