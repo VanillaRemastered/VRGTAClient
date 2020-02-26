@@ -23,11 +23,17 @@ namespace VanillaUpdater
         [STAThread]
         private static void Main()
         {
+            ConsoleWrapper.PrintAsciiSignature();
+            ConsoleWrapper.PrintMessage("Starting Vanilla Remastered ...", ConsoleWrapper.PrintStatus.Normal);
+            ConsoleWrapper.PrintMessage("Launching AppCenter Analytics ...", ConsoleWrapper.PrintStatus.Normal);
+
             SetCountryCode();
             AppCenter.LogLevel = LogLevel.Verbose;
             AppCenter.Start("ceef21cd-5ffe-4266-b0e8-9a0769c3854d",
                 typeof(Analytics), typeof(Crashes));
 
+
+            ConsoleWrapper.PrintMessage("Launching User Interface ... ", ConsoleWrapper.PrintStatus.Normal);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

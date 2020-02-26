@@ -90,9 +90,10 @@ namespace VanillaUpdater
                         File.SetAttributes(pathDel, FileAttributes.Normal);
                         File.Delete(pathDel);
 
-                        Console.WriteLine("Deleting -->" + line);
+                        ConsoleWrapper.PrintMessage("Deleting previous data chunk (" + pathDel + ")",
+                            ConsoleWrapper.PrintStatus.Warning);
                     }
-                    else Console.WriteLine("Skipping --> " + line);
+                    else ConsoleWrapper.PrintMessage("Skipping file " + pathDel, ConsoleWrapper.PrintStatus.Normal);
                 }
 
                 MessageBox.Show("removed, u may start :)");
