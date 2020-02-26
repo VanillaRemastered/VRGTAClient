@@ -22,6 +22,9 @@ namespace VanillaUpdater
 
         private static void FetchVersion()
         {
+            ConsoleWrapper.PrintMessage("Fetching master list from: http://www.vanilla-remastered.com/files/latest.json",
+                ConsoleWrapper.PrintStatus.Normal);
+
             var versionObjRaw = GetFileViaHttpString("http://www.vanilla-remastered.com/files/latest.json");
             var update = JsonConvert.DeserializeObject<UpdateData>(versionObjRaw);
         }
