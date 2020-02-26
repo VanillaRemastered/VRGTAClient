@@ -40,6 +40,8 @@
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.changePathBtn = new MaterialSkin.Controls.MaterialButton();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -92,7 +94,7 @@
             this.updateBtn.DrawShadows = true;
             this.updateBtn.HighEmphasis = true;
             this.updateBtn.Icon = null;
-            this.updateBtn.Location = new System.Drawing.Point(258, 470);
+            this.updateBtn.Location = new System.Drawing.Point(258, 463);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.updateBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateBtn.Name = "updateBtn";
@@ -134,13 +136,14 @@
             // 
             // changesBox
             // 
-            this.changesBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changesBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.changesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changesBox.FormattingEnabled = true;
             this.changesBox.HorizontalScrollbar = true;
-            this.changesBox.ItemHeight = 15;
-            this.changesBox.Location = new System.Drawing.Point(12, 315);
+            this.changesBox.ItemHeight = 16;
+            this.changesBox.Location = new System.Drawing.Point(10, 0);
             this.changesBox.Name = "changesBox";
-            this.changesBox.Size = new System.Drawing.Size(353, 124);
+            this.changesBox.Size = new System.Drawing.Size(353, 112);
             this.changesBox.TabIndex = 9;
             // 
             // themeSwitch
@@ -189,14 +192,28 @@
             this.changePathBtn.UseVisualStyleBackColor = true;
             this.changePathBtn.Click += new System.EventHandler(this.changePathBtn_Click);
             // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.changesBox);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(9, 311);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(363, 104);
+            this.materialCard1.TabIndex = 12;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 243);
+            this.ClientSize = new System.Drawing.Size(383, 251);
+            this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.changePathBtn);
             this.Controls.Add(this.themeSwitch);
-            this.Controls.Add(this.changesBox);
             this.Controls.Add(this.updateSwitch);
             this.Controls.Add(this.updaterVerLbl);
             this.Controls.Add(this.updateBtn);
@@ -209,6 +226,7 @@
             this.Name = "MainWindow";
             this.Text = "GTA SA Vanilla Updater";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.materialCard1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +244,7 @@
         private MaterialSkin.Controls.MaterialSwitch themeSwitch;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MaterialSkin.Controls.MaterialButton changePathBtn;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
     }
 }
 
