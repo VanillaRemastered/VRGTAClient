@@ -170,6 +170,8 @@ namespace VanillaUpdater
                         return;
                     }
 
+                    CleanupUpdate();
+
                     Analytics.TrackEvent("Cached update has been installed", new Dictionary<string, string>
                     {
                         {"Version", UpdateData.Version}
@@ -237,6 +239,13 @@ namespace VanillaUpdater
             checkUpdatesBtn.Enabled = true;
             updateBtn.Enabled = true;
             changePathBtn.Enabled = true;
+
+            CleanupUpdate();
+        }
+
+        private void CleanupUpdate()
+        {
+            File.Delete("data_" + UpdateData.Version + ".rar");
         }
 
         private async void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)

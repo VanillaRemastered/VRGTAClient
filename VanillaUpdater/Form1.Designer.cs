@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 251);
+            this.ClientSize = new System.Drawing.Size(383, 243);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.changePathBtn);
             this.Controls.Add(this.themeSwitch);
