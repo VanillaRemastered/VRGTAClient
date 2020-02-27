@@ -9,7 +9,8 @@ namespace VanillaUpdater
         {
             "gta_sa.exe",
             "vorbis.dll",
-            "eax.dll"
+            "eax.dll",
+            "bass.dll"
         };
 
         /// <summary>
