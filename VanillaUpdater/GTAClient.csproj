@@ -300,6 +300,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\deduction.wav" />
+    <None Include="Resources\unsure.wav" />
+    <None Include="Resources\point-blank.wav" />
     <Content Include="VR12Files.txt" />
     <Content Include="favicon.ico" />
   </ItemGroup>

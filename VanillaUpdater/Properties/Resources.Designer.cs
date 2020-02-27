@@ -61,38 +61,60 @@ namespace VanillaUpdater.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to bass.dll
-        ///CLEO.asi
-        ///cleo.log
-        ///colormod.asi
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream deduction {
+            get {
+                return ResourceManager.GetStream("deduction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream point_blank {
+            get {
+                return ResourceManager.GetStream("point_blank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream unsure {
+            get {
+                return ResourceManager.GetStream("unsure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to colormod.asi
         ///colormod.fxc
         ///colormod.ini
-        ///d3d9.dll
         ///d3d96.dll
-        ///eax.dll
         ///enbseries.ini
-        ///GTA_SA.EXE
         ///ImVehFt.asi
         ///ImVehFt.log
-        ///mouse.png
         ///normalmap.asi
         ///normalmap.ini
         ///normalmap_pixel.fxc
         ///normalmap_vertex.fxc
-        ///sampgui.png
         ///SilentPatchSA.asi
         ///SilentPatchSA.ini
-        ///stream.ini
-        ///vorbis.dll
-        ///vorbisFile.dll
-        ///vorbisHooked.dll
         ///advanced_plugin_management_example\settings.ini
         ///cleo\1024MB-StreamMemory.cs
         ///cleo\ccontrol.cs
         ///cleo\FileSystemOperations.cleo
         ///cleo\FixWheelTurnBack.cs
-        ///cleo\IniFiles.cleo
-        ///cleo\IntOperations.cl [rest of string was truncated]&quot;;.
+        ///cleo\noisefix.cs
+        ///cleo\particles.cs
+        ///cleo\PerPixelLighting.cs
+        ///cleo\proportionalCoronas.cs
+        ///cleo\Render.cs
+        ///cleo\SensitivityFix.cs
+        ///cleo\StreamIniExtender.cs
+        ///cleo\Sun.cs
+        ///cleo\Wi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VR12Files {
             get {
