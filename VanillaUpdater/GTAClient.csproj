@@ -300,7 +300,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VR12Dirs.txt" />
     <Content Include="VR12Files.txt" />
     <Content Include="favicon.ico" />
   </ItemGroup>
