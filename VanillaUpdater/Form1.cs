@@ -107,11 +107,10 @@ namespace VanillaUpdater
             }
             else
             {
-                // Notifications.PlayNotificationSound();
-                MaterialMessageBox.Show(null, "You're using the latest version of Vanilla.", "No updates found");
-
                 Notifications.PlayNotificationSound2();
                 FlashWindow(this.Handle, true);
+
+                MaterialMessageBox.Show(null, "You're using the latest version of Vanilla.", "No updates found");
             }
 
             checkUpdatesBtn.Enabled = true;
@@ -137,7 +136,6 @@ namespace VanillaUpdater
                 " Head over to the application to install it.", ToolTipIcon.None);
 
             FlashWindow(this.Handle, true);
-            Notifications.PlayNotificationSound();
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
@@ -187,12 +185,14 @@ namespace VanillaUpdater
                     else
                     {
                         CleanUpdateUi();
+
+                        Notifications.PlayErrorSound();
+                        FlashWindow(this.Handle, true);
+
                         MaterialMessageBox.Show(null, "The update has failed to install the cached update due to an error therefore you may want to restart installation.\n" +
                             "You may find a detailed logs in your Documents folder.",
                             "FAILED TO INSTALL", MessageBoxButtons.OK);
 
-                        Notifications.PlayErrorSound();
-                        FlashWindow(this.Handle, true);
                         return;
 
                     }
