@@ -174,13 +174,13 @@ namespace VanillaUpdater
                     var installCached = Task.Run(() => Updater.InstallUpdate());
                     await Task.WhenAll(installCached);
 
-                    if(installCached.Result) DisplayFinishedInstallUi();
+                    if (installCached.Result) DisplayFinishedInstallUi();
                     else
                     {
-                            CleanUpdateUi();
-                            MaterialMessageBox.Show(null, "The update has failed to install the cached update due to an error therefore you may want to restart installation.\n" +
-                                "You may find a detailed logs in your Documents folder.",
-                                "FAILED TO INSTALL", MessageBoxButtons.OK);
+                        CleanUpdateUi();
+                        MaterialMessageBox.Show(null, "The update has failed to install the cached update due to an error therefore you may want to restart installation.\n" +
+                            "You may find a detailed logs in your Documents folder.",
+                            "FAILED TO INSTALL", MessageBoxButtons.OK);
 
                         FlashWindow(this.Handle, true);
                         return;
@@ -316,7 +316,7 @@ namespace VanillaUpdater
 
             await Task.WhenAll(installer);
 
-            if(installer.Result) DisplayFinishedInstallUi();
+            if (installer.Result) DisplayFinishedInstallUi();
             else
             {
                 CleanUpdateUi();
@@ -359,11 +359,11 @@ namespace VanillaUpdater
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            while(updateSwitch.Checked)
+            while (updateSwitch.Checked)
             {
                 Thread.Sleep(4000);
 
-                if(Updater.IsNewVersionAvailable())
+                if (Updater.IsNewVersionAvailable())
                 {
                     int reminderMiliseconds = 600000; // 10 mins.
 

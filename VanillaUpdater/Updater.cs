@@ -81,12 +81,12 @@ namespace VanillaUpdater
                 string line;
                 string path = VRegistry.GetSubKeyValue("Path").ToString();
 
-                    // Read the file and display it line by line.  
+                // Read the file and display it line by line.  
                 System.IO.StreamReader file =
                     new System.IO.StreamReader(@"test.txt");
                 while ((line = file.ReadLine()) != null)
                 {
-                      string pathDel = path + "\\" + line;
+                    string pathDel = path + "\\" + line;
 
                     if (File.Exists(pathDel))
                     {

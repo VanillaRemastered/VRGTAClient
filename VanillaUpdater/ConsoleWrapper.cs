@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VanillaUpdater
 {
@@ -35,7 +31,7 @@ namespace VanillaUpdater
         }
         public static void PrintMessage(string msg, PrintStatus p)
         {
-            switch(p)
+            switch (p)
             {
                 case PrintStatus.Error:
                     {
