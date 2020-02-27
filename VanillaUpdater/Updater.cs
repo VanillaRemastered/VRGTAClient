@@ -12,6 +12,11 @@ namespace VanillaUpdater
 {
     internal class Updater
     {
+        /// <summary>
+        /// Fetches a file via webclient>
+        /// </summary>
+        /// <param name="url">The file URL.</param>
+        /// <returns>string data.</returns>
         public static string GetFileViaHttpString(string url)
         {
             using (var client = new WebClient())
@@ -20,6 +25,9 @@ namespace VanillaUpdater
             }
         }
 
+        /// <summary>
+        /// Fetches the json file from the web and parses it.
+        /// </summary>
         private static void FetchVersion()
         {
             ConsoleWrapper.PrintMessage("Fetching master list from: http://www.vanilla-remastered.com/files/latest.json",
@@ -29,6 +37,11 @@ namespace VanillaUpdater
             var update = JsonConvert.DeserializeObject<UpdateData>(versionObjRaw);
         }
 
+        /// <summary>
+        /// Checks if a new version is available by first fetching the new version number from the 
+        /// website and then comparing local version number with fetched one.
+        /// </summary>
+        /// <returns></returns>
         public static bool IsNewVersionAvailable()
         {
             FetchVersion();
@@ -39,6 +52,12 @@ namespace VanillaUpdater
             return false;
         }
 
+        /// <summary>
+        /// Tries to safely files from a rar file.
+        /// </summary>
+        /// <param name="archive"></param>
+        /// <param name="destinationDirectoryName"></param>
+        /// <param name="overwrite"></param>
         public static void ExtractToDirectory(ZipArchive archive, string destinationDirectoryName, bool overwrite)
         {
             if (!overwrite)
@@ -146,6 +165,11 @@ namespace VanillaUpdater
             //Notifications.PlayNotificationSound();
         }
 
+        /// <summary>
+        /// Used in UI; name says it all.
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns>int32.</returns>
         public static double ConvertBytesToMegabytes(long bytes)
         {
             double result = bytes / 102f / 1024f;

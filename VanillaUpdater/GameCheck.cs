@@ -5,6 +5,9 @@ namespace VanillaUpdater
 {
     internal class GameCheck
     {
+        /// <summary>
+        /// List of files that GTASA must have in order to run.
+        /// </summary>
         private static readonly string[] requiredFiles = new string[]
         {
             "gta_sa.exe",

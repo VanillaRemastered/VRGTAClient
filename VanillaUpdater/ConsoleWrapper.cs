@@ -11,6 +11,11 @@ namespace VanillaUpdater
             Warning = 2
         }
 
+        /// <summary>
+        /// Prints colored message in the terminal/pip'd output.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="color"></param>
         public static void PrintColorMessage(string msg, ConsoleColor color)
         {
             Console.ForegroundColor = color;
@@ -18,6 +23,9 @@ namespace VanillaUpdater
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Prints text 'VR' in ASCII to console.
+        /// </summary>
         public static void PrintAsciiSignature()
         {
             Console.WriteLine(@" ___      ___ ________     
@@ -29,6 +37,12 @@ namespace VanillaUpdater
                                     \| __ |/       \| __ |\| __ |
                         ");
         }
+
+        /// <summary>
+        /// Prints a message based on PrintStatus.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="p"></param>
         public static void PrintMessage(string msg, PrintStatus p)
         {
             switch (p)
