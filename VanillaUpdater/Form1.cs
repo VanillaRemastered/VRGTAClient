@@ -155,12 +155,17 @@ namespace VanillaUpdater
             {
                 Notifications.PlayNotificationSound2();
 
-                MaterialMessageBox.Show(null,
+                var dialogResult = MaterialMessageBox.Show(null,
                     "Update 1.3.0 has a different file system organization and therefore previous update files must be removed.\n" +
-                    "The client will now delete a list of 1.2.0 files and begin installing 1.3.0.", "Important notice!", MessageBoxButtons.OK);
+                    "Would you like the client to delete a list of 1.2.0 files and begin installing 1.3.0?", "Important notice!", MessageBoxButtons.YesNo);
 
-
-                Updater.RemoveOlderUpdate("1.2.0");
+                if(DialogResult == DialogResult.Yes)
+                    Updater.RemoveOlderUpdate("1.2.0");
+                else
+                {
+                    CleanUpdateUi();
+                    return;
+                }
             }
 
             checkUpdatesBtn.Enabled = false;
