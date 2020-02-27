@@ -168,12 +168,12 @@ namespace VanillaUpdater
 
             if (File.Exists("data_" + UpdateData.Version + ".rar"))
             {
+                Notifications.PlayNotificationSound2();
                 var dialogResult = MaterialMessageBox.Show(null, "We've found already downloaded update package.\n\n" +
                                                                  "The package might be corrupted / invalid." +
                                                                  "Do you wish to install this package?",
                     "Package found", MessageBoxButtons.YesNo);
 
-                Notifications.PlayNotificationSound2();
                 if (dialogResult == DialogResult.Yes)
                 {
                     versionAvailableLbl.Text = "installing the cached update ...";
