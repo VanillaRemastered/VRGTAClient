@@ -109,6 +109,8 @@ namespace VanillaUpdater
             {
                 // Notifications.PlayNotificationSound();
                 MaterialMessageBox.Show(null, "You're using the latest version of Vanilla.", "No updates found");
+
+                FlashWindow(this.Handle, true);
             }
 
             checkUpdatesBtn.Enabled = true;
@@ -132,6 +134,8 @@ namespace VanillaUpdater
             notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available",
                 "Vanilla Remastered update is now available." +
                 " Head over to the application to install it.", ToolTipIcon.None);
+
+            FlashWindow(this.Handle, true);
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
@@ -178,6 +182,8 @@ namespace VanillaUpdater
                                 "You may find a detailed logs in your Documents folder.",
                                 "FAILED TO INSTALL", MessageBoxButtons.OK);
                         return;
+
+                        FlashWindow(this.Handle, true);
                     }
 
                     CleanupUpdate();
@@ -250,6 +256,7 @@ namespace VanillaUpdater
             updateBtn.Enabled = true;
             changePathBtn.Enabled = true;
 
+            FlashWindow(this.Handle, true);
             CleanupUpdate();
         }
 
@@ -315,6 +322,8 @@ namespace VanillaUpdater
                 MaterialMessageBox.Show(null, "The update has failed to install due to an error therefore you may want to restart installation.\n" +
                     "You may find detailed log in Documents folder.",
                     "FAILED TO INSTALL", MessageBoxButtons.OK);
+
+                FlashWindow(this.Handle, true);
             }
         }
 
@@ -349,21 +358,19 @@ namespace VanillaUpdater
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            bool hasShownOnce = false;
-
             while(updateSwitch.Checked)
             {
                 Thread.Sleep(4000);
 
-                if(Updater.IsNewVersionAvailable() && !hasShownOnce)
+                if(Updater.IsNewVersionAvailable())
                 {
-                    int reminderMiliseconds = 6000;
+                    int reminderMiliseconds = 600000; // 10 mins.
 
                     notifyIcon.ShowBalloonTip(500, "Vanilla Updater",
                         "New Vanilla Remastered version is available! Launch the client to install it.",
                         ToolTipIcon.None);
+
                     Thread.Sleep(reminderMiliseconds);
-                    hasShownOnce = true;
                 }
             }
         }
