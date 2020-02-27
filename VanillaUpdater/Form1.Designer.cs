@@ -41,6 +41,7 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.changePathBtn = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.backgroundChecker = new System.ComponentModel.BackgroundWorker();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,6 +207,10 @@
             this.materialCard1.Size = new System.Drawing.Size(363, 104);
             this.materialCard1.TabIndex = 12;
             // 
+            // backgroundChecker
+            // 
+            this.backgroundChecker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,6 +250,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MaterialSkin.Controls.MaterialButton changePathBtn;
         private MaterialSkin.Controls.MaterialCard materialCard1;
+        private System.ComponentModel.BackgroundWorker backgroundChecker;
     }
 }
 

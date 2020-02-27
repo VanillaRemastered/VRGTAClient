@@ -8,6 +8,8 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,9 +20,14 @@ namespace VanillaUpdater
         public MaterialSkinManager MaterialSkinManager { get; set; }
         private readonly Properties.Settings _userSettings = new Properties.Settings();
 
+        [DllImport("user32.dll")]
+        static extern bool FlashWindow(IntPtr hwnd, bool bInvert);
+
         public MainWindow()
         {
             InitializeComponent();
+
+            backgroundChecker.DoWork += backgroundWorker_DoWork;
         }
 
         public void SetUiTheme(MaterialSkinManager.Themes theme)
@@ -59,6 +66,7 @@ namespace VanillaUpdater
             BringToTop();
             Focus();
 
+
             MaterialSkinManager = MaterialSkinManager.Instance;
             MaterialSkinManager.AddFormToManage(this);
 
@@ -79,6 +87,8 @@ namespace VanillaUpdater
                 versionLabel.Text += VRegistry.GetSubKeyValue("Version").ToString();
 
             if (_userSettings.AutoUpdate) updateSwitch.Checked = true;
+
+            backgroundChecker.RunWorkerAsync();
         }
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
@@ -335,6 +345,27 @@ namespace VanillaUpdater
         {
             VRegistry.CreateSubKey("Path", "");
             Application.Restart();
+        }
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            bool hasShownOnce = false;
+
+            while(updateSwitch.Checked)
+            {
+                Thread.Sleep(4000);
+
+                if(Updater.IsNewVersionAvailable() && !hasShownOnce)
+                {
+                    int reminderMiliseconds = 6000;
+
+                    notifyIcon.ShowBalloonTip(500, "Vanilla Updater",
+                        "New Vanilla Remastered version is available! Launch the client to install it.",
+                        ToolTipIcon.None);
+                    Thread.Sleep(reminderMiliseconds);
+                    hasShownOnce = true;
+                }
+            }
         }
     }
 }
