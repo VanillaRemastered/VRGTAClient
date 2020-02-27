@@ -142,22 +142,23 @@ namespace VanillaUpdater
         {
             if (ProcessWatcher.IsGameRunning())
             {
+                Notifications.PlayErrorSound();
+
                 MaterialMessageBox.Show(null,
                     "The game is active and running! Please close it if you wish to begin updating.", "CLOSE THE GAME",
                     MessageBoxButtons.OK);
-
-                Notifications.PlayErrorSound();
 
                 return;
             }
 
             if (UpdateData.Version.Equals("1.3.0") && VRegistry.GetSubKeyValue("Version").Equals("1.2.0"))
             {
+                Notifications.PlayNotificationSound2();
+
                 MaterialMessageBox.Show(null,
                     "Update 1.3.0 has a different file system organization and therefore previous update files must be removed.\n" +
                     "The client will now delete a list of 1.2.0 files and begin installing 1.3.0.", "Important notice!", MessageBoxButtons.OK);
 
-                Notifications.PlayNotificationSound2();
 
                 Updater.RemoveOlderUpdate("1.2.0");
             }
