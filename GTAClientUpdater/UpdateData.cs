@@ -12,7 +12,7 @@ namespace GTAClientUpdater
     {
         [DataMember] public static string Version { get; set; }
 
-        [DataMember] public static string Changes { get; set; }
+        [DataMember] public static string[] Changes { get; set; }
 
         [DataMember] public static bool IsLocked { get; set; }
 

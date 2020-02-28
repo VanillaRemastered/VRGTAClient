@@ -59,6 +59,24 @@ namespace GTAClientUpdater
             return false;
         }
 
+        /// <summary>
+        /// Spits out new changes.
+        /// </summary>
+        public static void ListChanges()
+        {
+            int count = 0;
+
+            foreach(var item in UpdateData.Changes)
+            {
+                count++;
+
+                string outputStr = String.Format("[{0}] * {1}",
+                    count, item);
+
+                Console.WriteLine(outputStr);
+            }
+        }
+
         static void Main(string[] args)
         {
             ConsoleWrapper.PrintAsciiSignature();
@@ -75,9 +93,15 @@ namespace GTAClientUpdater
 
             var versionInfo = FileVersionInfo.GetVersionInfo("VanillaUpdater.exe");
 
+            FetchVersion();
             string version = versionInfo.FileVersion;
 
-            Console.WriteLine("Version: " + version);
+            if(UpdateData.Version != version)
+            {
+                ConsoleWrapper.PrintMessage("New version is available for installation! ", ConsoleWrapper.PrintStatus.GreenNotif);
+                ListChanges();
+
+            }
         }
     }
 }

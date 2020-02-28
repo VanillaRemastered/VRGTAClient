@@ -12,7 +12,8 @@ namespace GTAClientUpdater
         {
             Normal = 0,
             Error = 1,
-            Warning = 2
+            Warning = 2,
+            GreenNotif = 3
         }
 
         /// <summary>
@@ -71,6 +72,13 @@ namespace GTAClientUpdater
                         break;
                     }
 
+                case PrintStatus.GreenNotif:
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("[>>] " + msg);
+                        Console.ResetColor();
+                        break;
+                    }
             }
         }
     }
