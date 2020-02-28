@@ -122,7 +122,18 @@ namespace GTAClientUpdater
                 ListChanges();
 
                 if (UpdateData.IsManditory)
+                {
+                    ConsoleWrapper.PrintMessage("This update is manditory!", ConsoleWrapper.PrintStatus.Warning);
+
+                    ConsoleWrapper.PrintMessage("Installing the update ... ", ConsoleWrapper.PrintStatus.Normal);
+
+                    DownloadUpdate();
                     InstallUpdate();
+                    CleanupUpdate();
+                    DisplayFinishedUI();
+
+                    return;
+                }
 
                 if (IsClientRunning())
                 {
@@ -155,11 +166,8 @@ namespace GTAClientUpdater
                     ConsoleWrapper.PrintMessage("Cleaning up ... ", ConsoleWrapper.PrintStatus.Normal);
                     CleanupUpdate();
 
-                    ConsoleWrapper.PrintMessage("You've successfully updated new GTA Client to version " + UpdateData.Version+"!", ConsoleWrapper.PrintStatus.GreenNotif);
-                    if (UpdateData.Version.StartsWith("TEST"))
-                        ConsoleWrapper.PrintMessage("Keep in mind that you've installed a TESTING version and that bugs are expected.", ConsoleWrapper.PrintStatus.Warning);
-
-
+                    DisplayFinishedUI();
+                    return;
                 }
             }
         }
@@ -192,6 +200,13 @@ namespace GTAClientUpdater
         {
             Directory.Delete("updt", true);
             File.Delete("data.rar");
+        }
+
+        private static void DisplayFinishedUI()
+        {
+            ConsoleWrapper.PrintMessage("You've successfully updated new GTA Client to version " + UpdateData.Version + "!", ConsoleWrapper.PrintStatus.GreenNotif);
+            if (UpdateData.Version.StartsWith("TEST"))
+                ConsoleWrapper.PrintMessage("Keep in mind that you've installed a TESTING version and that bugs are expected.", ConsoleWrapper.PrintStatus.Warning);
         }
     }
 }
