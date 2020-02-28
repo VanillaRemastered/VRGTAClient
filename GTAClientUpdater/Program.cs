@@ -202,6 +202,9 @@ namespace GTAClientUpdater
             File.Delete("data.rar");
         }
 
+        /// <summary>
+        /// Displays 'you-ve-successfully' message.
+        /// </summary>
         private static void DisplayFinishedUI()
         {
             ConsoleWrapper.PrintMessage("You've successfully updated new GTA Client to version " + UpdateData.Version + "!", ConsoleWrapper.PrintStatus.GreenNotif);
