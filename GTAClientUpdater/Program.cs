@@ -95,6 +95,25 @@ namespace GTAClientUpdater
             }
         }
 
+        public static bool isNewVersionAvailable()
+        {
+            if (!File.Exists("VanillaUpdater.exe"))
+                return false;
+
+            var versionInfo = FileVersionInfo.GetVersionInfo("VanillaUpdater.exe");
+
+            FetchVersion();
+            string version = versionInfo.FileVersion;
+
+
+            if (UpdateData.Version != version)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         static void Main(string[] args)
         {
             ConsoleWrapper.PrintAsciiSignature();
@@ -108,15 +127,9 @@ namespace GTAClientUpdater
             }
 
             ConsoleWrapper.PrintMessage("Fetching application data ...", ConsoleWrapper.PrintStatus.Normal);
-
-            var versionInfo = FileVersionInfo.GetVersionInfo("VanillaUpdater.exe");
-
-            FetchVersion();
-            string version = versionInfo.FileVersion;
-
             Console.WriteLine("--------------");
 
-            if(UpdateData.Version != version)
+            if(isNewVersionAvailable())
             {
                 ConsoleWrapper.PrintMessage("New version is available for installation! ", ConsoleWrapper.PrintStatus.GreenNotif);
                 ListChanges();
