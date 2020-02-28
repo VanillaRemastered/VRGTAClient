@@ -52,7 +52,7 @@ namespace GTAClientUpdater
             ConsoleWrapper.PrintMessage("Fetching master list from: http://www.vanilla-remastered.com/files/client.json",
                 ConsoleWrapper.PrintStatus.Normal);
 
-            var versionObjRaw = GetFileViaHttpString("http://www.vanilla-remastered.com/files/latest.json");
+            var versionObjRaw = GetFileViaHttpString("http://www.vanilla-remastered.com/files/client.json");
             var update = JsonConvert.DeserializeObject<UpdateData>(versionObjRaw);
         }
 
