@@ -121,8 +121,16 @@ namespace GTAClientUpdater
                 ConsoleWrapper.PrintMessage("New version is available for installation! ", ConsoleWrapper.PrintStatus.GreenNotif);
                 ListChanges();
 
+                if (UpdateData.IsManditory)
+                    InstallUpdate();
+
                 Console.WriteLine("Are you ready to update now? File contains " + GetFileSize());
             }
+        }
+
+        private static void InstallUpdate()
+        {
+            throw new NotImplementedException();
         }
     }
 }

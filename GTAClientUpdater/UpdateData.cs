@@ -19,5 +19,7 @@ namespace GTAClientUpdater
         [DataMember] public static string DownloadURL { get; set; }
 
         [DataMember] public static string SupportURL { get; set; }
+
+        [DataMember] public static bool IsManditory { get; set; }
     }
 }
