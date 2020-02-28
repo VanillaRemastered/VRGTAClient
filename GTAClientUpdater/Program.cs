@@ -125,7 +125,7 @@ namespace GTAClientUpdater
                     InstallUpdate();
 
                 Console.Write("\nFile contains " + GetFileSize() +
-                    "\nAre you ready to update now? [Y/N]?");
+                    "\nAre you ready to update now? [Y/N]? ");
 
                 var key = Console.ReadKey(false).Key;
 
