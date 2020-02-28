@@ -124,7 +124,18 @@ namespace GTAClientUpdater
                 if (UpdateData.IsManditory)
                     InstallUpdate();
 
-                Console.WriteLine("Are you ready to update now? File contains " + GetFileSize());
+                Console.Write("\nFile contains " + GetFileSize() +
+                    "\nAre you ready to update now? [Y/N]?");
+
+                var key = Console.ReadKey(false).Key;
+
+                if(key.Equals(ConsoleKey.N))
+                    return;
+
+                if(key.Equals(ConsoleKey.Y))
+                {
+                    InstallUpdate();
+                }
             }
         }
 
