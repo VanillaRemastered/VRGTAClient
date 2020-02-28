@@ -158,6 +158,9 @@ namespace GTAClientUpdater
             }
         }
 
+        /// <summary>
+        /// Downloads the update using weblcient as data.rar
+        /// </summary>
         private static void DownloadUpdate()
         {
             using (WebClient webClient = new WebClient())
@@ -166,6 +169,9 @@ namespace GTAClientUpdater
             }
         }
 
+        /// <summary>
+        /// Unpacks data.
+        /// </summary>
         private static void InstallUpdate()
         {
             File.Delete("VanillaUpdater.exe");
@@ -173,6 +179,9 @@ namespace GTAClientUpdater
             File.Move("updt/VanillaUpdater.exe", "./VanillaUpdater.exe");
         }
 
+        /// <summary>
+        /// Deletes downloaded files.
+        /// </summary>
         private static void CleanupUpdate()
         {
             Directory.Delete("updt", true);
