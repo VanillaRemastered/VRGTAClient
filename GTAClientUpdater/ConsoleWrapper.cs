@@ -32,7 +32,7 @@ namespace GTAClientUpdater
         /// </summary>
         public static void PrintAsciiSignature()
         {
-            Console.WriteLine(@" ___      ___ ________     
+            Console.WriteLine(@"___      ___ ________     
                                 |\  \    /  /|\   __  \    
                                 \ \  \  /  / | \  \|\  \   
                                  \ \  \/  / / \ \   _  _\  
