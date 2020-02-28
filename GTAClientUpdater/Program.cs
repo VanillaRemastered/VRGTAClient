@@ -96,6 +96,8 @@ namespace GTAClientUpdater
             FetchVersion();
             string version = versionInfo.FileVersion;
 
+            Console.WriteLine("--------------");
+
             if(UpdateData.Version != version)
             {
                 ConsoleWrapper.PrintMessage("New version is available for installation! ", ConsoleWrapper.PrintStatus.GreenNotif);
