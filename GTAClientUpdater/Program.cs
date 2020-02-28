@@ -27,6 +27,24 @@ namespace GTAClientUpdater
         }
 
         /// <summary>
+        /// Fetches update file size.
+        /// </summary>
+        /// <param name="uriPath"></param>
+        /// <returns></returns>
+        private static string GetFileSize()
+        {
+            var webRequest = HttpWebRequest.Create(UpdateData.DownloadURL);
+            webRequest.Method = "HEAD";
+
+            using (var webResponse = webRequest.GetResponse())
+            {
+                var fileSize = webResponse.Headers.Get("Content-Length");
+                var fileSizeInMegaByte = Math.Round(Convert.ToDouble(fileSize) / 1024.0 / 1024.0, 2);
+                return fileSizeInMegaByte + " MB";
+            }
+        }
+
+        /// <summary>
         /// Fetches the json file from the web and parses it.
         /// </summary>
         private static void FetchVersion()
@@ -103,6 +121,7 @@ namespace GTAClientUpdater
                 ConsoleWrapper.PrintMessage("New version is available for installation! ", ConsoleWrapper.PrintStatus.GreenNotif);
                 ListChanges();
 
+                Console.WriteLine("Are you ready to update now? File contains " + GetFileSize());
             }
         }
     }
