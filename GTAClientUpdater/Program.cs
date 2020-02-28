@@ -124,8 +124,14 @@ namespace GTAClientUpdater
                 if (UpdateData.IsManditory)
                     InstallUpdate();
 
+                if (IsClientRunning())
+                {
+                    ConsoleWrapper.PrintMessage("You first must close the client before updating.", ConsoleWrapper.PrintStatus.Error);
+                    return;
+                }
+
                 Console.Write("\nFile contains " + GetFileSize() +
-                    "\nAre you ready to update now? [Y/N]? ");
+                    "\nAre you ready to update now? [Y/N]?");
 
                 var key = Console.ReadKey(false).Key;
 
@@ -134,14 +140,43 @@ namespace GTAClientUpdater
 
                 if(key.Equals(ConsoleKey.Y))
                 {
+                    ConsoleWrapper.PrintMessage("\nDownloading the update ... ", ConsoleWrapper.PrintStatus.Normal);
+                    DownloadUpdate();
+
+                    if (IsClientRunning())
+                    {
+                        ConsoleWrapper.PrintMessage("You first must close the client before updating.", ConsoleWrapper.PrintStatus.Error);
+                        return;
+                    }
+
+                    ConsoleWrapper.PrintMessage("Installing the update ... ", ConsoleWrapper.PrintStatus.Normal);
                     InstallUpdate();
+
+                    ConsoleWrapper.PrintMessage("Cleaning up ... ", ConsoleWrapper.PrintStatus.Normal);
+                    CleanupUpdate();
                 }
+            }
+        }
+
+        private static void DownloadUpdate()
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                webClient.DownloadFile(new Uri(UpdateData.DownloadURL), "data.rar");
             }
         }
 
         private static void InstallUpdate()
         {
-            throw new NotImplementedException();
+            File.Delete("VanillaUpdater.exe");
+            System.IO.Compression.ZipFile.ExtractToDirectory("data.rar", "updt");
+            File.Move("updt/VanillaUpdater.exe", "./VanillaUpdater.exe");
+        }
+
+        private static void CleanupUpdate()
+        {
+            Directory.Delete("updt", true);
+            File.Delete("data.rar");
         }
     }
 }
