@@ -66,7 +66,6 @@ namespace VanillaUpdater
             BringToTop();
             Focus();
 
-
             MaterialSkinManager = MaterialSkinManager.Instance;
             MaterialSkinManager.AddFormToManage(this);
 
