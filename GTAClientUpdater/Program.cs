@@ -36,11 +36,18 @@ namespace GTAClientUpdater
             var webRequest = HttpWebRequest.Create(UpdateData.DownloadURL);
             webRequest.Method = "HEAD";
 
-            using (var webResponse = webRequest.GetResponse())
+            try
             {
-                var fileSize = webResponse.Headers.Get("Content-Length");
-                var fileSizeInMegaByte = Math.Round(Convert.ToDouble(fileSize) / 1024.0 / 1024.0, 2);
-                return fileSizeInMegaByte + " MB";
+                using (var webResponse = webRequest.GetResponse())
+                {
+                    var fileSize = webResponse.Headers.Get("Content-Length");
+                    var fileSizeInMegaByte = Math.Round(Convert.ToDouble(fileSize) / 1024.0 / 1024.0, 2);
+                    return fileSizeInMegaByte + " MB";
+                }
+            }
+            catch(WebException ex)
+            {
+                ConsoleWrapper.PrintMessage("Could not fetch update filesize from the server. Try again later. ERROR CODE: " + ex.Message, ConsoleWrapper.PrintStatus.Error);
             }
         }
 
