@@ -49,6 +49,8 @@ namespace GTAClientUpdater
             {
                 ConsoleWrapper.PrintMessage("Could not fetch update filesize from the server. Try again later. ERROR CODE: " + ex.Message, ConsoleWrapper.PrintStatus.Error);
             }
+
+            return "";
         }
 
         /// <summary>
