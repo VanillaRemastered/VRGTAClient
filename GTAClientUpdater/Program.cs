@@ -125,7 +125,12 @@ namespace GTAClientUpdater
 
         static void Main(string[] args)
         {
+            string broadCastMsg = GetFileViaHttpString("https://vanilla-remastered.com/files/broad.cast");
+
             ConsoleWrapper.PrintAsciiSignature();
+
+            Console.WriteLine(broadCastMsg);
+
             ConsoleWrapper.PrintMessage("Starting GTA Client updater ...", ConsoleWrapper.PrintStatus.Normal);
 
             if (!isWorkSpaceValid())
