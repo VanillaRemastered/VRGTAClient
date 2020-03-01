@@ -192,6 +192,11 @@ namespace GTAClientUpdater
                     return;
                 }
             }
+
+            else
+            {
+                ConsoleWrapper.PrintMessage("No update available. You're up to date. ", ConsoleWrapper.PrintStatus.Normal);
+            }
         }
 
         /// <summary>
