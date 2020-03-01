@@ -158,7 +158,7 @@ namespace VanillaUpdater
                     "Update 1.3.0 has a different file system organization and therefore previous update files must be removed.\n" +
                     "Would you like the client to delete a list of 1.2.0 files and begin installing 1.3.0?", "Important notice!", MessageBoxButtons.YesNo);
 
-                if(DialogResult == DialogResult.Yes)
+                if(dialogResult == DialogResult.Yes)
                     Updater.RemoveOlderUpdate("1.2.0");
                 else
                 {
