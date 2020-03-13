@@ -397,6 +397,12 @@ namespace VanillaUpdater
 
         private void showFpsSwitch_CheckedChanged(object sender, EventArgs e)
         {
+            if(!ProcessWatcher.IsGameRunning())
+            {
+                Notifications.PlayErrorSound();
+                showFpsSwitch.Checked = !showFpsSwitch.Checked;
+                return;
+            }
 
             Thread backgroundFpsThread = new Thread(VanillaOverlay.Init);
             if (showFpsSwitch.Checked)
