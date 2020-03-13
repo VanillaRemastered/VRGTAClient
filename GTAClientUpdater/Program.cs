@@ -202,6 +202,8 @@ namespace GTAClientUpdater
             {
                 ConsoleWrapper.PrintMessage("No update available. You're up to date. ", ConsoleWrapper.PrintStatus.Normal);
             }
+
+            Console.ReadKey();
         }
 
         /// <summary>
