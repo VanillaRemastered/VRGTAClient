@@ -226,6 +226,7 @@
             this.showFpsSwitch.TabIndex = 13;
             this.showFpsSwitch.Text = "Show FPS";
             this.showFpsSwitch.UseVisualStyleBackColor = true;
+            this.showFpsSwitch.CheckedChanged += new System.EventHandler(this.showFpsSwitch_CheckedChanged);
             // 
             // MainWindow
             // 

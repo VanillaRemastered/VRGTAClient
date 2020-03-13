@@ -271,6 +271,7 @@
     <Compile Include="Registry.cs" />
     <Compile Include="SetupLogic.cs" />
     <Compile Include="Updater.cs" />
+    <Compile Include="VanillaOverlay.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

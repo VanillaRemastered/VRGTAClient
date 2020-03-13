@@ -393,5 +393,9 @@ namespace VanillaUpdater
                 }
             }
         }
+
+        private void showFpsSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+        }
     }
 }
