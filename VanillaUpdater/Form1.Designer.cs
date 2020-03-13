@@ -246,7 +246,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "GTA SA Vanilla Updater";
+            this.Text = "GTA Client";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.materialCard1.ResumeLayout(false);
             this.ResumeLayout(false);
