@@ -280,6 +280,7 @@ namespace VanillaUpdater
 
         private void CleanupUpdate()
         {
+            Thread.Sleep(10);
             File.Delete("data_" + UpdateData.Version + ".rar");
         }
 
