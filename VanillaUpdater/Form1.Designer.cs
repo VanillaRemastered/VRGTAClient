@@ -42,6 +42,7 @@
             this.changePathBtn = new MaterialSkin.Controls.MaterialButton();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.backgroundChecker = new System.ComponentModel.BackgroundWorker();
+            this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,11 +212,27 @@
             // 
             this.backgroundChecker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
             // 
+            // materialSwitch1
+            // 
+            this.materialSwitch1.AutoSize = true;
+            this.materialSwitch1.Depth = 0;
+            this.materialSwitch1.Location = new System.Drawing.Point(0, 153);
+            this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSwitch1.Name = "materialSwitch1";
+            this.materialSwitch1.Ripple = true;
+            this.materialSwitch1.Size = new System.Drawing.Size(131, 37);
+            this.materialSwitch1.TabIndex = 13;
+            this.materialSwitch1.Text = "Show FPS";
+            this.materialSwitch1.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 243);
+            this.Controls.Add(this.materialSwitch1);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.changePathBtn);
             this.Controls.Add(this.themeSwitch);
@@ -251,6 +268,7 @@
         private MaterialSkin.Controls.MaterialButton changePathBtn;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.ComponentModel.BackgroundWorker backgroundChecker;
+        private MaterialSkin.Controls.MaterialSwitch materialSwitch1;
     }
 }
 
