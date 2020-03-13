@@ -118,7 +118,6 @@ namespace VanillaUpdater
                     else ConsoleWrapper.PrintMessage("Skipping file " + pathDel, ConsoleWrapper.PrintStatus.Normal);
                 }
 
-                MessageBox.Show("removed, u may start :)");
             }
         }
 
