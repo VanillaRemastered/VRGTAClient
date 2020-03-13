@@ -14,7 +14,7 @@ namespace VanillaUpdater
         /// <summary>
         /// Does the main logic loop, fetching current FPS and updatign the label.
         /// </summary>
-        void LogicLoop()
+        static void LogicLoop()
         {
             while(ProcessWatcher.IsGameRunning() && isActive)
             {
@@ -26,7 +26,7 @@ namespace VanillaUpdater
         /// <summary>
         /// Creates required elements using the directx wrapper
         /// </summary>
-        void Init()
+        public static void Init()
         {
             if (!ProcessWatcher.IsGameRunning())
                 return;
@@ -41,7 +41,7 @@ namespace VanillaUpdater
         /// <summary>
         /// Stops the main loop and destroys the overlay.
         /// </summary>
-        void Stop()
+        public static void Stop()
         {
             isActive = false;
 

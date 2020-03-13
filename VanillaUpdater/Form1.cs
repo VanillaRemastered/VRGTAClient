@@ -396,6 +396,17 @@ namespace VanillaUpdater
 
         private void showFpsSwitch_CheckedChanged(object sender, EventArgs e)
         {
+
+            Thread backgroundFpsThread = new Thread(VanillaOverlay.Init);
+            if (showFpsSwitch.Checked)
+            {
+                backgroundFpsThread.Start();
+            }
+            else
+            {
+                VanillaOverlay.Stop();
+                backgroundFpsThread.Abort();
+            }
         }
     }
 }
