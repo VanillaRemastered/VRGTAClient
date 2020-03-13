@@ -256,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleWrapper.cs" />
+    <Compile Include="DirectX\Overlay.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
