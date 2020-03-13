@@ -20,6 +20,7 @@ namespace VanillaUpdater
         public MaterialSkinManager MaterialSkinManager { get; set; }
         private readonly Properties.Settings _userSettings = new Properties.Settings();
 
+        
         [DllImport("user32.dll")]
         static extern bool FlashWindow(IntPtr hwnd, bool bInvert);
 

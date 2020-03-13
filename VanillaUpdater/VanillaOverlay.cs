@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace VanillaUpdater
 {
@@ -33,7 +35,8 @@ namespace VanillaUpdater
 
             DX9OverlayAPI.Overlay.SetParam("process", "gta_sa.exe");
 
-            overlayTextFps = DX9OverlayAPI.Overlay.TextCreate("Arial", 12, true, false, 200, 200, 0xFF00FFFF, "FPS", false, true);
+            var resolution = Screen.PrimaryScreen.Bounds;
+            overlayTextFps = DX9OverlayAPI.Overlay.TextCreate("Arial", 12, true, false, resolution.Right - resolution.Width+5, resolution.Bottom - resolution.Height, 0xFFFFFFFF, "FPS", false, true);
             isActive = true;
             LogicLoop();
         }
