@@ -412,7 +412,9 @@ namespace VanillaUpdater
             else
             {
                 backgroundFpsThread.Abort();
+
                 VanillaOverlay.Stop();
+                VanillaOverlay.Cleanup();
             }
         }
     }
