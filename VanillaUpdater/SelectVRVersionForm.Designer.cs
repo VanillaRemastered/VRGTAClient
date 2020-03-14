@@ -112,8 +112,11 @@
             this.Controls.Add(this.optionnoEnb);
             this.Controls.Add(this.optionEnbBtn);
             this.Controls.Add(this.materialLabel1);
+            this.MaximizeBox = false;
             this.Name = "SelectVRVersionForm";
+            this.ShowInTaskbar = false;
             this.Text = "Important question";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.SelectVRVersionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

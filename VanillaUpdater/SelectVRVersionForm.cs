@@ -43,7 +43,7 @@ namespace VanillaUpdater
 
         private void idkBtn_Click(object sender, EventArgs e)
         {
-
+            VRegistry.CreateSubKey("Version", "Unknown");
         }
     }
 }
