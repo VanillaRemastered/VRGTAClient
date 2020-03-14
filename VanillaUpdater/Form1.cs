@@ -411,8 +411,8 @@ namespace VanillaUpdater
             }
             else
             {
-                VanillaOverlay.Stop();
                 backgroundFpsThread.Abort();
+                VanillaOverlay.Stop();
             }
         }
     }
