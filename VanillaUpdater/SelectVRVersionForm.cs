@@ -49,5 +49,10 @@ namespace VanillaUpdater
             VRegistry.CreateSubKey("Version", "Unknown");
             Application.Restart();
         }
+
+        private void SelectVRVersionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

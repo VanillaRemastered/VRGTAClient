@@ -117,6 +117,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Important question";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectVRVersionForm_FormClosing);
             this.Load += new System.EventHandler(this.SelectVRVersionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
