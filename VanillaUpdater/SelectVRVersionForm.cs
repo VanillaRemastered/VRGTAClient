@@ -34,16 +34,22 @@ namespace VanillaUpdater
         private void optionEnbBtn_Click(object sender, EventArgs e)
         {
             VRegistry.CreateSubKey("Version", "1.2.0");
+
+            this.Hide();
         }
 
         private void optionnoEnb_Click(object sender, EventArgs e)
         {
             VRegistry.CreateSubKey("Version", "1.3.0");
+
+            this.Hide();
         }
 
         private void idkBtn_Click(object sender, EventArgs e)
         {
             VRegistry.CreateSubKey("Version", "Unknown");
+
+            this.Hide();
         }
     }
 }
