@@ -35,21 +35,19 @@ namespace VanillaUpdater
         {
             VRegistry.CreateSubKey("Version", "1.2.0");
 
-            this.Hide();
+            Application.Restart();
         }
 
         private void optionnoEnb_Click(object sender, EventArgs e)
         {
             VRegistry.CreateSubKey("Version", "1.3.0");
-
-            this.Hide();
+            Application.Restart();
         }
 
         private void idkBtn_Click(object sender, EventArgs e)
         {
             VRegistry.CreateSubKey("Version", "Unknown");
-
-            this.Hide();
+            Application.Restart();
         }
     }
 }

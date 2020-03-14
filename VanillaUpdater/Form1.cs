@@ -58,6 +58,7 @@ namespace VanillaUpdater
         private void Form1_Load(object sender, EventArgs e)
         {
             VRegistry.CreateSubKey("Launch", ""); // create a key in case it doesn't exist.
+            Hide();
 
             if (VRegistry.IsFirstRun())
             {
@@ -82,6 +83,7 @@ namespace VanillaUpdater
                 Accent.Green700, TextShade.WHITE);
 
             updaterVerLbl.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
 
             if (VRegistry.GetSubKeyValue("Version") != null)
                 versionLabel.Text += VRegistry.GetSubKeyValue("Version").ToString();

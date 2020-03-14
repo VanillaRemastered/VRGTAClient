@@ -27,8 +27,9 @@ namespace VanillaUpdater
                     {
                         VRegistry.CreateSubKey("Path", folderPath);
 
+                        SelectVRVersionForm selectVRVersionForm = new SelectVRVersionForm();
+                        selectVRVersionForm.Show();
                         // TEMP FIX.
-                        VRegistry.CreateSubKey("Version", "jc");
                     }
                     else
                     {
