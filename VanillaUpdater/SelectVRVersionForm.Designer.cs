@@ -108,6 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 189);
+            this.ControlBox = false;
             this.Controls.Add(this.idkBtn);
             this.Controls.Add(this.optionnoEnb);
             this.Controls.Add(this.optionEnbBtn);
@@ -115,6 +116,7 @@
             this.MaximizeBox = false;
             this.Name = "SelectVRVersionForm";
             this.ShowInTaskbar = false;
+            this.Sizable = false;
             this.Text = "Important question";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectVRVersionForm_FormClosing);
