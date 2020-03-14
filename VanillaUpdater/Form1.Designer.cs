@@ -65,7 +65,6 @@
             this.checkUpdatesBtn.Depth = 0;
             this.checkUpdatesBtn.DrawShadows = true;
             this.checkUpdatesBtn.HighEmphasis = true;
-            this.checkUpdatesBtn.Icon = null;
             this.checkUpdatesBtn.Location = new System.Drawing.Point(204, 196);
             this.checkUpdatesBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.checkUpdatesBtn.MouseState = MaterialSkin.MouseState.HOVER;
