@@ -42,13 +42,13 @@ namespace VanillaUpdater
         }
 
         /// <summary>
-        /// Stops the main loop and destroys the overlay.
+        /// Stops the main loop.
         /// </summary>
-        public static void Stop()
-        {
-            isActive = false;
+        public static void Stop() => isActive = false;
 
-            DX9OverlayAPI.Overlay.TextDestroy(overlayTextFps);
-        }
+        /// <summary>
+        /// Cleans text created by the overlay API.
+        /// </summary>
+        public static void Cleanup() => DX9OverlayAPI.Overlay.TextDestroy(overlayTextFps);
     }
 }
