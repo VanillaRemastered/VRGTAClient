@@ -307,6 +307,7 @@ namespace VanillaUpdater
                                               "If you need help, reach us via: www.support.vanilla-remastered.com (ERR_CODE: " +
                                               e.Error.Message, "FATAL ERROR", MessageBoxButtons.OK);
                 // Cleanup
+                Thread.Sleep(10);
                 File.Delete("data_" + UpdateData.Version + ".rar");
 
                 Application.Restart();
