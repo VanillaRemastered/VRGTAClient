@@ -124,14 +124,10 @@ namespace VanillaUpdater
 
             versionAvailableLbl.Text = UpdateData.Version + " is now available for installation!";
 
-            changesBox.BackColor = Color.DarkSeaGreen;
-
             foreach (var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
 
             foreach (var item in UpdateData.Changes) changesBox.Items.Add(item);
             System.Diagnostics.Process.Start(UpdateData.SupportURL);
-
-            ///Notifications.PlayNotificationSound();
 
             notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available",
                 "Vanilla Remastered update is now available." +
