@@ -235,9 +235,6 @@ namespace VanillaUpdater
 
         private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            if (e.ProgressPercentage == 0)
-                versionAvailableLbl.Text = "Connecting to the server ...";
-
             versionAvailableLbl.Text = e.ProgressPercentage + "% | " +
                                        Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " +
                                        Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.";
