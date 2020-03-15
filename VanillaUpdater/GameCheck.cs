@@ -41,14 +41,5 @@ namespace VanillaUpdater
             return false;
         }
 
-        /// <summary>
-        /// Determines the currently install Vanilla Version.
-        /// </summary>
-        /// <returns>string.</returns>
-        public static string GetInstalledVanillaVersion()
-        {
-
-            return "";
-        }
     }
 }
