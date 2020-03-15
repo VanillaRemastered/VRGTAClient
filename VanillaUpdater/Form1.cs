@@ -180,7 +180,7 @@ namespace VanillaUpdater
                 var dialogResult = MaterialMessageBox.Show(null, "We've found already downloaded update package.\n\n" +
                                                                  "The package might be corrupted / invalid." +
                                                                  "Do you wish to install this package?",
-                    "Package found", MessageBoxButtons.YesNo);
+                    "Package found", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
 
                 if (dialogResult == DialogResult.Yes)
                 {
