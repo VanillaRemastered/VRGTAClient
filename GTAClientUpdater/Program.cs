@@ -168,7 +168,11 @@ namespace GTAClientUpdater
                     return;
                 }
 
-                Console.Write("\nFile contains " + GetFileSize() +
+                var fileSize = GetFileSize();
+
+                if (fileSize == "") Console.ReadKey();
+
+                Console.Write("\nFile contains " + fileSize +
                     "\nAre you ready to update now? [Y/N]?");
 
                 var key = Console.ReadKey(false).Key;
