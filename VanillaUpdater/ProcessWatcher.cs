@@ -9,7 +9,7 @@ namespace VanillaUpdater
         /// </summary>
         public static bool IsGameRunning()
         {
-            var pname = Process.GetProcessesByName("gta_sa");
+           var pname = Process.GetProcessesByName("gta_sa");
             if (pname.Length == 0) return false;
             return true;
         }
