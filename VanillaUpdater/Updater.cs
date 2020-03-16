@@ -97,13 +97,11 @@ namespace VanillaUpdater
         {
             if (codeName == "1.2.0")
             {
-                string line;
+                string file = Properties.Resources.VR12Files;
                 string path = VRegistry.GetSubKeyValue("Path").ToString();
 
-                // Read the file and display it line by line.  
-                System.IO.StreamReader file =
-                    new System.IO.StreamReader(Properties.Resources.VR12Files);
-                while ((line = file.ReadLine()) != null)
+                var lines = file.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                foreach (var line in lines)
                 {
                     string pathDel = path + "\\" + line;
 
