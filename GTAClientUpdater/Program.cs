@@ -137,6 +137,7 @@ namespace GTAClientUpdater
             {
                 ConsoleWrapper.PrintMessage("Updater is not placed in the right directory. \n" +
                     "Updater can't find 'VanillaUpdater.exe' in the current directory. Stopping ...", ConsoleWrapper.PrintStatus.Error);
+                Console.ReadKey();
                 return;
             }
 
