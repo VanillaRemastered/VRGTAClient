@@ -189,6 +189,7 @@ namespace GTAClientUpdater
                     if (IsClientRunning())
                     {
                         ConsoleWrapper.PrintMessage("You first must close the client before updating.", ConsoleWrapper.PrintStatus.Error);
+                        Console.ReadKey();
                         return;
                     }
 
