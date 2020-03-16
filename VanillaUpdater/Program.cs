@@ -29,7 +29,7 @@ namespace VanillaUpdater
 
             SetCountryCode();
             AppCenter.LogLevel = LogLevel.Verbose;
-            AppCenter.Start("ceef21cd-5ffe-4266-b0e8-9a0769c3854d",
+            AppCenter.Start("316d7e4c-746c-4693-8c6f-c07a5ebde789",
                 typeof(Analytics), typeof(Crashes));
 
 
