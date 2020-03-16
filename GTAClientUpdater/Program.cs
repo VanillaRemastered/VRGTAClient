@@ -199,6 +199,7 @@ namespace GTAClientUpdater
                     CleanupUpdate();
 
                     DisplayFinishedUI();
+                    Console.ReadKey();
                     return;
                 }
             }
