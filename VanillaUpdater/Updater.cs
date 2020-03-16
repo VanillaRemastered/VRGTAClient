@@ -102,7 +102,7 @@ namespace VanillaUpdater
 
                 // Read the file and display it line by line.  
                 System.IO.StreamReader file =
-                    new System.IO.StreamReader(@"test.txt");
+                    new System.IO.StreamReader(Properties.Resources.VR12Files);
                 while ((line = file.ReadLine()) != null)
                 {
                     string pathDel = path + "\\" + line;
