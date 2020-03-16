@@ -121,6 +121,9 @@
   <data name="deduction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deduction.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="dx9_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dx9_overlay.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="point_blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\point-blank.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

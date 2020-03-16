@@ -70,6 +70,16 @@ namespace VanillaUpdater.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dx9_overlay {
+            get {
+                object obj = ResourceManager.GetObject("dx9_overlay", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream point_blank {
@@ -112,9 +122,7 @@ namespace VanillaUpdater.Properties {
         ///cleo\proportionalCoronas.cs
         ///cleo\Render.cs
         ///cleo\SensitivityFix.cs
-        ///cleo\StreamIniExtender.cs
-        ///cleo\Sun.cs
-        ///cleo\Wi [rest of string was truncated]&quot;;.
+        ///cleo\StreamIniExtende [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VR12Files {
             get {

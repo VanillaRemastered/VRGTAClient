@@ -68,7 +68,6 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
- 
   <ItemGroup>
     <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
@@ -311,6 +310,9 @@
     <None Include="Resources\deduction.wav" />
     <None Include="Resources\unsure.wav" />
     <None Include="Resources\point-blank.wav" />
+    <None Include="Resources\dx9_overlay.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="VR12Files.txt" />
     <Content Include="favicon.ico" />
   </ItemGroup>
