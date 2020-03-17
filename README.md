@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://vanilla-remastered.com/files/vrtransparentufll.png">
+</p>
+
 # Vanilla Updater - Official Repostiory
 
 Greetings,
