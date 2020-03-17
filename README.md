@@ -28,8 +28,4 @@ Download the zipped file from the link bellow and extract it somewhere. Keep in 
 **But my Windows claims this as malware?**
 We assure you that the application does not have any malicious intensions and that you can proceed clicking continue. As much as we're trying to be transparent we must keep a track of numbers therefore we can't open source the application. 
 
-** Development**
-We'll notify you when is the time to run the second executable (GTAClientUpdater.exe) - It will take care of patching & updating the GTA Client.
-
 Application DL link: https://www.vanilla-remastered.com/files/app.zip
-![](www.vanilla-remastered.com/files/img.PNG)
