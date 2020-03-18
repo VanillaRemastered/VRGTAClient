@@ -20,7 +20,9 @@ namespace VanillaUpdater
         public MaterialSkinManager MaterialSkinManager { get; set; }
         private readonly Properties.Settings _userSettings = new Properties.Settings();
 
-        
+        private static string downloadSize;
+
+
         [DllImport("user32.dll")]
         static extern bool FlashWindow(IntPtr hwnd, bool bInvert);
 
@@ -54,6 +56,19 @@ namespace VanillaUpdater
                 TopMost = top;
             }
         }
+        private static string GetFileSize()
+        {
+            var webRequest = HttpWebRequest.Create(UpdateData.DownloadURL);
+            webRequest.Method = "HEAD";
+
+            using (var webResponse = webRequest.GetResponse())
+            {
+                var fileSize = webResponse.Headers.Get("Content-Length");
+                var fileSizeInMegaByte = Math.Round(Convert.ToDouble(fileSize) / 1024.0 / 1024.0, 2);
+                return fileSizeInMegaByte + "";
+            }
+        }
+            
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -229,6 +244,9 @@ namespace VanillaUpdater
                 wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
 
+                versionAvailableLbl.Text = "Preparing to download ...";
+                downloadSize = GetFileSize();
+
                 wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".rar");
             }
         }
@@ -236,8 +254,8 @@ namespace VanillaUpdater
         private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             versionAvailableLbl.Text = e.ProgressPercentage + "% | " +
-                                       Updater.ConvertBytesToMegabytes(e.BytesReceived) + " MB out of " +
-                                       Updater.ConvertBytesToMegabytes(e.TotalBytesToReceive) + " MB retrieven.";
+                                       (e.BytesReceived/1024f)/1024f + " MB out of " +
+                                       (downloadSize) + " MB retrieven.";
         }
 
         public void CleanUpdateUi()

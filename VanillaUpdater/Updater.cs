@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace VanillaUpdater
 {
-    internal class Updater
+    internal static class Updater
     {
         /// <summary>
         /// Fetches a file via webclient>
@@ -160,17 +160,6 @@ namespace VanillaUpdater
             VRegistry.CreateSubKey("Version", UpdateData.Version);
             return true;
             //Notifications.PlayNotificationSound();
-        }
-
-        /// <summary>
-        /// Used in UI; name says it all.
-        /// </summary>
-        /// <param name="bytes"></param>
-        /// <returns>int32.</returns>
-        public static double ConvertBytesToMegabytes(long bytes)
-        {
-            double result = bytes / 102f / 1024f;
-            return Convert.ToInt32(result);
         }
     }
 
