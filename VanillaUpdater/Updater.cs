@@ -95,12 +95,15 @@ namespace VanillaUpdater
         /// <param name="codeName"></param>
         public static void RemoveOlderUpdate(string codeName)
         {
+            string file_120 = Properties.Resources.VR12Files;
+            string file_130 = Properties.Resources.VR13Files;
+
+
+            string path = VRegistry.GetSubKeyValue("Path").ToString();
+
             if (codeName == "1.2.0")
             {
-                string file = Properties.Resources.VR12Files;
-                string path = VRegistry.GetSubKeyValue("Path").ToString();
-
-                var lines = file.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                var lines = file_120.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
                 foreach (var line in lines)
                 {
                     string pathDel = path + "\\" + line;
@@ -116,6 +119,26 @@ namespace VanillaUpdater
                     else ConsoleWrapper.PrintMessage("Skipping file " + pathDel, ConsoleWrapper.PrintStatus.Normal);
                 }
 
+            }
+
+            if (codeName == "1.3.0")
+            {
+                var lines = file_130.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                foreach (var line in lines)
+                {
+                    string pathDel = path + "\\" + line;
+
+                    if (File.Exists(pathDel))
+                    {
+                        File.SetAttributes(pathDel, FileAttributes.Normal);
+                        File.Delete(pathDel);
+
+                        ConsoleWrapper.PrintMessage("Deleting previous 1.3.0 data chunk (" + pathDel + ")",
+                            ConsoleWrapper.PrintStatus.Warning);
+                    }
+                    else ConsoleWrapper.PrintMessage("Skipping file " + pathDel, ConsoleWrapper.PrintStatus.Normal);
+
+                }
             }
         }
 

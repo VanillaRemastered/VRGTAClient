@@ -181,6 +181,9 @@ namespace VanillaUpdater
                 }
             }
 
+            if (UpdateData.Version.Equals("1.4.0") && VRegistry.GetSubKeyValue("Version").Equals("1.3.0"))
+                Updater.RemoveOlderUpdate("1.3.0");
+
             checkUpdatesBtn.Enabled = false;
             updateBtn.Enabled = false;
             changePathBtn.Enabled = false;

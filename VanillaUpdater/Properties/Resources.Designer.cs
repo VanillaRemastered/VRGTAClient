@@ -129,5 +129,16 @@ namespace VanillaUpdater.Properties {
                 return ResourceManager.GetString("VR12Files", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to modloader\Plugins\GameEngine\Shadows\shadows.ini
+        ///modloader\modloader.ini
+        ///modloader\.data\config.ini.
+        /// </summary>
+        internal static string VR13Files {
+            get {
+                return ResourceManager.GetString("VR13Files", resourceCulture);
+            }
+        }
     }
 }

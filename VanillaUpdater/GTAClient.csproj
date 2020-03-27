@@ -325,6 +325,7 @@
     <None Include="Resources\dx9_overlay.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\VR13Files.txt" />
     <Content Include="VR12Files.txt" />
     <Content Include="favicon.ico" />
   </ItemGroup>
