@@ -297,8 +297,15 @@ namespace VanillaUpdater
 
         private void CleanupUpdate()
         {
-            Thread.Sleep(10);
-            File.Delete("data_" + UpdateData.Version + ".rar");
+            Thread.Sleep(300);
+
+            try
+            {
+                File.Delete("data_" + UpdateData.Version + ".rar");
+            } catch(Exception e)
+            {
+
+            }
         }
 
         private async void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
