@@ -73,6 +73,9 @@ namespace VanillaUpdater
             {
                 var completeFileName = Path.GetFullPath(Path.Combine(destinationDirectoryFullPath, file.FullName));
 
+                if (completeFileName.Contains("WeaponsSoundPlugin"))
+                    continue;
+
                 if (!completeFileName.StartsWith(destinationDirectoryFullPath, StringComparison.OrdinalIgnoreCase))
                     throw new IOException(
                         "Trying to extract file outside of destination directory. See this link for more info: https://snyk.io/research/zip-slip-vulnerability");
