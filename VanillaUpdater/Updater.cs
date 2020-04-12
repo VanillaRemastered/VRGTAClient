@@ -168,13 +168,10 @@ namespace VanillaUpdater
 
                 var archive = ZipFile.OpenRead("data_" + UpdateData.Version + ".rar");
                 ExtractToDirectory(archive, extractionPath, true);
-
-                //File.Delete("data_" + UpdateData.Version + ".rar");
             }
             catch (Exception e)
             {
-                MessageBox.Show("Failed to install the update due to an exception that.\n" +
-                                "ERR_CODE: " + e.Message, "An error occured");
+                MessageBox.Show("Update has failed to install.\n\nError code: " + e.Message, "An error occured");
                 return false;
             }
 
@@ -185,7 +182,6 @@ namespace VanillaUpdater
 
             VRegistry.CreateSubKey("Version", UpdateData.Version);
             return true;
-            //Notifications.PlayNotificationSound();
         }
     }
 
