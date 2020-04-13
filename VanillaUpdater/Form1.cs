@@ -152,12 +152,8 @@ namespace VanillaUpdater
             notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available",
                 "Vanilla Remastered update is now available." +
                 " Head over to the application to install it.", ToolTipIcon.None);
-
-
-            foreach (var entry in Directory.EnumerateFiles(VRegistry.GetSubKeyValue("Path").ToString()))
-            {
-                listView1.Items.Add(entry.Replace(VRegistry.GetSubKeyValue("Path").ToString(), ""));
-            }
+            
+            downloadSizeLbl.Text = GetFileSize() + "MB file size";
 
             FlashWindow(this.Handle, true);
         }

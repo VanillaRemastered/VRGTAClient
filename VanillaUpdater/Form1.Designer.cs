@@ -45,12 +45,12 @@
             this.viceCityTab = new System.Windows.Forms.TabPage();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.gtasaPage = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.clientBox = new System.Windows.Forms.GroupBox();
             this.interfaceBox = new System.Windows.Forms.GroupBox();
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.updaterBox = new System.Windows.Forms.GroupBox();
+            this.downloadSizeLbl = new MaterialSkin.Controls.MaterialLabel();
             this.mainTabCtrl.SuspendLayout();
             this.viceCityTab.SuspendLayout();
             this.gtasaPage.SuspendLayout();
@@ -250,7 +250,6 @@
             // gtasaPage
             // 
             this.gtasaPage.Controls.Add(this.updaterBox);
-            this.gtasaPage.Controls.Add(this.listView1);
             this.gtasaPage.Controls.Add(this.clientBox);
             this.gtasaPage.Controls.Add(this.interfaceBox);
             this.gtasaPage.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,18 +262,6 @@
             this.gtasaPage.Text = "San Andreas";
             this.gtasaPage.UseVisualStyleBackColor = true;
             this.gtasaPage.Click += new System.EventHandler(this.gtasaPage_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.HideSelection = false;
-            this.listView1.HoverSelection = true;
-            this.listView1.Location = new System.Drawing.Point(76, 311);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(248, 156);
-            this.listView1.TabIndex = 16;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.SmallIcon;
             // 
             // clientBox
             // 
@@ -321,6 +308,7 @@
             // 
             // updaterBox
             // 
+            this.updaterBox.Controls.Add(this.downloadSizeLbl);
             this.updaterBox.Controls.Add(this.versionAvailableLbl);
             this.updaterBox.Controls.Add(this.changesBox);
             this.updaterBox.Controls.Add(this.updateBtn);
@@ -331,6 +319,18 @@
             this.updaterBox.TabIndex = 18;
             this.updaterBox.TabStop = false;
             this.updaterBox.Text = "Update";
+            // 
+            // downloadSizeLbl
+            // 
+            this.downloadSizeLbl.AutoSize = true;
+            this.downloadSizeLbl.Depth = 0;
+            this.downloadSizeLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.downloadSizeLbl.Location = new System.Drawing.Point(13, 291);
+            this.downloadSizeLbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.downloadSizeLbl.Name = "downloadSizeLbl";
+            this.downloadSizeLbl.Size = new System.Drawing.Size(29, 19);
+            this.downloadSizeLbl.TabIndex = 12;
+            this.downloadSizeLbl.Text = "size";
             // 
             // MainWindow
             // 
@@ -379,8 +379,8 @@
         private System.Windows.Forms.GroupBox interfaceBox;
         private System.Windows.Forms.GroupBox clientBox;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.GroupBox updaterBox;
+        private MaterialSkin.Controls.MaterialLabel downloadSizeLbl;
     }
 }
 
