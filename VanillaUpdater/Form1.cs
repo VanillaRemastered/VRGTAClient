@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -135,18 +136,22 @@ namespace VanillaUpdater
 
         private void CreateUpdateUI()
         {
-            Size = new Size(Size.Width, 516); // extends the bottom part
-
             versionAvailableLbl.Text = UpdateData.Version + " is now available for installation!";
 
             foreach (var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
 
             foreach (var item in UpdateData.Changes) changesBox.Items.Add(item);
-            System.Diagnostics.Process.Start(UpdateData.SupportURL);
+           // System.Diagnostics.Process.Start(UpdateData.SupportURL);
 
             notifyIcon.ShowBalloonTip(1000, "Vanilla Update " + UpdateData.Version + " is now available",
                 "Vanilla Remastered update is now available." +
                 " Head over to the application to install it.", ToolTipIcon.None);
+
+
+            foreach (var entry in Directory.EnumerateFiles(VRegistry.GetSubKeyValue("Path").ToString()))
+            {
+                listView1.Items.Add(entry.Replace(VRegistry.GetSubKeyValue("Path").ToString(), ""));
+            }
 
             FlashWindow(this.Handle, true);
         }

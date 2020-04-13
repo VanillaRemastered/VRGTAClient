@@ -37,14 +37,26 @@
             this.updaterVerLbl = new MaterialSkin.Controls.MaterialLabel();
             this.updateSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.changesBox = new System.Windows.Forms.ListBox();
-            this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.changePathBtn = new MaterialSkin.Controls.MaterialButton();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.backgroundChecker = new System.ComponentModel.BackgroundWorker();
             this.showFpsSwitch = new MaterialSkin.Controls.MaterialSwitch();
-            this.label1 = new System.Windows.Forms.Label();
-            this.materialCard1.SuspendLayout();
+            this.mainTabCtrl = new System.Windows.Forms.TabControl();
+            this.viceCityTab = new System.Windows.Forms.TabPage();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.gtasaPage = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.updaterBox = new System.Windows.Forms.GroupBox();
+            this.interfaceBox = new System.Windows.Forms.GroupBox();
+            this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mainTabCtrl.SuspendLayout();
+            this.viceCityTab.SuspendLayout();
+            this.gtasaPage.SuspendLayout();
+            this.updaterBox.SuspendLayout();
+            this.interfaceBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -52,7 +64,7 @@
             this.versionLabel.AutoSize = true;
             this.versionLabel.Depth = 0;
             this.versionLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionLabel.Location = new System.Drawing.Point(12, 74);
+            this.versionLabel.Location = new System.Drawing.Point(118, 213);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(104, 19);
@@ -66,7 +78,7 @@
             this.checkUpdatesBtn.DrawShadows = true;
             this.checkUpdatesBtn.HighEmphasis = true;
             this.checkUpdatesBtn.Icon = null;
-            this.checkUpdatesBtn.Location = new System.Drawing.Point(204, 196);
+            this.checkUpdatesBtn.Location = new System.Drawing.Point(138, 46);
             this.checkUpdatesBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.checkUpdatesBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.checkUpdatesBtn.Name = "checkUpdatesBtn";
@@ -83,7 +95,7 @@
             this.versionAvailableLbl.AutoSize = true;
             this.versionAvailableLbl.Depth = 0;
             this.versionAvailableLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionAvailableLbl.Location = new System.Drawing.Point(12, 278);
+            this.versionAvailableLbl.Location = new System.Drawing.Point(85, 0);
             this.versionAvailableLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionAvailableLbl.Name = "versionAvailableLbl";
             this.versionAvailableLbl.Size = new System.Drawing.Size(119, 19);
@@ -97,7 +109,7 @@
             this.updateBtn.DrawShadows = true;
             this.updateBtn.HighEmphasis = true;
             this.updateBtn.Icon = null;
-            this.updateBtn.Location = new System.Drawing.Point(258, 463);
+            this.updateBtn.Location = new System.Drawing.Point(189, 254);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.updateBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateBtn.Name = "updateBtn";
@@ -114,7 +126,7 @@
             this.updaterVerLbl.AutoSize = true;
             this.updaterVerLbl.Depth = 0;
             this.updaterVerLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.updaterVerLbl.Location = new System.Drawing.Point(12, 102);
+            this.updaterVerLbl.Location = new System.Drawing.Point(13, 21);
             this.updaterVerLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.updaterVerLbl.Name = "updaterVerLbl";
             this.updaterVerLbl.Size = new System.Drawing.Size(119, 19);
@@ -125,7 +137,7 @@
             // 
             this.updateSwitch.AutoSize = true;
             this.updateSwitch.Depth = 0;
-            this.updateSwitch.Location = new System.Drawing.Point(219, 153);
+            this.updateSwitch.Location = new System.Drawing.Point(23, 66);
             this.updateSwitch.Margin = new System.Windows.Forms.Padding(0);
             this.updateSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
             this.updateSwitch.MouseState = MaterialSkin.MouseState.HOVER;
@@ -141,31 +153,14 @@
             // 
             this.changesBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.changesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changesBox.ForeColor = System.Drawing.SystemColors.Highlight;
             this.changesBox.FormattingEnabled = true;
             this.changesBox.HorizontalScrollbar = true;
             this.changesBox.ItemHeight = 16;
-            this.changesBox.Location = new System.Drawing.Point(10, 0);
+            this.changesBox.Location = new System.Drawing.Point(16, 32);
             this.changesBox.Name = "changesBox";
-            this.changesBox.Size = new System.Drawing.Size(353, 112);
+            this.changesBox.Size = new System.Drawing.Size(288, 208);
             this.changesBox.TabIndex = 9;
-            // 
-            // themeSwitch
-            // 
-            this.themeSwitch.AutoSize = true;
-            this.themeSwitch.Checked = true;
-            this.themeSwitch.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.themeSwitch.Depth = 0;
-            this.themeSwitch.Location = new System.Drawing.Point(278, 116);
-            this.themeSwitch.Margin = new System.Windows.Forms.Padding(0);
-            this.themeSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.themeSwitch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.themeSwitch.Name = "themeSwitch";
-            this.themeSwitch.Ripple = true;
-            this.themeSwitch.Size = new System.Drawing.Size(94, 37);
-            this.themeSwitch.TabIndex = 10;
-            this.themeSwitch.Text = "Light";
-            this.themeSwitch.UseVisualStyleBackColor = true;
-            this.themeSwitch.CheckedChanged += new System.EventHandler(this.themeSwitch_CheckedChanged);
             // 
             // notifyIcon
             // 
@@ -183,7 +178,7 @@
             this.changePathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
             this.changePathBtn.HighEmphasis = true;
             this.changePathBtn.Icon = null;
-            this.changePathBtn.Location = new System.Drawing.Point(9, 196);
+            this.changePathBtn.Location = new System.Drawing.Point(8, 46);
             this.changePathBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.changePathBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.changePathBtn.Name = "changePathBtn";
@@ -195,20 +190,6 @@
             this.changePathBtn.UseVisualStyleBackColor = true;
             this.changePathBtn.Click += new System.EventHandler(this.changePathBtn_Click);
             // 
-            // materialCard1
-            // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.changesBox);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(9, 311);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(363, 104);
-            this.materialCard1.TabIndex = 12;
-            // 
             // backgroundChecker
             // 
             this.backgroundChecker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
@@ -217,7 +198,7 @@
             // 
             this.showFpsSwitch.AutoSize = true;
             this.showFpsSwitch.Depth = 0;
-            this.showFpsSwitch.Location = new System.Drawing.Point(9, 153);
+            this.showFpsSwitch.Location = new System.Drawing.Point(23, 29);
             this.showFpsSwitch.Margin = new System.Windows.Forms.Padding(0);
             this.showFpsSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
             this.showFpsSwitch.MouseState = MaterialSkin.MouseState.HOVER;
@@ -229,33 +210,133 @@
             this.showFpsSwitch.UseVisualStyleBackColor = true;
             this.showFpsSwitch.CheckedChanged += new System.EventHandler(this.showFpsSwitch_CheckedChanged);
             // 
-            // label1
+            // mainTabCtrl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(16, 140);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "* Experimental";
+            this.mainTabCtrl.Controls.Add(this.viceCityTab);
+            this.mainTabCtrl.Controls.Add(this.gtasaPage);
+            this.mainTabCtrl.Location = new System.Drawing.Point(3, 65);
+            this.mainTabCtrl.Name = "mainTabCtrl";
+            this.mainTabCtrl.SelectedIndex = 0;
+            this.mainTabCtrl.Size = new System.Drawing.Size(719, 522);
+            this.mainTabCtrl.TabIndex = 14;
+            // 
+            // viceCityTab
+            // 
+            this.viceCityTab.Controls.Add(this.webBrowser);
+            this.viceCityTab.Location = new System.Drawing.Point(4, 22);
+            this.viceCityTab.Name = "viceCityTab";
+            this.viceCityTab.Padding = new System.Windows.Forms.Padding(3);
+            this.viceCityTab.Size = new System.Drawing.Size(685, 483);
+            this.viceCityTab.TabIndex = 1;
+            this.viceCityTab.Text = "Vice City";
+            this.viceCityTab.UseVisualStyleBackColor = true;
+            // 
+            // webBrowser
+            // 
+            this.webBrowser.AllowNavigation = false;
+            this.webBrowser.AllowWebBrowserDrop = false;
+            this.webBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser.Location = new System.Drawing.Point(-4, 0);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.ScrollBarsEnabled = false;
+            this.webBrowser.Size = new System.Drawing.Size(686, 480);
+            this.webBrowser.TabIndex = 0;
+            this.webBrowser.Url = new System.Uri("http://www.vanilla-remastered.com/vicecity.html", System.UriKind.Absolute);
+            this.webBrowser.WebBrowserShortcutsEnabled = false;
+            // 
+            // gtasaPage
+            // 
+            this.gtasaPage.Controls.Add(this.versionLabel);
+            this.gtasaPage.Controls.Add(this.groupBox1);
+            this.gtasaPage.Controls.Add(this.listView1);
+            this.gtasaPage.Controls.Add(this.updaterBox);
+            this.gtasaPage.Controls.Add(this.interfaceBox);
+            this.gtasaPage.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gtasaPage.ImageKey = "(none)";
+            this.gtasaPage.Location = new System.Drawing.Point(4, 22);
+            this.gtasaPage.Name = "gtasaPage";
+            this.gtasaPage.Padding = new System.Windows.Forms.Padding(3);
+            this.gtasaPage.Size = new System.Drawing.Size(711, 496);
+            this.gtasaPage.TabIndex = 0;
+            this.gtasaPage.Text = "San Andreas";
+            this.gtasaPage.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.HideSelection = false;
+            this.listView1.HoverSelection = true;
+            this.listView1.Location = new System.Drawing.Point(61, 267);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(248, 156);
+            this.listView1.TabIndex = 16;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.SmallIcon;
+            // 
+            // updaterBox
+            // 
+            this.updaterBox.Controls.Add(this.checkUpdatesBtn);
+            this.updaterBox.Controls.Add(this.changePathBtn);
+            this.updaterBox.Controls.Add(this.updaterVerLbl);
+            this.updaterBox.Location = new System.Drawing.Point(361, 6);
+            this.updaterBox.Name = "updaterBox";
+            this.updaterBox.Size = new System.Drawing.Size(318, 103);
+            this.updaterBox.TabIndex = 15;
+            this.updaterBox.TabStop = false;
+            this.updaterBox.Text = "Client options";
+            // 
+            // interfaceBox
+            // 
+            this.interfaceBox.Controls.Add(this.showFpsSwitch);
+            this.interfaceBox.Controls.Add(this.updateSwitch);
+            this.interfaceBox.Controls.Add(this.themeSwitch);
+            this.interfaceBox.Location = new System.Drawing.Point(6, 6);
+            this.interfaceBox.Name = "interfaceBox";
+            this.interfaceBox.Size = new System.Drawing.Size(318, 110);
+            this.interfaceBox.TabIndex = 14;
+            this.interfaceBox.TabStop = false;
+            this.interfaceBox.Text = "Interface";
+            // 
+            // themeSwitch
+            // 
+            this.themeSwitch.AutoSize = true;
+            this.themeSwitch.Checked = true;
+            this.themeSwitch.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.themeSwitch.Depth = 0;
+            this.themeSwitch.Location = new System.Drawing.Point(209, 29);
+            this.themeSwitch.Margin = new System.Windows.Forms.Padding(0);
+            this.themeSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.themeSwitch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.themeSwitch.Name = "themeSwitch";
+            this.themeSwitch.Ripple = true;
+            this.themeSwitch.Size = new System.Drawing.Size(94, 37);
+            this.themeSwitch.TabIndex = 10;
+            this.themeSwitch.Text = "Light";
+            this.themeSwitch.UseVisualStyleBackColor = true;
+            this.themeSwitch.CheckedChanged += new System.EventHandler(this.themeSwitch_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.versionAvailableLbl);
+            this.groupBox1.Controls.Add(this.changesBox);
+            this.groupBox1.Controls.Add(this.updateBtn);
+            this.groupBox1.ForeColor = System.Drawing.Color.ForestGreen;
+            this.groupBox1.Location = new System.Drawing.Point(361, 133);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(310, 310);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Update";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 243);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.showFpsSwitch);
-            this.Controls.Add(this.materialCard1);
-            this.Controls.Add(this.changePathBtn);
-            this.Controls.Add(this.themeSwitch);
-            this.Controls.Add(this.updateSwitch);
-            this.Controls.Add(this.updaterVerLbl);
-            this.Controls.Add(this.updateBtn);
-            this.Controls.Add(this.versionAvailableLbl);
-            this.Controls.Add(this.checkUpdatesBtn);
-            this.Controls.Add(this.versionLabel);
+            this.ClientSize = new System.Drawing.Size(717, 589);
+            this.Controls.Add(this.mainTabCtrl);
             this.DrawerWidth = 100;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -263,9 +344,17 @@
             this.Sizable = false;
             this.Text = "GTA Client";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.materialCard1.ResumeLayout(false);
+            this.mainTabCtrl.ResumeLayout(false);
+            this.viceCityTab.ResumeLayout(false);
+            this.gtasaPage.ResumeLayout(false);
+            this.gtasaPage.PerformLayout();
+            this.updaterBox.ResumeLayout(false);
+            this.updaterBox.PerformLayout();
+            this.interfaceBox.ResumeLayout(false);
+            this.interfaceBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -278,13 +367,20 @@
         private MaterialSkin.Controls.MaterialLabel updaterVerLbl;
         private MaterialSkin.Controls.MaterialSwitch updateSwitch;
         private System.Windows.Forms.ListBox changesBox;
-        private MaterialSkin.Controls.MaterialSwitch themeSwitch;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MaterialSkin.Controls.MaterialButton changePathBtn;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
         private System.ComponentModel.BackgroundWorker backgroundChecker;
         private MaterialSkin.Controls.MaterialSwitch showFpsSwitch;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl mainTabCtrl;
+        private System.Windows.Forms.TabPage viceCityTab;
+        private System.Windows.Forms.TabPage gtasaPage;
+        private MaterialSkin.Controls.MaterialSwitch themeSwitch;
+        private System.Windows.Forms.WebBrowser webBrowser;
+        private System.Windows.Forms.GroupBox interfaceBox;
+        private System.Windows.Forms.GroupBox updaterBox;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
