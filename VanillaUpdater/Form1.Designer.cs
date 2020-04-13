@@ -46,17 +46,17 @@
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.gtasaPage = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.updaterBox = new System.Windows.Forms.GroupBox();
+            this.clientBox = new System.Windows.Forms.GroupBox();
             this.interfaceBox = new System.Windows.Forms.GroupBox();
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.updaterBox = new System.Windows.Forms.GroupBox();
             this.mainTabCtrl.SuspendLayout();
             this.viceCityTab.SuspendLayout();
             this.gtasaPage.SuspendLayout();
-            this.updaterBox.SuspendLayout();
+            this.clientBox.SuspendLayout();
             this.interfaceBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.updaterBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -250,9 +250,9 @@
             // gtasaPage
             // 
             this.gtasaPage.Controls.Add(this.versionLabel);
-            this.gtasaPage.Controls.Add(this.groupBox1);
-            this.gtasaPage.Controls.Add(this.listView1);
             this.gtasaPage.Controls.Add(this.updaterBox);
+            this.gtasaPage.Controls.Add(this.listView1);
+            this.gtasaPage.Controls.Add(this.clientBox);
             this.gtasaPage.Controls.Add(this.interfaceBox);
             this.gtasaPage.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gtasaPage.ImageKey = "(none)";
@@ -263,6 +263,7 @@
             this.gtasaPage.TabIndex = 0;
             this.gtasaPage.Text = "San Andreas";
             this.gtasaPage.UseVisualStyleBackColor = true;
+            this.gtasaPage.Click += new System.EventHandler(this.gtasaPage_Click);
             // 
             // listView1
             // 
@@ -276,17 +277,17 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.SmallIcon;
             // 
-            // updaterBox
+            // clientBox
             // 
-            this.updaterBox.Controls.Add(this.checkUpdatesBtn);
-            this.updaterBox.Controls.Add(this.changePathBtn);
-            this.updaterBox.Controls.Add(this.updaterVerLbl);
-            this.updaterBox.Location = new System.Drawing.Point(361, 6);
-            this.updaterBox.Name = "updaterBox";
-            this.updaterBox.Size = new System.Drawing.Size(318, 103);
-            this.updaterBox.TabIndex = 15;
-            this.updaterBox.TabStop = false;
-            this.updaterBox.Text = "Client options";
+            this.clientBox.Controls.Add(this.checkUpdatesBtn);
+            this.clientBox.Controls.Add(this.changePathBtn);
+            this.clientBox.Controls.Add(this.updaterVerLbl);
+            this.clientBox.Location = new System.Drawing.Point(361, 6);
+            this.clientBox.Name = "clientBox";
+            this.clientBox.Size = new System.Drawing.Size(318, 103);
+            this.clientBox.TabIndex = 15;
+            this.clientBox.TabStop = false;
+            this.clientBox.Text = "Client options";
             // 
             // interfaceBox
             // 
@@ -318,18 +319,18 @@
             this.themeSwitch.UseVisualStyleBackColor = true;
             this.themeSwitch.CheckedChanged += new System.EventHandler(this.themeSwitch_CheckedChanged);
             // 
-            // groupBox1
+            // updaterBox
             // 
-            this.groupBox1.Controls.Add(this.versionAvailableLbl);
-            this.groupBox1.Controls.Add(this.changesBox);
-            this.groupBox1.Controls.Add(this.updateBtn);
-            this.groupBox1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.groupBox1.Location = new System.Drawing.Point(361, 133);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 310);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Update";
+            this.updaterBox.Controls.Add(this.versionAvailableLbl);
+            this.updaterBox.Controls.Add(this.changesBox);
+            this.updaterBox.Controls.Add(this.updateBtn);
+            this.updaterBox.ForeColor = System.Drawing.Color.ForestGreen;
+            this.updaterBox.Location = new System.Drawing.Point(361, 133);
+            this.updaterBox.Name = "updaterBox";
+            this.updaterBox.Size = new System.Drawing.Size(310, 310);
+            this.updaterBox.TabIndex = 18;
+            this.updaterBox.TabStop = false;
+            this.updaterBox.Text = "Update";
             // 
             // MainWindow
             // 
@@ -348,12 +349,12 @@
             this.viceCityTab.ResumeLayout(false);
             this.gtasaPage.ResumeLayout(false);
             this.gtasaPage.PerformLayout();
-            this.updaterBox.ResumeLayout(false);
-            this.updaterBox.PerformLayout();
+            this.clientBox.ResumeLayout(false);
+            this.clientBox.PerformLayout();
             this.interfaceBox.ResumeLayout(false);
             this.interfaceBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.updaterBox.ResumeLayout(false);
+            this.updaterBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,10 +378,10 @@
         private MaterialSkin.Controls.MaterialSwitch themeSwitch;
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.GroupBox interfaceBox;
-        private System.Windows.Forms.GroupBox updaterBox;
+        private System.Windows.Forms.GroupBox clientBox;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox updaterBox;
     }
 }
 

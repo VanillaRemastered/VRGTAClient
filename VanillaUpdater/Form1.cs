@@ -107,6 +107,9 @@ namespace VanillaUpdater
             if (_userSettings.AutoUpdate) updateSwitch.Checked = true;
 
             backgroundChecker.RunWorkerAsync();
+
+            updaterBox.Hide();
+            updaterVerLbl.Hide();
         }
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
@@ -136,7 +139,10 @@ namespace VanillaUpdater
 
         private void CreateUpdateUI()
         {
-            versionAvailableLbl.Text = UpdateData.Version + " is now available for installation!";
+            updaterBox.Show();
+            updaterVerLbl.Show();
+
+            versionAvailableLbl.Text = UpdateData.Version + " is now available!";
 
             foreach (var cleanerobj in UpdateData.Changes) changesBox.Items.Remove(cleanerobj);
 
@@ -442,6 +448,11 @@ namespace VanillaUpdater
                 VanillaOverlay.Stop();
                 VanillaOverlay.Cleanup();
             }
+        }
+
+        private void gtasaPage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
