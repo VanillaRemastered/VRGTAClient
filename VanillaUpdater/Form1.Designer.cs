@@ -64,7 +64,7 @@
             this.versionLabel.AutoSize = true;
             this.versionLabel.Depth = 0;
             this.versionLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionLabel.Location = new System.Drawing.Point(118, 213);
+            this.versionLabel.Location = new System.Drawing.Point(152, 21);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(104, 19);
@@ -214,10 +214,10 @@
             // 
             this.mainTabCtrl.Controls.Add(this.viceCityTab);
             this.mainTabCtrl.Controls.Add(this.gtasaPage);
-            this.mainTabCtrl.Location = new System.Drawing.Point(3, 65);
+            this.mainTabCtrl.Location = new System.Drawing.Point(-4, 61);
             this.mainTabCtrl.Name = "mainTabCtrl";
             this.mainTabCtrl.SelectedIndex = 0;
-            this.mainTabCtrl.Size = new System.Drawing.Size(719, 522);
+            this.mainTabCtrl.Size = new System.Drawing.Size(726, 533);
             this.mainTabCtrl.TabIndex = 14;
             // 
             // viceCityTab
@@ -226,7 +226,7 @@
             this.viceCityTab.Location = new System.Drawing.Point(4, 22);
             this.viceCityTab.Name = "viceCityTab";
             this.viceCityTab.Padding = new System.Windows.Forms.Padding(3);
-            this.viceCityTab.Size = new System.Drawing.Size(685, 483);
+            this.viceCityTab.Size = new System.Drawing.Size(718, 507);
             this.viceCityTab.TabIndex = 1;
             this.viceCityTab.Text = "Vice City";
             this.viceCityTab.UseVisualStyleBackColor = true;
@@ -242,14 +242,13 @@
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.ScrollBarsEnabled = false;
-            this.webBrowser.Size = new System.Drawing.Size(686, 480);
+            this.webBrowser.Size = new System.Drawing.Size(722, 504);
             this.webBrowser.TabIndex = 0;
             this.webBrowser.Url = new System.Uri("http://www.vanilla-remastered.com/vicecity.html", System.UriKind.Absolute);
             this.webBrowser.WebBrowserShortcutsEnabled = false;
             // 
             // gtasaPage
             // 
-            this.gtasaPage.Controls.Add(this.versionLabel);
             this.gtasaPage.Controls.Add(this.updaterBox);
             this.gtasaPage.Controls.Add(this.listView1);
             this.gtasaPage.Controls.Add(this.clientBox);
@@ -259,7 +258,7 @@
             this.gtasaPage.Location = new System.Drawing.Point(4, 22);
             this.gtasaPage.Name = "gtasaPage";
             this.gtasaPage.Padding = new System.Windows.Forms.Padding(3);
-            this.gtasaPage.Size = new System.Drawing.Size(711, 496);
+            this.gtasaPage.Size = new System.Drawing.Size(718, 507);
             this.gtasaPage.TabIndex = 0;
             this.gtasaPage.Text = "San Andreas";
             this.gtasaPage.UseVisualStyleBackColor = true;
@@ -270,7 +269,7 @@
             this.listView1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.HideSelection = false;
             this.listView1.HoverSelection = true;
-            this.listView1.Location = new System.Drawing.Point(61, 267);
+            this.listView1.Location = new System.Drawing.Point(76, 311);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(248, 156);
             this.listView1.TabIndex = 16;
@@ -279,6 +278,7 @@
             // 
             // clientBox
             // 
+            this.clientBox.Controls.Add(this.versionLabel);
             this.clientBox.Controls.Add(this.checkUpdatesBtn);
             this.clientBox.Controls.Add(this.changePathBtn);
             this.clientBox.Controls.Add(this.updaterVerLbl);
@@ -348,7 +348,6 @@
             this.mainTabCtrl.ResumeLayout(false);
             this.viceCityTab.ResumeLayout(false);
             this.gtasaPage.ResumeLayout(false);
-            this.gtasaPage.PerformLayout();
             this.clientBox.ResumeLayout(false);
             this.clientBox.PerformLayout();
             this.interfaceBox.ResumeLayout(false);
