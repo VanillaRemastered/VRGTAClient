@@ -109,7 +109,7 @@
             this.updateBtn.DrawShadows = true;
             this.updateBtn.HighEmphasis = true;
             this.updateBtn.Icon = null;
-            this.updateBtn.Location = new System.Drawing.Point(189, 254);
+            this.updateBtn.Location = new System.Drawing.Point(189, 265);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.updateBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateBtn.Name = "updateBtn";
