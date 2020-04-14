@@ -48,7 +48,6 @@
             this.overlayBoldCheckbox = new System.Windows.Forms.CheckBox();
             this.fontSizeList = new System.Windows.Forms.ListBox();
             this.fontNameLbl = new System.Windows.Forms.ListBox();
-            this.infoLbl = new System.Windows.Forms.Label();
             this.updaterBox = new System.Windows.Forms.GroupBox();
             this.progressBar = new MaterialSkin.Controls.MaterialProgressBar();
             this.downloadSizeLbl = new MaterialSkin.Controls.MaterialLabel();
@@ -246,10 +245,9 @@
             this.groupBox1.Controls.Add(this.overlayBoldCheckbox);
             this.groupBox1.Controls.Add(this.fontSizeList);
             this.groupBox1.Controls.Add(this.fontNameLbl);
-            this.groupBox1.Controls.Add(this.infoLbl);
             this.groupBox1.Location = new System.Drawing.Point(12, 133);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 138);
+            this.groupBox1.Size = new System.Drawing.Size(318, 124);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vanilla Overlay";
@@ -258,7 +256,7 @@
             // 
             this.showFpsSwitch.AutoSize = true;
             this.showFpsSwitch.Depth = 0;
-            this.showFpsSwitch.Location = new System.Drawing.Point(9, 95);
+            this.showFpsSwitch.Location = new System.Drawing.Point(9, 77);
             this.showFpsSwitch.Margin = new System.Windows.Forms.Padding(0);
             this.showFpsSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
             this.showFpsSwitch.MouseState = MaterialSkin.MouseState.HOVER;
@@ -273,7 +271,7 @@
             // overlayBoldCheckbox
             // 
             this.overlayBoldCheckbox.AutoSize = true;
-            this.overlayBoldCheckbox.Location = new System.Drawing.Point(259, 63);
+            this.overlayBoldCheckbox.Location = new System.Drawing.Point(259, 32);
             this.overlayBoldCheckbox.Name = "overlayBoldCheckbox";
             this.overlayBoldCheckbox.Size = new System.Drawing.Size(72, 29);
             this.overlayBoldCheckbox.TabIndex = 17;
@@ -288,7 +286,7 @@
             "9",
             "12",
             "14"});
-            this.fontSizeList.Location = new System.Drawing.Point(176, 63);
+            this.fontSizeList.Location = new System.Drawing.Point(176, 32);
             this.fontSizeList.Name = "fontSizeList";
             this.fontSizeList.Size = new System.Drawing.Size(77, 29);
             this.fontSizeList.TabIndex = 16;
@@ -299,21 +297,10 @@
             this.fontNameLbl.ItemHeight = 25;
             this.fontNameLbl.Items.AddRange(new object[] {
             "Arial"});
-            this.fontNameLbl.Location = new System.Drawing.Point(9, 63);
+            this.fontNameLbl.Location = new System.Drawing.Point(9, 32);
             this.fontNameLbl.Name = "fontNameLbl";
             this.fontNameLbl.Size = new System.Drawing.Size(161, 29);
             this.fontNameLbl.TabIndex = 15;
-            // 
-            // infoLbl
-            // 
-            this.infoLbl.AutoSize = true;
-            this.infoLbl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.infoLbl.Font = new System.Drawing.Font("Microsoft YaHei", 7F);
-            this.infoLbl.Location = new System.Drawing.Point(6, 32);
-            this.infoLbl.Name = "infoLbl";
-            this.infoLbl.Size = new System.Drawing.Size(268, 16);
-            this.infoLbl.TabIndex = 14;
-            this.infoLbl.Text = "The overlay is still an expertimental part of the client.\r\n";
             // 
             // updaterBox
             // 
@@ -462,7 +449,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialSwitch showFpsSwitch;
         private MaterialSkin.Controls.MaterialSwitch updateSwitch;
-        private System.Windows.Forms.Label infoLbl;
         private System.Windows.Forms.ListBox fontNameLbl;
         private System.Windows.Forms.ListBox fontSizeList;
         private System.Windows.Forms.CheckBox overlayBoldCheckbox;
