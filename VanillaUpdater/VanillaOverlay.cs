@@ -13,6 +13,10 @@ namespace VanillaUpdater
         static int overlayTextFps = -1;
         static bool isActive = false;
 
+        public static string usedFontFace;
+        public static int usedFontSize;
+        public static bool isBold;
+
         /// <summary>
         /// Does the main logic loop, fetching current FPS and updatign the label.
         /// </summary>
@@ -39,7 +43,7 @@ namespace VanillaUpdater
             DX9OverlayAPI.Overlay.SetParam("process", "gta_sa.exe");
 
             var resolution = Screen.PrimaryScreen.Bounds;
-            overlayTextFps = DX9OverlayAPI.Overlay.TextCreate("Arial", 12, true, false, resolution.Right - resolution.Width+5, resolution.Bottom - resolution.Height, 0xFFFFFFFF, "FPS", false, true);
+            overlayTextFps = DX9OverlayAPI.Overlay.TextCreate(usedFontFace, usedFontSize, isBold, false, resolution.Right - resolution.Width+5, resolution.Bottom - resolution.Height, 0xFFFFFFFF, "FPS", false, true);
             isActive = true;
             LogicLoop();
         }

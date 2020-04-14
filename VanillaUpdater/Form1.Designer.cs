@@ -35,26 +35,32 @@
             this.versionAvailableLbl = new MaterialSkin.Controls.MaterialLabel();
             this.updateBtn = new MaterialSkin.Controls.MaterialButton();
             this.updaterVerLbl = new MaterialSkin.Controls.MaterialLabel();
-            this.updateSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.changesBox = new System.Windows.Forms.ListBox();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.changePathBtn = new MaterialSkin.Controls.MaterialButton();
             this.backgroundChecker = new System.ComponentModel.BackgroundWorker();
-            this.showFpsSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.mainTabCtrl = new System.Windows.Forms.TabControl();
             this.viceCityTab = new System.Windows.Forms.TabPage();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.gtasaPage = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.showFpsSwitch = new MaterialSkin.Controls.MaterialSwitch();
+            this.overlayBoldCheckbox = new System.Windows.Forms.CheckBox();
+            this.fontSizeList = new System.Windows.Forms.ListBox();
+            this.fontNameLbl = new System.Windows.Forms.ListBox();
+            this.infoLbl = new System.Windows.Forms.Label();
             this.updaterBox = new System.Windows.Forms.GroupBox();
             this.progressBar = new MaterialSkin.Controls.MaterialProgressBar();
             this.downloadSizeLbl = new MaterialSkin.Controls.MaterialLabel();
             this.clientBox = new System.Windows.Forms.GroupBox();
             this.interfaceBox = new System.Windows.Forms.GroupBox();
+            this.updateSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.mainTabCtrl.SuspendLayout();
             this.viceCityTab.SuspendLayout();
             this.gtasaPage.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.updaterBox.SuspendLayout();
             this.clientBox.SuspendLayout();
             this.interfaceBox.SuspendLayout();
@@ -134,22 +140,6 @@
             this.updaterVerLbl.TabIndex = 5;
             this.updaterVerLbl.Text = "Updater version: ";
             // 
-            // updateSwitch
-            // 
-            this.updateSwitch.AutoSize = true;
-            this.updateSwitch.Depth = 0;
-            this.updateSwitch.Location = new System.Drawing.Point(23, 66);
-            this.updateSwitch.Margin = new System.Windows.Forms.Padding(0);
-            this.updateSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.updateSwitch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.updateSwitch.Name = "updateSwitch";
-            this.updateSwitch.Ripple = true;
-            this.updateSwitch.Size = new System.Drawing.Size(153, 37);
-            this.updateSwitch.TabIndex = 8;
-            this.updateSwitch.Text = "Auto Updates";
-            this.updateSwitch.UseVisualStyleBackColor = true;
-            this.updateSwitch.CheckedChanged += new System.EventHandler(this.updateSwitch_CheckedChanged);
-            // 
             // changesBox
             // 
             this.changesBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -195,22 +185,6 @@
             // 
             this.backgroundChecker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
             // 
-            // showFpsSwitch
-            // 
-            this.showFpsSwitch.AutoSize = true;
-            this.showFpsSwitch.Depth = 0;
-            this.showFpsSwitch.Location = new System.Drawing.Point(23, 29);
-            this.showFpsSwitch.Margin = new System.Windows.Forms.Padding(0);
-            this.showFpsSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.showFpsSwitch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.showFpsSwitch.Name = "showFpsSwitch";
-            this.showFpsSwitch.Ripple = true;
-            this.showFpsSwitch.Size = new System.Drawing.Size(131, 37);
-            this.showFpsSwitch.TabIndex = 13;
-            this.showFpsSwitch.Text = "Show FPS";
-            this.showFpsSwitch.UseVisualStyleBackColor = true;
-            this.showFpsSwitch.CheckedChanged += new System.EventHandler(this.showFpsSwitch_CheckedChanged);
-            // 
             // mainTabCtrl
             // 
             this.mainTabCtrl.Controls.Add(this.viceCityTab);
@@ -250,6 +224,7 @@
             // 
             // gtasaPage
             // 
+            this.gtasaPage.Controls.Add(this.groupBox1);
             this.gtasaPage.Controls.Add(this.versionLabel);
             this.gtasaPage.Controls.Add(this.updaterBox);
             this.gtasaPage.Controls.Add(this.clientBox);
@@ -264,6 +239,81 @@
             this.gtasaPage.Text = "San Andreas";
             this.gtasaPage.UseVisualStyleBackColor = true;
             this.gtasaPage.Click += new System.EventHandler(this.gtasaPage_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.showFpsSwitch);
+            this.groupBox1.Controls.Add(this.overlayBoldCheckbox);
+            this.groupBox1.Controls.Add(this.fontSizeList);
+            this.groupBox1.Controls.Add(this.fontNameLbl);
+            this.groupBox1.Controls.Add(this.infoLbl);
+            this.groupBox1.Location = new System.Drawing.Point(12, 133);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(318, 138);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Vanilla Overlay";
+            // 
+            // showFpsSwitch
+            // 
+            this.showFpsSwitch.AutoSize = true;
+            this.showFpsSwitch.Depth = 0;
+            this.showFpsSwitch.Location = new System.Drawing.Point(9, 95);
+            this.showFpsSwitch.Margin = new System.Windows.Forms.Padding(0);
+            this.showFpsSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.showFpsSwitch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.showFpsSwitch.Name = "showFpsSwitch";
+            this.showFpsSwitch.Ripple = true;
+            this.showFpsSwitch.Size = new System.Drawing.Size(131, 37);
+            this.showFpsSwitch.TabIndex = 13;
+            this.showFpsSwitch.Text = "Show FPS";
+            this.showFpsSwitch.UseVisualStyleBackColor = true;
+            this.showFpsSwitch.CheckedChanged += new System.EventHandler(this.showFpsSwitch_CheckedChanged);
+            // 
+            // overlayBoldCheckbox
+            // 
+            this.overlayBoldCheckbox.AutoSize = true;
+            this.overlayBoldCheckbox.Location = new System.Drawing.Point(259, 63);
+            this.overlayBoldCheckbox.Name = "overlayBoldCheckbox";
+            this.overlayBoldCheckbox.Size = new System.Drawing.Size(72, 29);
+            this.overlayBoldCheckbox.TabIndex = 17;
+            this.overlayBoldCheckbox.Text = "Bold";
+            this.overlayBoldCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // fontSizeList
+            // 
+            this.fontSizeList.FormattingEnabled = true;
+            this.fontSizeList.ItemHeight = 25;
+            this.fontSizeList.Items.AddRange(new object[] {
+            "9",
+            "12",
+            "14"});
+            this.fontSizeList.Location = new System.Drawing.Point(176, 63);
+            this.fontSizeList.Name = "fontSizeList";
+            this.fontSizeList.Size = new System.Drawing.Size(77, 29);
+            this.fontSizeList.TabIndex = 16;
+            // 
+            // fontNameLbl
+            // 
+            this.fontNameLbl.FormattingEnabled = true;
+            this.fontNameLbl.ItemHeight = 25;
+            this.fontNameLbl.Items.AddRange(new object[] {
+            "Arial"});
+            this.fontNameLbl.Location = new System.Drawing.Point(9, 63);
+            this.fontNameLbl.Name = "fontNameLbl";
+            this.fontNameLbl.Size = new System.Drawing.Size(161, 29);
+            this.fontNameLbl.TabIndex = 15;
+            // 
+            // infoLbl
+            // 
+            this.infoLbl.AutoSize = true;
+            this.infoLbl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.infoLbl.Font = new System.Drawing.Font("Microsoft YaHei", 7F);
+            this.infoLbl.Location = new System.Drawing.Point(6, 32);
+            this.infoLbl.Name = "infoLbl";
+            this.infoLbl.Size = new System.Drawing.Size(268, 16);
+            this.infoLbl.TabIndex = 14;
+            this.infoLbl.Text = "The overlay is still an expertimental part of the client.\r\n";
             // 
             // updaterBox
             // 
@@ -315,7 +365,6 @@
             // 
             // interfaceBox
             // 
-            this.interfaceBox.Controls.Add(this.showFpsSwitch);
             this.interfaceBox.Controls.Add(this.updateSwitch);
             this.interfaceBox.Controls.Add(this.themeSwitch);
             this.interfaceBox.Location = new System.Drawing.Point(6, 6);
@@ -324,6 +373,22 @@
             this.interfaceBox.TabIndex = 14;
             this.interfaceBox.TabStop = false;
             this.interfaceBox.Text = "Interface";
+            // 
+            // updateSwitch
+            // 
+            this.updateSwitch.AutoSize = true;
+            this.updateSwitch.Depth = 0;
+            this.updateSwitch.Location = new System.Drawing.Point(23, 66);
+            this.updateSwitch.Margin = new System.Windows.Forms.Padding(0);
+            this.updateSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.updateSwitch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.updateSwitch.Name = "updateSwitch";
+            this.updateSwitch.Ripple = true;
+            this.updateSwitch.Size = new System.Drawing.Size(153, 37);
+            this.updateSwitch.TabIndex = 8;
+            this.updateSwitch.Text = "Auto Updates";
+            this.updateSwitch.UseVisualStyleBackColor = true;
+            this.updateSwitch.CheckedChanged += new System.EventHandler(this.updateSwitch_CheckedChanged);
             // 
             // themeSwitch
             // 
@@ -360,6 +425,8 @@
             this.viceCityTab.ResumeLayout(false);
             this.gtasaPage.ResumeLayout(false);
             this.gtasaPage.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.updaterBox.ResumeLayout(false);
             this.updaterBox.PerformLayout();
             this.clientBox.ResumeLayout(false);
@@ -377,12 +444,10 @@
         private MaterialSkin.Controls.MaterialLabel versionAvailableLbl;
         private MaterialSkin.Controls.MaterialButton updateBtn;
         private MaterialSkin.Controls.MaterialLabel updaterVerLbl;
-        private MaterialSkin.Controls.MaterialSwitch updateSwitch;
         private System.Windows.Forms.ListBox changesBox;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MaterialSkin.Controls.MaterialButton changePathBtn;
         private System.ComponentModel.BackgroundWorker backgroundChecker;
-        private MaterialSkin.Controls.MaterialSwitch showFpsSwitch;
         private System.Windows.Forms.TabControl mainTabCtrl;
         private System.Windows.Forms.TabPage viceCityTab;
         private System.Windows.Forms.TabPage gtasaPage;
@@ -394,6 +459,13 @@
         private System.Windows.Forms.GroupBox updaterBox;
         private MaterialSkin.Controls.MaterialLabel downloadSizeLbl;
         private MaterialSkin.Controls.MaterialProgressBar progressBar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MaterialSkin.Controls.MaterialSwitch showFpsSwitch;
+        private MaterialSkin.Controls.MaterialSwitch updateSwitch;
+        private System.Windows.Forms.Label infoLbl;
+        private System.Windows.Forms.ListBox fontNameLbl;
+        private System.Windows.Forms.ListBox fontSizeList;
+        private System.Windows.Forms.CheckBox overlayBoldCheckbox;
     }
 }
 

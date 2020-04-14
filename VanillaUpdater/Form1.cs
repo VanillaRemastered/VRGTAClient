@@ -423,6 +423,10 @@ namespace VanillaUpdater
                 return;
             }
 
+            VanillaOverlay.usedFontFace = fontNameLbl.SelectedItem.ToString();
+            VanillaOverlay.usedFontSize = Convert.ToInt16(fontSizeList.SelectedItem.ToString());
+            VanillaOverlay.isBold = overlayBoldCheckbox.Checked;
+
             Thread backgroundFpsThread = new Thread(VanillaOverlay.Init);
             if (showFpsSwitch.Checked)
             {
@@ -438,6 +442,11 @@ namespace VanillaUpdater
         }
 
         private void gtasaPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialSwitch1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
