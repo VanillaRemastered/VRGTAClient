@@ -71,7 +71,7 @@
             this.versionLabel.AutoSize = true;
             this.versionLabel.Depth = 0;
             this.versionLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionLabel.Location = new System.Drawing.Point(558, 478);
+            this.versionLabel.Location = new System.Drawing.Point(13, 21);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(104, 19);
@@ -133,7 +133,7 @@
             this.updaterVerLbl.AutoSize = true;
             this.updaterVerLbl.Depth = 0;
             this.updaterVerLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.updaterVerLbl.Location = new System.Drawing.Point(11, 21);
+            this.updaterVerLbl.Location = new System.Drawing.Point(543, 478);
             this.updaterVerLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.updaterVerLbl.Name = "updaterVerLbl";
             this.updaterVerLbl.Size = new System.Drawing.Size(119, 19);
@@ -225,7 +225,7 @@
             // gtasaPage
             // 
             this.gtasaPage.Controls.Add(this.groupBox1);
-            this.gtasaPage.Controls.Add(this.versionLabel);
+            this.gtasaPage.Controls.Add(this.updaterVerLbl);
             this.gtasaPage.Controls.Add(this.updaterBox);
             this.gtasaPage.Controls.Add(this.clientBox);
             this.gtasaPage.Controls.Add(this.interfaceBox);
@@ -354,8 +354,8 @@
             // clientBox
             // 
             this.clientBox.Controls.Add(this.checkUpdatesBtn);
+            this.clientBox.Controls.Add(this.versionLabel);
             this.clientBox.Controls.Add(this.changePathBtn);
-            this.clientBox.Controls.Add(this.updaterVerLbl);
             this.clientBox.Location = new System.Drawing.Point(361, 6);
             this.clientBox.Name = "clientBox";
             this.clientBox.Size = new System.Drawing.Size(318, 103);
