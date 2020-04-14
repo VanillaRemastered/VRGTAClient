@@ -18,7 +18,7 @@ namespace VanillaUpdater
         /// </summary>
         static void LogicLoop()
         {
-            while(ProcessWatcher.IsGameRunning() && isActive)
+            while(isActive)
             {
                 int fps = DX9OverlayAPI.Overlay.GetFrameRate();
                 DX9OverlayAPI.Overlay.TextSetString(overlayTextFps, fps.ToString());
@@ -31,6 +31,9 @@ namespace VanillaUpdater
         public static void Init()
         {
             if (!ProcessWatcher.IsGameRunning())
+                return;
+
+            if (!System.IO.File.Exists("dx9_overlay.dll"))
                 return;
 
             DX9OverlayAPI.Overlay.SetParam("process", "gta_sa.exe");
