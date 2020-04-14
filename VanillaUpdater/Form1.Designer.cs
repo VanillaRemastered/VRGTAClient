@@ -65,7 +65,7 @@
             this.versionLabel.AutoSize = true;
             this.versionLabel.Depth = 0;
             this.versionLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionLabel.Location = new System.Drawing.Point(601, 478);
+            this.versionLabel.Location = new System.Drawing.Point(558, 478);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(104, 19);
