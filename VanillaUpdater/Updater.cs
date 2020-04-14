@@ -25,6 +25,19 @@ namespace VanillaUpdater
             }
         }
 
+        private static double GetFileSize()
+        {
+            var webRequest = HttpWebRequest.Create(UpdateData.DownloadURL);
+            webRequest.Method = "HEAD";
+
+            using (var webResponse = webRequest.GetResponse())
+            {
+                var fileSize = webResponse.Headers.Get("Content-Length");
+                var fileSizeInMegaByte = Math.Round(Convert.ToDouble(fileSize) / 1024.0 / 1024.0, 2);
+                return fileSizeInMegaByte;
+            }
+
+        }
         /// <summary>
         /// Fetches the json file from the web and parses it.
         /// </summary>
@@ -35,6 +48,8 @@ namespace VanillaUpdater
 
             var versionObjRaw = GetFileViaHttpString("http://www.vanilla-remastered.com/files/latest.json");
             var update = JsonConvert.DeserializeObject<UpdateData>(versionObjRaw);
+
+            UpdateData.DownloadSizeStatic = Convert.ToInt32(GetFileSize());
         }
 
         /// <summary>
@@ -201,5 +216,7 @@ namespace VanillaUpdater
         [DataMember] public static string DownloadURL { get; set; }
 
         [DataMember] public static string SupportURL { get; set; }
+
+        public static int DownloadSizeStatic;
     }
 }

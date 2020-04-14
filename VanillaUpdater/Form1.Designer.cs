@@ -45,18 +45,19 @@
             this.viceCityTab = new System.Windows.Forms.TabPage();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.gtasaPage = new System.Windows.Forms.TabPage();
+            this.updaterBox = new System.Windows.Forms.GroupBox();
+            this.progressBar = new MaterialSkin.Controls.MaterialProgressBar();
+            this.downloadSizeLbl = new MaterialSkin.Controls.MaterialLabel();
             this.clientBox = new System.Windows.Forms.GroupBox();
             this.interfaceBox = new System.Windows.Forms.GroupBox();
             this.themeSwitch = new MaterialSkin.Controls.MaterialSwitch();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.updaterBox = new System.Windows.Forms.GroupBox();
-            this.downloadSizeLbl = new MaterialSkin.Controls.MaterialLabel();
             this.mainTabCtrl.SuspendLayout();
             this.viceCityTab.SuspendLayout();
             this.gtasaPage.SuspendLayout();
+            this.updaterBox.SuspendLayout();
             this.clientBox.SuspendLayout();
             this.interfaceBox.SuspendLayout();
-            this.updaterBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // versionLabel
@@ -64,7 +65,7 @@
             this.versionLabel.AutoSize = true;
             this.versionLabel.Depth = 0;
             this.versionLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionLabel.Location = new System.Drawing.Point(152, 21);
+            this.versionLabel.Location = new System.Drawing.Point(601, 478);
             this.versionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(104, 19);
@@ -95,7 +96,7 @@
             this.versionAvailableLbl.AutoSize = true;
             this.versionAvailableLbl.Depth = 0;
             this.versionAvailableLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.versionAvailableLbl.Location = new System.Drawing.Point(85, 0);
+            this.versionAvailableLbl.Location = new System.Drawing.Point(81, 0);
             this.versionAvailableLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.versionAvailableLbl.Name = "versionAvailableLbl";
             this.versionAvailableLbl.Size = new System.Drawing.Size(119, 19);
@@ -126,7 +127,7 @@
             this.updaterVerLbl.AutoSize = true;
             this.updaterVerLbl.Depth = 0;
             this.updaterVerLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.updaterVerLbl.Location = new System.Drawing.Point(13, 21);
+            this.updaterVerLbl.Location = new System.Drawing.Point(11, 21);
             this.updaterVerLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.updaterVerLbl.Name = "updaterVerLbl";
             this.updaterVerLbl.Size = new System.Drawing.Size(119, 19);
@@ -249,6 +250,7 @@
             // 
             // gtasaPage
             // 
+            this.gtasaPage.Controls.Add(this.versionLabel);
             this.gtasaPage.Controls.Add(this.updaterBox);
             this.gtasaPage.Controls.Add(this.clientBox);
             this.gtasaPage.Controls.Add(this.interfaceBox);
@@ -263,9 +265,44 @@
             this.gtasaPage.UseVisualStyleBackColor = true;
             this.gtasaPage.Click += new System.EventHandler(this.gtasaPage_Click);
             // 
+            // updaterBox
+            // 
+            this.updaterBox.Controls.Add(this.progressBar);
+            this.updaterBox.Controls.Add(this.downloadSizeLbl);
+            this.updaterBox.Controls.Add(this.versionAvailableLbl);
+            this.updaterBox.Controls.Add(this.changesBox);
+            this.updaterBox.Controls.Add(this.updateBtn);
+            this.updaterBox.ForeColor = System.Drawing.Color.ForestGreen;
+            this.updaterBox.Location = new System.Drawing.Point(361, 133);
+            this.updaterBox.Name = "updaterBox";
+            this.updaterBox.Size = new System.Drawing.Size(310, 310);
+            this.updaterBox.TabIndex = 18;
+            this.updaterBox.TabStop = false;
+            this.updaterBox.Text = "Update";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Depth = 0;
+            this.progressBar.Location = new System.Drawing.Point(6, 274);
+            this.progressBar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(295, 5);
+            this.progressBar.TabIndex = 14;
+            // 
+            // downloadSizeLbl
+            // 
+            this.downloadSizeLbl.AutoSize = true;
+            this.downloadSizeLbl.Depth = 0;
+            this.downloadSizeLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.downloadSizeLbl.Location = new System.Drawing.Point(13, 291);
+            this.downloadSizeLbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.downloadSizeLbl.Name = "downloadSizeLbl";
+            this.downloadSizeLbl.Size = new System.Drawing.Size(29, 19);
+            this.downloadSizeLbl.TabIndex = 12;
+            this.downloadSizeLbl.Text = "size";
+            // 
             // clientBox
             // 
-            this.clientBox.Controls.Add(this.versionLabel);
             this.clientBox.Controls.Add(this.checkUpdatesBtn);
             this.clientBox.Controls.Add(this.changePathBtn);
             this.clientBox.Controls.Add(this.updaterVerLbl);
@@ -306,32 +343,6 @@
             this.themeSwitch.UseVisualStyleBackColor = true;
             this.themeSwitch.CheckedChanged += new System.EventHandler(this.themeSwitch_CheckedChanged);
             // 
-            // updaterBox
-            // 
-            this.updaterBox.Controls.Add(this.downloadSizeLbl);
-            this.updaterBox.Controls.Add(this.versionAvailableLbl);
-            this.updaterBox.Controls.Add(this.changesBox);
-            this.updaterBox.Controls.Add(this.updateBtn);
-            this.updaterBox.ForeColor = System.Drawing.Color.ForestGreen;
-            this.updaterBox.Location = new System.Drawing.Point(361, 133);
-            this.updaterBox.Name = "updaterBox";
-            this.updaterBox.Size = new System.Drawing.Size(310, 310);
-            this.updaterBox.TabIndex = 18;
-            this.updaterBox.TabStop = false;
-            this.updaterBox.Text = "Update";
-            // 
-            // downloadSizeLbl
-            // 
-            this.downloadSizeLbl.AutoSize = true;
-            this.downloadSizeLbl.Depth = 0;
-            this.downloadSizeLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.downloadSizeLbl.Location = new System.Drawing.Point(13, 291);
-            this.downloadSizeLbl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.downloadSizeLbl.Name = "downloadSizeLbl";
-            this.downloadSizeLbl.Size = new System.Drawing.Size(29, 19);
-            this.downloadSizeLbl.TabIndex = 12;
-            this.downloadSizeLbl.Text = "size";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,12 +359,13 @@
             this.mainTabCtrl.ResumeLayout(false);
             this.viceCityTab.ResumeLayout(false);
             this.gtasaPage.ResumeLayout(false);
+            this.gtasaPage.PerformLayout();
+            this.updaterBox.ResumeLayout(false);
+            this.updaterBox.PerformLayout();
             this.clientBox.ResumeLayout(false);
             this.clientBox.PerformLayout();
             this.interfaceBox.ResumeLayout(false);
             this.interfaceBox.PerformLayout();
-            this.updaterBox.ResumeLayout(false);
-            this.updaterBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -381,6 +393,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.GroupBox updaterBox;
         private MaterialSkin.Controls.MaterialLabel downloadSizeLbl;
+        private MaterialSkin.Controls.MaterialProgressBar progressBar;
     }
 }
 

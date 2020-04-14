@@ -57,19 +57,6 @@ namespace VanillaUpdater
                 TopMost = top;
             }
         }
-        private static string GetFileSize()
-        {
-            var webRequest = HttpWebRequest.Create(UpdateData.DownloadURL);
-            webRequest.Method = "HEAD";
-
-            using (var webResponse = webRequest.GetResponse())
-            {
-                var fileSize = webResponse.Headers.Get("Content-Length");
-                var fileSizeInMegaByte = Math.Round(Convert.ToDouble(fileSize) / 1024.0 / 1024.0, 2);
-                return fileSizeInMegaByte + "";
-            }
-        }
-            
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -110,6 +97,7 @@ namespace VanillaUpdater
 
             updaterBox.Hide();
             updaterVerLbl.Hide();
+            progressBar.Hide();
         }
 
         private async void checkUpdatesBtn_Click(object sender, EventArgs e)
@@ -153,13 +141,16 @@ namespace VanillaUpdater
                 "Vanilla Remastered update is now available." +
                 " Head over to the application to install it.", ToolTipIcon.None);
             
-            downloadSizeLbl.Text = GetFileSize() + "MB file size";
+            downloadSizeLbl.Text = UpdateData.DownloadSizeStatic.ToString() + "MB file size";
 
             FlashWindow(this.Handle, true);
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
         {
+            progressBar.Show();
+            updateBtn.Hide();
+
             if (ProcessWatcher.IsGameRunning())
             {
                 Notifications.PlayErrorSound();
@@ -251,17 +242,20 @@ namespace VanillaUpdater
                 wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
 
                 versionAvailableLbl.Text = "Preparing to download ...";
-                downloadSize = GetFileSize();
+                downloadSize = UpdateData.DownloadSizeStatic.ToString();
 
                 wc.DownloadFileAsync(new Uri(url), "data_" + UpdateData.Version + ".rar");
             }
+
         }
 
         private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             versionAvailableLbl.Text = e.ProgressPercentage + "% | " +
-                                       (e.BytesReceived/1024f)/1024f + " MB out of " +
-                                       (downloadSize) + " MB retrieven.";
+                                       (e.BytesReceived/1024f)/1024f + " MB of " +
+                                       (UpdateData.DownloadSizeStatic) + " MB.";
+
+            progressBar.Value = Convert.ToInt32(e.ProgressPercentage + (e.BytesReceived / 1024f / 1024f) / UpdateData.DownloadSizeStatic);
         }
 
         public void CleanUpdateUi()
