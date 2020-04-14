@@ -268,8 +268,6 @@ namespace VanillaUpdater
         }
         public void DisplayFinishedInstallUi()
         {
-            Size = new Size(Size.Width, 246);
-
             versionLabel.Text = "Newly installed " + UpdateData.Version;
             versionLabel.ForeColor = Color.DarkGreen;
 
