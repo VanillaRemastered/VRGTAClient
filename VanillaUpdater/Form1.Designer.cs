@@ -369,7 +369,7 @@
             this.interfaceBox.Controls.Add(this.themeSwitch);
             this.interfaceBox.Location = new System.Drawing.Point(6, 6);
             this.interfaceBox.Name = "interfaceBox";
-            this.interfaceBox.Size = new System.Drawing.Size(318, 110);
+            this.interfaceBox.Size = new System.Drawing.Size(318, 103);
             this.interfaceBox.TabIndex = 14;
             this.interfaceBox.TabStop = false;
             this.interfaceBox.Text = "Interface";
@@ -378,7 +378,7 @@
             // 
             this.updateSwitch.AutoSize = true;
             this.updateSwitch.Depth = 0;
-            this.updateSwitch.Location = new System.Drawing.Point(23, 66);
+            this.updateSwitch.Location = new System.Drawing.Point(23, 29);
             this.updateSwitch.Margin = new System.Windows.Forms.Padding(0);
             this.updateSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
             this.updateSwitch.MouseState = MaterialSkin.MouseState.HOVER;
@@ -396,7 +396,7 @@
             this.themeSwitch.Checked = true;
             this.themeSwitch.CheckState = System.Windows.Forms.CheckState.Checked;
             this.themeSwitch.Depth = 0;
-            this.themeSwitch.Location = new System.Drawing.Point(209, 29);
+            this.themeSwitch.Location = new System.Drawing.Point(186, 29);
             this.themeSwitch.Margin = new System.Windows.Forms.Padding(0);
             this.themeSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
             this.themeSwitch.MouseState = MaterialSkin.MouseState.HOVER;
