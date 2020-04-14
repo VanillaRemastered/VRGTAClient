@@ -260,11 +260,11 @@ namespace VanillaUpdater
 
         public void CleanUpdateUi()
         {
-            Size = new Size(Size.Width, 246);
-
             checkUpdatesBtn.Enabled = true;
             updateBtn.Enabled = true;
             changePathBtn.Enabled = true;
+
+            updaterBox.Hide();
         }
         public void DisplayFinishedInstallUi()
         {
