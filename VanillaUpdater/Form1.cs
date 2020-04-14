@@ -421,7 +421,6 @@ namespace VanillaUpdater
             if(!ProcessWatcher.IsGameRunning())
             {
                 Notifications.PlayErrorSound();
-
                 MaterialMessageBox.Show(null, "Game must be running in order to start the FPS counter.", "Unable to start the FPS counter", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 return;
             }
