@@ -15,6 +15,7 @@ namespace VanillaUpdater
     public partial class SelectVRVersionForm : MaterialForm
     {
         public MaterialSkinManager MaterialSkinManager { get; set; }
+        private bool isVersionMenuOpen = false;
 
         public SelectVRVersionForm()
         {
@@ -28,6 +29,9 @@ namespace VanillaUpdater
 
             MaterialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Grey900, Primary.Green700,
                 Accent.Green700, TextShade.WHITE);
+
+            installComboBox.Hide();
+            noteLbl.Hide();
 
         }
 
@@ -53,6 +57,27 @@ namespace VanillaUpdater
         private void SelectVRVersionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ver140Btn_Click(object sender, EventArgs e)
+        {
+            VRegistry.CreateSubKey("Version", "1.4.0");
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            if (!isVersionMenuOpen)
+            {
+                installComboBox.Show();
+                noteLbl.Show();
+                isVersionMenuOpen = true;
+            }
+
+            if(isVersionMenuOpen && installComboBox.SelectedIndex != -1)
+            {
+                ConsoleWrapper.PrintMessage("Installing " + installComboBox.SelectedItem.ToString(), ConsoleWrapper.PrintStatus.Normal);
+                MessageBox.Show(installComboBox.SelectedItem.ToString());
+            }
         }
     }
 }
